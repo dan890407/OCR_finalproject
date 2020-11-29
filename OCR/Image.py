@@ -1,6 +1,6 @@
 from PIL import Image
 import pytesseract
   
-img = Image.open('screencapture/1.jpg')
-text = pytesseract.image_to_string(img, lang='eng')
+img = Image.open('screencapture/2.jpg')
+text = pytesseract.image_to_string(img, lang='chi_sim')
 print(text)

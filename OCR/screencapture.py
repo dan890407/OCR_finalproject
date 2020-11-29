@@ -1,7 +1,7 @@
 import time
 import win32gui, win32ui, win32con, win32api
 def window_capture(filename):
-    hwnd = 0x050C0ABA # 視窗的編號，0號表示當前活躍視窗 #用vs studio裡的spy++來獲得個別視窗控制代碼 # 我還沒研究出 win32gui.FindWindow怎麼用
+    hwnd = win32gui.FindWindow(None,"LINE")  # 視窗的編號，0號表示當前活躍視窗
     hwndDC = win32gui.GetWindowDC(hwnd) # 根據視窗控制代碼獲取視窗的裝置上下文DC（Divice Context）
     mfcDC = win32ui.CreateDCFromHandle(hwndDC) # 根據視窗的DC獲取mfcDC
     saveDC = mfcDC.CreateCompatibleDC() # mfcDC建立可相容的DC
