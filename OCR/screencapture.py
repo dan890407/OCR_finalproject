@@ -13,8 +13,8 @@ def window_capture(filename):
     saveBitMap.CreateCompatibleBitmap(mfcDC, w, h)# 為bitmap開闢空間
     saveDC.SelectObject(saveBitMap)# 高度saveDC，將截圖儲存到saveBitmap中
     saveDC.BitBlt((0, 0), (w, h), mfcDC, (0, 0), win32con.SRCCOPY)# 擷取從左上角（0，0）長寬為（w，h）的圖片
-    saveBitMap.SaveBitmapFile(saveDC, filename)
+    saveBitMap.SaveBitmapFile(saveDC, 'C:/Users/UDIC/Desktop/OCR/OCR/screencapture/'+filename)
 beg = time.time()
-window_capture("screencapture/2.jpg")
+window_capture("2.bmp")
 end = time.time()
 print(end - beg)
