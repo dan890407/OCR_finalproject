@@ -3,7 +3,7 @@ from PyQt5.QtGui import *
 import win32gui
 import sys
 import time
-from PIL import Image
+from PIL import Image,ImageEnhance
 import pytesseract
 def merge():
     unprocess_link = './OCR/old//text.txt' 
@@ -29,9 +29,10 @@ def merge():
             c.write(line)
 
 run=True
+hwnd = win32gui.FindWindow(None,"LINE")
+app = QApplication(sys.argv)
 while(run):
-    hwnd = win32gui.FindWindow(None,"LINE")
-    app = QApplication(sys.argv)
+
     screen = QApplication.primaryScreen()
     img = screen.grabWindow(hwnd).toImage()
 
@@ -40,13 +41,18 @@ while(run):
 
 
     mg = Image.open('./OCR/screencapture/screenshot.jpg')
-    new_mg = mg.crop((480, 100, 1920, 900))
-    new_mg.save('./OCR/screencapture/screenshot2.jpg') 
+    new_mg = mg.crop((520, 80, 1920, 870))
+    enh_con = ImageEnhance.Contrast(new_mg)
+    contrast=2
+    image_contrasted = enh_con.enhance(contrast)
+    image_contrasted.save('./OCR/screencapture/screenshot2.jpg') 
     mcg = Image.open('./OCR/screencapture/screenshot2.jpg')
-    text = pytesseract.image_to_string(mcg, lang='chi_tra')
-    k=open('./OCR/old/text.txt','w+',encoding="utf-8")
-    k.write(text)
+    text = pytesseract.image_to_string(mcg, lang='chi_tra+equ')
+    with open('./OCR/old/text.txt','w+',encoding="utf-8") as k:
+        k.write(text)
     print(text)
+    time.sleep(3)
+    run=False
     """merge()
     for i in range(9):
         print("sleep"+i+"s")
