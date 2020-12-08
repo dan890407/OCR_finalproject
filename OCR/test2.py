@@ -40,7 +40,7 @@ while(run):
     time.sleep(0.5)
 
 
-    mg = Image.open('./OCR/screencapture/screenshot.jpg')
+    mg = Image.open('./OCR/screencapture/screenshot.jpg').convert('L')
     new_mg = mg.crop((520, 80, 1920, 870))
     enh_con = ImageEnhance.Contrast(new_mg)
     contrast=2
@@ -48,11 +48,22 @@ while(run):
     image_contrasted.save('./OCR/screencapture/screenshot2.jpg') 
     mcg = Image.open('./OCR/screencapture/screenshot2.jpg')
     text = pytesseract.image_to_string(mcg, lang='chi_tra+equ')
-    with open('./OCR/old/text.txt','w+',encoding="utf-8") as k:
+    """last_line=text[-1]
+    check=0
+    for line in text:
+        if check == 1:
+            print(line)
+        if line == last_line:
+            check = 1
+    """
+    """with open('./OCR/old/text.txt','w+',encoding="utf-8") as k:
         k.write(text)
+        for line in k.readline():
+           if 
+    """
     print(text)
-    time.sleep(3)
-    run=False
+    """time.sleep(3)"""
+    
     """merge()
     for i in range(9):
         print("sleep"+i+"s")
