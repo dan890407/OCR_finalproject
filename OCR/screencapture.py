@@ -1,7 +1,12 @@
 import time
 import win32gui, win32ui, win32con, win32api
+from PIL import Image
 def window_capture(filename):
+<<<<<<< HEAD
     hwnd = win32gui.FindWindow(None,"LINE")  # 視窗的編號，0號表示當前活躍視窗
+=======
+    hwnd = win32gui.FindWindow(None,"LINE") # 視窗的編號，0號表示當前活躍視窗 #用vs studio裡的spy++來獲得個別視窗控制代碼 # 我還沒研究出 win32gui.FindWindow怎麼用
+>>>>>>> fa614abbc630b47cafaf508047cba9fb9b231520
     hwndDC = win32gui.GetWindowDC(hwnd) # 根據視窗控制代碼獲取視窗的裝置上下文DC（Divice Context）
     mfcDC = win32ui.CreateDCFromHandle(hwndDC) # 根據視窗的DC獲取mfcDC
     saveDC = mfcDC.CreateCompatibleDC() # mfcDC建立可相容的DC
@@ -13,8 +18,18 @@ def window_capture(filename):
     saveBitMap.CreateCompatibleBitmap(mfcDC, w, h)# 為bitmap開闢空間
     saveDC.SelectObject(saveBitMap)# 高度saveDC，將截圖儲存到saveBitmap中
     saveDC.BitBlt((0, 0), (w, h), mfcDC, (0, 0), win32con.SRCCOPY)# 擷取從左上角（0，0）長寬為（w，h）的圖片
+<<<<<<< HEAD
     saveBitMap.SaveBitmapFile(saveDC, 'C:/Users/UDIC/Desktop/OCR/OCR/screencapture/'+filename)
 beg = time.time()
 window_capture("2.bmp")
 end = time.time()
 print(end - beg)
+=======
+    saveBitMap.SaveBitmapFile(saveDC, "c:\\temp\\bla.bmp")
+    print(hwnd)
+beg = time.time()
+window_capture("bla.bmp")
+end = time.time()
+print(end - beg)
+
+>>>>>>> fa614abbc630b47cafaf508047cba9fb9b231520

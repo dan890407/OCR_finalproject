@@ -6,8 +6,13 @@ import time
 from PIL import Image,ImageEnhance
 import pytesseract
 def merge():
+<<<<<<< HEAD
     unprocess_link = './OCR/old//text.txt' 
     processed_link = './OCR/new//text.txt' 
+=======
+    unprocess_link = './old//text.txt' 
+    processed_link = './new//text.txt' 
+>>>>>>> fa614abbc630b47cafaf508047cba9fb9b231520
     f = open(processed_link,'r',encoding="utf-8")   
     lines = f.readlines()
     last_line = lines[-1]
@@ -31,22 +36,39 @@ def merge():
 run=True
 hwnd = win32gui.FindWindow(None,"LINE")
 app = QApplication(sys.argv)
+<<<<<<< HEAD
+=======
+print(type(hwnd))
+>>>>>>> fa614abbc630b47cafaf508047cba9fb9b231520
 while(run):
 
     screen = QApplication.primaryScreen()
     img = screen.grabWindow(hwnd).toImage()
 
+<<<<<<< HEAD
     img.save("./OCR/screencapture/screenshot.jpg")
     time.sleep(0.5)
 
 
     mg = Image.open('./OCR/screencapture/screenshot.jpg').convert('L')
+=======
+    img.save("./screencapture/screenshot.jpg")
+    time.sleep(0.5)
+
+
+    mg = Image.open('./screencapture/screenshot.jpg').convert('L')
+>>>>>>> fa614abbc630b47cafaf508047cba9fb9b231520
     new_mg = mg.crop((520, 80, 1920, 870))
     enh_con = ImageEnhance.Contrast(new_mg)
     contrast=2
     image_contrasted = enh_con.enhance(contrast)
+<<<<<<< HEAD
     image_contrasted.save('./OCR/screencapture/screenshot2.jpg') 
     mcg = Image.open('./OCR/screencapture/screenshot2.jpg')
+=======
+    image_contrasted.save('./screencapture/screenshot2.jpg') 
+    mcg = Image.open('./screencapture/screenshot2.jpg')
+>>>>>>> fa614abbc630b47cafaf508047cba9fb9b231520
     text = pytesseract.image_to_string(mcg, lang='chi_tra+equ')
     """last_line=text[-1]
     check=0
