@@ -15,10 +15,8 @@ def window_capture(filename):
     saveBitMap.CreateCompatibleBitmap(mfcDC, w, h)# 為bitmap開闢空間
     saveDC.SelectObject(saveBitMap)# 高度saveDC，將截圖儲存到saveBitmap中
     saveDC.BitBlt((0,0), (1100,550), mfcDC, (400,141), win32con.SRCCOPY)# 擷取從左上角（0，0）長寬為（w，h）的圖片
-    saveBitMap.SaveBitmapFile(saveDC, "c:\\temp\\bli.bmp")
+    saveBitMap.SaveBitmapFile(saveDC, "c:\\temp\\bla.bmp")
     print(hwnd)
-window_capture("bli.bmp")
-image = Image.open('c:\\temp\\bli.bmp')
+window_capture("bla.bmp")
+image = Image.open('c:\\temp\\bla.bmp')
 print(pytesseract.image_to_string(image,lang='chi_tra'))
-
-
