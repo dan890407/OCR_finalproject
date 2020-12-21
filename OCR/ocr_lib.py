@@ -52,7 +52,7 @@ def merge(new_text,all_text):             #將newtext合併到alltext
             c.write(line)
 
 
-def ocr(img):
+def ocr(img):                           #ocr影像辨識
     test_img = Image.open(img)
     text = pytesseract.image_to_string(test_img, lang='chi_tra+equ+eng')
     print(text)
