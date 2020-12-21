@@ -37,9 +37,12 @@ run=True
 hwnd = win32gui.FindWindow(None,"LINE")
 app = QApplication(sys.argv)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 print(type(hwnd))
 >>>>>>> fa614abbc630b47cafaf508047cba9fb9b231520
+=======
+>>>>>>> da89157aae23bdc73a9b154ba0fd1af99c08d0e9
 while(run):
 
     screen = QApplication.primaryScreen()
