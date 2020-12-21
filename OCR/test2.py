@@ -31,7 +31,6 @@ def merge():
 run=True
 hwnd = win32gui.FindWindow(None,"LINE")
 app = QApplication(sys.argv)
-print(type(hwnd))
 while(run):
 
     screen = QApplication.primaryScreen()
