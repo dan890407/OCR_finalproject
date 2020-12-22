@@ -7,28 +7,31 @@ import time
 import sys
 import pytesseract
 
-def catch_web(ipclass,name):            #取得web視窗代碼 ipclass=類名 name=標題
+def catch(ipclass,name):            #取得視窗代碼 ipclass=類名 name=標題
     hwnd = win32gui.FindWindow(ipclass,name)
+    return hwnd
+
+
+def web_screenshot(hwnd,screenshot):            #web截圖 圖名稱screenshot
     win32gui.SetForegroundWindow(hwnd)
     img = ImageGrab.grab()
-    img.save("screenshot.jpg")
+    img.save(screenshot+".jpg")
 
 
-def catch_app(ipclass,name):            #取得應用程式視窗代碼 ipclass=類名 name=標題
-    hwnd = win32gui.FindWindow(ipclass,name)
+def app_screenshot(hwnd,screenshot):            #應用程式截圖 圖名稱screenshot
     app = QApplication(sys.argv)
     screen = QApplication.primaryScreen()
     img = screen.grabWindow(hwnd).toImage()
-    img.save("screenshot.jpg")
+    img.save(screenshot+".jpg")
 
 
-def divid(img,left,up,right,down):      #切割成特定範圍的圖片
+def divid(img,left,up,right,down,newscreenshot):      #切割成特定範圍的圖片
     new_img = Image.open(img)
     new_mg = new_img.crop((left,up,right,down))
     enh_con = ImageEnhance.Contrast(new_mg)
     contrast=2
     image_contrasted = enh_con.enhance(contrast)
-    image_contrasted.save('newscreenshot.jpg')
+    image_contrasted.save(newscreenshot+".jpg")
 
 
 def merge(new_text,all_text):             #將newtext合併到alltext
@@ -56,3 +59,10 @@ def ocr(img):                           #ocr影像辨識
     test_img = Image.open(img)
     text = pytesseract.image_to_string(test_img, lang='chi_tra+equ+eng')
     print(text)
+    return text
+
+
+def write(text,place):                #寫檔案入place
+    with open(place,'w',encoding='utf-8') as f:
+        fixed_text = text.strip()
+        f.writelines(fixed_text)
