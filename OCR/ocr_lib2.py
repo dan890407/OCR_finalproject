@@ -55,8 +55,16 @@ class project :
         self.text=fixed_text
     
     def merge(self,new_text,all_text):             #將newtext合併到alltext
+        no_blankline=''
+        for i in self.text:    
+            if i=='\n':
+                count+=1
+            else:
+                count=0
+            if count<2:
+                no_blankline+=i
         with open(new_text,'w',encoding='utf-8') as f:
-            f.writelines(self.text)
+            f.writelines(no_blankline)
         f = open(all_text,'r',encoding="utf-8")   
         lines = f.readlines()
         last_line = lines[-1]
