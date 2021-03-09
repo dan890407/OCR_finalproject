@@ -41,11 +41,13 @@ def create():       #建造一個top-level的視窗
         right.set(yend) #紀錄釋放的那個點
         top.destroy()   #把top-level刪除掉
         root.deiconify()    #恢復root(主視窗)
-    
+
     top.bind("<Button-1>", button_1)  # 滑鼠左鍵點選->顯示子視窗 
     top.bind("<B1-Motion>", b1_Motion)# 滑鼠左鍵移動->改變子視窗大小
     top.bind("<ButtonRelease-1>", buttonRelease_1) # 滑鼠左鍵釋放->記錄最後遊標的位置
     
+
+
 
 
 b = tk.Button(root,text='screenshot',command=create)
