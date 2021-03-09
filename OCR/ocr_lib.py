@@ -52,38 +52,34 @@ class project :
         newtext = pytesseract.image_to_string(test_img, lang='chi_tra+equ+eng')
         fixed_text = newtext.strip()
         self.text=fixed_text
-    
+        print(self.text)
     def merge(self):             #合併
-        temporary='./text_file/temporary'
+        temporary='./text_file/temporary.txt'
         goal = './text_file/'+self.filename
-        with open(temporary,'w',encoding='utf-8') as t:
+        with open(temporary,'w+',encoding='utf-8') as t:
             t.writelines(self.text)
         with open(goal,'r',encoding='utf-8') as f:
             lines = f.readlines()
         t = open(temporary,'r',encoding='utf-8')
         f = open(goal,'a+',encoding="utf-8")   
-        if os.path.getsize(goal):
-            last_line = lines[-1]
-            print(last_line)
-            check = 0
-            for line in t.readlines():
-                if check == 1:
-                    if line.split():
-                        f.writelines(line)
-                    else:
-                        f.writelines("")
-                if line == last_line:
-                    check = 1
-            if check==0:
-                for line in t.readlines():
-                    if line.split():
-                        f.writelines(line)
-                    else:
-                        f.writelines("")
-        else:
+
+        last_line = lines[-1]
+        print(last_line)
+        check = 0
+        for line in t.readlines():
+            if check == 1:
+                if line.split():
+                    f.writelines(line+'\n')
+                else:
+                    f.writelines("")
+            if line == last_line:
+                check = 1
+        t.close()
+        if check==0:
+            t = open(temporary,'r',encoding='utf-8')
             for line in t.readlines():
                 if line.split():
-                    f.writelines(line)
+                    f.writelines(line+'\n')
                 else:
                     f.writelines("")
         t.close()
