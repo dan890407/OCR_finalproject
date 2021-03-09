@@ -5,7 +5,8 @@ from PIL import ImageTk , Image
 import win32gui
 import win32con
 from ocr_lib import *
-
+from tkinter.filedialog import askdirectory
+import pytesseract
 class MainPage(object):
 	def __init__(self, master=None):
 		self.root = master #定義內部變數root
@@ -24,6 +25,7 @@ class InputFrame(Frame): # 繼承Frame類
 		self.left = StringVar()
 		self.bottom = StringVar()
 		self.right = StringVar()
+		self.path=StringVar()
 		self.createPage()
 		messagebox.showinfo("提醒", "請拖曳圖標至視窗取得視窗代碼(準確拖曳至視窗上方邊框正中心)")
 	
@@ -56,13 +58,23 @@ class InputFrame(Frame): # 繼承Frame類
 		pos_var4=Entry(self, textvariable=self.right,width=15)
 		pos_var4.insert(0,"右")
 		pos_var4.grid(row=1, column=5,stick=W, pady=3)
-		
+
+		Label(self,text = "儲存路徑:").grid(row = 2, column = 0)
+		pathentry=Entry(self, textvariable =self.path)
+		pathentry.insert(0,"路徑")
+		pathentry.grid(row = 2, column = 1)
+		Button(self, text = "路徑選擇", command = self.selectPath).grid(row = 2, column = 2)
 
 	
-		Button(self,text="間隔").grid(row=2,column=0,stick=W,pady=3)
-		Button(self,text="測試").grid(row=2,column=1,stick=W,pady=3)
-		Button(self,text="開始",command=self.buttonstart).grid(row=2,column=4,stick=W,pady=3)
-		Button(self,text="停止").grid(row=2,column=5,stick=W,pady=3)
+		Button(self,text="間隔").grid(row=3,column=0,stick=W,pady=3)
+		Button(self,text="測試").grid(row=3,column=1,stick=W,pady=3)
+		Button(self,text="開始",command=self.buttonstart).grid(row=3,column=4,stick=W,pady=3)
+		Button(self,text="停止").grid(row=3,column=5,stick=W,pady=3)
+	
+	def selectPath(self):
+		path_ = askdirectory()
+		path_=path_.replace("\\",'//')
+		self.path.set(path_)
 	
 	def createscreenshot(self):       #建造一個top-level的視窗
 		if self.hwnd.get() == 'hwnd':
@@ -116,15 +128,17 @@ class InputFrame(Frame): # 繼承Frame類
 		self.hwnd.set(hex(self.localhwnd))  #標籤顯示hwnd
 		print(hex(int(self.hwnd.get(),16)))
 	def buttonstart(self):
-		if self.hwnd.get() == 'hwnd' or self.top.get() == '上':
+		if self.hwnd.get() == 'hwnd' or self.top.get() == '上' or self.path.get()=='路徑':
 			if self.hwnd.get() == 'hwnd':
 				messagebox.showinfo("missing input", "請拖曳圖標至視窗取得視窗代碼")
 			if self.top.get() == '上':
 				messagebox.showinfo("missing input", "請選擇範圍")
+			if self.path.get() == '路徑':
+				messagebox.showinfo("missing input", "請選擇路徑")
 		else:
-			"""
+			
 			test=project(self.localhwnd,"desktop",int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),5) 
-			"""
+			test.autofetch()  
 			pass
 root = Tk()
 root.title('OCR')
