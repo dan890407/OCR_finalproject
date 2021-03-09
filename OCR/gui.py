@@ -1,10 +1,11 @@
 from tkinter import *
 from tkinter import messagebox
-from tkinter.messagebox import *
 import pyautogui
 from PIL import ImageTk , Image
 import win32gui
+import win32con
 from ocr_lib import *
+
 class MainPage(object):
 	def __init__(self, master=None):
 		self.root = master #定義內部變數root
@@ -24,7 +25,7 @@ class InputFrame(Frame): # 繼承Frame類
 		self.bottom = StringVar()
 		self.right = StringVar()
 		self.createPage()
-
+		messagebox.showinfo("提醒", "請拖曳圖標至視窗取得視窗代碼(準確拖曳至視窗上方邊框正中心)")
 	
 	def createPage(self):
 		img = Image.open("./eye.gif")     #按鈕圖標
@@ -64,6 +65,11 @@ class InputFrame(Frame): # 繼承Frame類
 		Button(self,text="停止").grid(row=2,column=5,stick=W,pady=3)
 	
 	def createscreenshot(self):       #建造一個top-level的視窗
+		if self.hwnd.get() == 'hwnd':
+			messagebox.showinfo("missing input", "請拖曳圖標至視窗取得視窗代碼(準確拖曳至視窗上方邊框正中心)")
+			return
+		win32gui.SetForegroundWindow(self.localhwnd)
+		win32gui.ShowWindow (self.localhwnd,win32con.SW_MAXIMIZE )
 		top = Toplevel()
 		top.overrideredirect(True)    #忘了
 		top.attributes("-alpha", 0.3)    #透明度，讓他有灰灰的感覺
@@ -71,7 +77,7 @@ class InputFrame(Frame): # 繼承Frame類
 		top.configure(bg="black")
 		root.withdraw()     #暫時隱藏root(主畫面)，不是top-level哦
 		cv = Canvas(top) #可以圈出框框的畫布
-		
+		win32gui.SetForegroundWindow(top.winfo_id())
 		def button_1(event):    #其他我都照抄懶的理解
 			global x, y ,xstart,ystart
 			global rec
@@ -106,16 +112,20 @@ class InputFrame(Frame): # 繼承Frame類
 		top.bind("<ButtonRelease-1>", buttonRelease_1) # 滑鼠左鍵釋放->記錄最後遊標的位置
 	def func(self,event):
 		pos =win32gui.GetCursorPos()      
-		localhwnd=win32gui.WindowFromPoint(pos) #10和11行取得hwnd
-		self.hwnd.set(hex(localhwnd))  #標籤顯示hwnd
+		self.localhwnd=win32gui.WindowFromPoint(pos) #10和11行取得hwnd
+		self.hwnd.set(hex(self.localhwnd))  #標籤顯示hwnd
+		print(hex(int(self.hwnd.get(),16)))
 	def buttonstart(self):
 		if self.hwnd.get() == 'hwnd' or self.top.get() == '上':
 			if self.hwnd.get() == 'hwnd':
-				messagebox.showinfo("missing input", "請輸入視窗代碼")
+				messagebox.showinfo("missing input", "請拖曳圖標至視窗取得視窗代碼")
 			if self.top.get() == '上':
 				messagebox.showinfo("missing input", "請選擇範圍")
 		else:
-			
+			"""
+			test=project(self.localhwnd,"desktop",int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),5) 
+			"""
+			pass
 root = Tk()
 root.title('OCR')
 MainPage(root)
