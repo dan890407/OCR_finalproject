@@ -22,7 +22,7 @@ class InputFrame(Frame): # 繼承Frame類
 	def __init__(self, master=None):
 		Frame.__init__(self, master)
 		self.root = master #定義內部變數root
-		self.root.geometry('%dx%d' % (800, 280)) #設定視窗大小
+		self.root.geometry('%dx%d' % (1000, 350)) #設定視窗大小
 		self.hwnd = StringVar()
 		self.top = StringVar()
 		self.left = StringVar()
@@ -30,9 +30,9 @@ class InputFrame(Frame): # 繼承Frame類
 		self.right = StringVar()
 		self.path=StringVar()
 		self.interval=StringVar()
+		self.filename=StringVar()
 		self.run=True
 		self.createPage()
-		messagebox.showinfo("提醒", "請拖曳圖標至視窗取得視窗代碼(準確拖曳至視窗上方邊框正中心)")
 	
 	def createPage(self):
 		img = Image.open("./eye.gif")     #按鈕圖標
@@ -46,8 +46,10 @@ class InputFrame(Frame): # 繼承Frame類
 		hwnd_var=Entry(self, textvariable=self.hwnd,width=15)
 		hwnd_var.grid(row=0, column=2,stick=W, pady=10)
 		hwnd_var.insert(0,"hwnd")
-		
-		b=Button(self,text="P",command=self.createscreenshot)
+		describtion=Button(self,text="說明",command=self.popdescribtion)
+		describtion.grid(row=0,column=3,stick=W,pady=20,padx=10)
+
+		b=Button(self,text="Press me",command=self.createscreenshot)
 		b.grid(row=1,stick=W,pady=20)
 		poslabel=Label(self, text = '位置(pixel上,左,下,右): ')
 		poslabel.grid(row=1, column=1,stick=W, pady=3)
@@ -62,22 +64,30 @@ class InputFrame(Frame): # 繼承Frame類
 		pos_var3.grid(row=1, column=4,stick=W, pady=3)
 		pos_var4=Entry(self, textvariable=self.right,width=15)
 		pos_var4.insert(0,"右")
-		pos_var4.grid(row=1, column=5,stick=W, pady=3)
+		pos_var4.grid(row=1, column=5,stick=W, pady=3,padx=12)
 
-		Label(self,text = "儲存路徑:").grid(row = 2, column = 0)
-		pathentry=Entry(self, textvariable =self.path)
+		Label(self,text = "儲存路徑:").grid(row = 2, column = 0,stick=W)
+		pathentry=Entry(self, textvariable =self.path,width=55)
 		pathentry.insert(0,"路徑")
-		pathentry.grid(row = 2, column = 1)
-		Button(self, text = "路徑選擇", command = self.selectPath).grid(row = 2, column = 2)
+		pathentry.grid(row = 2, column = 1,columnspan=3)
+		Button(self, text = "路徑選擇", command = self.selectPath).grid(row = 2, column = 4)
 
 	
-		Button(self,text="間隔").grid(row=3,column=0,stick=W,pady=3)
+		Label(self,text="檔名").grid(row=3,column=0,stick=W,pady=3)
+		file_local=Entry(self, textvariable=self.filename,width=20)
+		file_local.insert(0,"default is ocr_text")
+		file_local.grid(row=3,column=1,stick=W,pady=3)
+		
+		Label(self,text="間隔").grid(row=4,column=0,stick=W,pady=3)
 		interval=Entry(self, textvariable=self.interval,width=15)
 		interval.insert(0,"default is 5 sec")
-		interval.grid(row=3,column=1,stick=W,pady=3)
-		Button(self,text="測試",command=self.test_showimg).grid(row=3,column=2,stick=W,pady=3)
-		Button(self,text="開始",command=self.buttonstart).grid(row=3,column=4,stick=W,pady=3)
-		Button(self,text="停止",command=self.loopstop).grid(row=3,column=5,stick=W,pady=3)
+		interval.grid(row=4,column=1,stick=W,pady=3)
+		
+		Button(self,text="測試",command=self.test_showimg).grid(row=5,column=2,stick=W,pady=3)
+		Button(self,text="開始",command=self.buttonstart).grid(row=5,column=4,stick=W,pady=3)
+		Button(self,text="停止",command=self.loopstop).grid(row=5,column=5,stick=W,pady=3)
+	def popdescribtion(self):
+		messagebox.showinfo("提醒", "請拖曳圖標至視窗取得視窗代碼(準確拖曳至視窗上方邊框正中心)")
 	def test_showimg(self):		
 		def divid():      #切割成特定範圍的圖片
 			img = Image.open("./screenshot/test.jpg")
@@ -172,8 +182,12 @@ class InputFrame(Frame): # 繼承Frame類
 				interval_variable = 5
 			else:
 				interval_variable=int(self.interval.get())
+			if self.filename.get()=="default is ocr_text":
+				file_localname="ocr_text"
+			else:
+				file_localname=self.filename.get()
 			while self.run==True:
-				test=project(self.localhwnd,"desktop",int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),interval_variable) 
+				test=project(self.localhwnd,file_localname,int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),interval_variable) 
 				test.autofetch()  
 	def loopstop(self):
 		self.run==False
