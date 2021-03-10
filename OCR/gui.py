@@ -186,9 +186,10 @@ class InputFrame(Frame): # 繼承Frame類
 				file_localname="ocr_text"
 			else:
 				file_localname=self.filename.get()
-			while self.run==True:
-				test=project(self.localhwnd,file_localname,int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),interval_variable) 
-				test.autofetch()  
+			#while self.run==True:
+			test=project(self.localhwnd,file_localname,int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),interval_variable) 
+			test.autofetch()
+			time.sleep(interval_variable)  
 	def loopstop(self):
 		self.run==False
 root = Tk()

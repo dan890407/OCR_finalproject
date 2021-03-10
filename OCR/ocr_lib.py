@@ -55,15 +55,21 @@ class project :
         print(self.text)
     def merge(self):             #合併
         temporary='./text_file/temporary.txt'
-        goal = './text_file/'+self.filename
+        goal = './text_file/'+self.filename+".txt"
         with open(temporary,'w+',encoding='utf-8') as t:
             t.writelines(self.text)
+        if not os.path.isfile(goal):
+            f = open(goal,'a+',encoding="utf-8")  # 建立檔案
+            f.write("\n")
+            f.close()     
         with open(goal,'r',encoding='utf-8') as f:
             lines = f.readlines()
         t = open(temporary,'r',encoding='utf-8')
         f = open(goal,'a+',encoding="utf-8")   
-
-        last_line = lines[-1]
+        if len(lines) == 0:
+            last_line=''
+        else:
+            last_line = lines[-1]
         print(last_line)
         check = 0
         for line in t.readlines():
