@@ -1,13 +1,15 @@
 from tkinter import *
 from tkinter import messagebox
 import pyautogui
-from PIL import ImageTk , Image
+from PIL import ImageTk , Image,ImageGrab
 import win32gui
 import win32con
 from ocr_lib import *
 from tkinter.filedialog import askdirectory
 import pytesseract
 import cv2 as cv
+from PyQt5.QtWidgets import QApplication
+from PyQt5.QtGui import *
 class MainPage(object):
 	def __init__(self, master=None):
 		self.root = master #定義內部變數root
@@ -76,14 +78,31 @@ class InputFrame(Frame): # 繼承Frame類
 		Button(self,text="測試",command=self.test_showimg).grid(row=3,column=2,stick=W,pady=3)
 		Button(self,text="開始",command=self.buttonstart).grid(row=3,column=4,stick=W,pady=3)
 		Button(self,text="停止",command=self.loopstop).grid(row=3,column=5,stick=W,pady=3)
-	def test_showimg(self):
-		"""
-		src = cv.imread("./screenshot/desktop.jpg") # 這四行能在一個新視窗開啟照片
+	def test_showimg(self):		
+		def divid():      #切割成特定範圍的圖片
+			img = Image.open("./screenshot/test.jpg")
+			new_mg = img.crop((int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get())))
+			enh_con = ImageEnhance.Contrast(new_mg)
+			contrast=1.5
+			image_contrasted = enh_con.enhance(contrast)
+			image_contrasted.save("./screenshot/testshow.jpg")
+			os.remove("./screenshot/test.jpg")
+		ipclass = self.hwnd
+		if ipclass == "Chrome_WidgetWin_1":
+			win32gui.SetForegroundWindow(self.localhwnd)
+			img = ImageGrab.grab()
+			img.save("./screenshot/test.jpg")
+			divid()
+		else:
+			app = QApplication(sys.argv)
+			screen = QApplication.primaryScreen()
+			img = screen.grabWindow(self.localhwnd).toImage()
+			img.save("./screenshot/test.jpg")
+			divid()
+		src = cv.imread("./screenshot/testshow.jpg") # 這四行能在一個新視窗開啟照片
 		cv.imshow("test image", src)
 		cv.waitKey(0)
-		cv.destroyAllWindows()
-		"""
-		pass
+		cv.destroyAllWindows()		
 	def selectPath(self):
 		path_ = askdirectory()
 		path_=path_.replace("\\",'//')
