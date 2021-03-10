@@ -7,6 +7,7 @@ import win32con
 from ocr_lib import *
 from tkinter.filedialog import askdirectory
 import pytesseract
+import cv2 as cv
 class MainPage(object):
 	def __init__(self, master=None):
 		self.root = master #定義內部變數root
@@ -72,10 +73,17 @@ class InputFrame(Frame): # 繼承Frame類
 		interval=Entry(self, textvariable=self.interval,width=15)
 		interval.insert(0,"default is 5 sec")
 		interval.grid(row=3,column=1,stick=W,pady=3)
-		Button(self,text="測試").grid(row=3,column=2,stick=W,pady=3)
+		Button(self,text="測試",command=self.test_showimg).grid(row=3,column=2,stick=W,pady=3)
 		Button(self,text="開始",command=self.buttonstart).grid(row=3,column=4,stick=W,pady=3)
 		Button(self,text="停止",command=self.loopstop).grid(row=3,column=5,stick=W,pady=3)
-	
+	def test_showimg(self):
+		"""
+		src = cv.imread("./screenshot/desktop.jpg") # 這四行能在一個新視窗開啟照片
+		cv.imshow("test image", src)
+		cv.waitKey(0)
+		cv.destroyAllWindows()
+		"""
+		pass
 	def selectPath(self):
 		path_ = askdirectory()
 		path_=path_.replace("\\",'//')
