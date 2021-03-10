@@ -26,6 +26,8 @@ class InputFrame(Frame): # 繼承Frame類
 		self.bottom = StringVar()
 		self.right = StringVar()
 		self.path=StringVar()
+		self.interval=StringVar()
+		self.run=True
 		self.createPage()
 		messagebox.showinfo("提醒", "請拖曳圖標至視窗取得視窗代碼(準確拖曳至視窗上方邊框正中心)")
 	
@@ -67,9 +69,12 @@ class InputFrame(Frame): # 繼承Frame類
 
 	
 		Button(self,text="間隔").grid(row=3,column=0,stick=W,pady=3)
-		Button(self,text="測試").grid(row=3,column=1,stick=W,pady=3)
+		interval=Entry(self, textvariable=self.interval,width=15)
+		interval.insert(0,"default is 5 sec")
+		interval.grid(row=3,column=1,stick=W,pady=3)
+		Button(self,text="測試").grid(row=3,column=2,stick=W,pady=3)
 		Button(self,text="開始",command=self.buttonstart).grid(row=3,column=4,stick=W,pady=3)
-		Button(self,text="停止").grid(row=3,column=5,stick=W,pady=3)
+		Button(self,text="停止",command=self.loopstop).grid(row=3,column=5,stick=W,pady=3)
 	
 	def selectPath(self):
 		path_ = askdirectory()
@@ -135,11 +140,16 @@ class InputFrame(Frame): # 繼承Frame類
 				messagebox.showinfo("missing input", "請選擇範圍")
 			if self.path.get() == '路徑':
 				messagebox.showinfo("missing input", "請選擇路徑")
-		else:
-			
-			test=project(self.localhwnd,"desktop",int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),5) 
-			test.autofetch()  
-			pass
+		else:			
+			if self.interval.get()=="default is 5 sec":
+				interval_variable = 5
+			else:
+				interval_variable=int(self.interval.get())
+			while self.run==True:
+				test=project(self.localhwnd,"desktop",int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),interval_variable) 
+				test.autofetch()  
+	def loopstop(self):
+		self.run==False
 root = Tk()
 root.title('OCR')
 MainPage(root)
