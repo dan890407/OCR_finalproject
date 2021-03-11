@@ -74,7 +74,7 @@ class project :
         for line in t.readlines():
             if check == 1:
                 if line.split():
-                    f.writelines(line+'\n')
+                    f.writelines(line)
                 else:
                     f.writelines("")
             if line == last_line:

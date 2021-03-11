@@ -68,11 +68,11 @@ class InputFrame(Frame): # 繼承Frame類
 		pos_var4.insert(0,"右")
 		pos_var4.grid(row=1, column=5,stick=W, pady=3,padx=12)
 
-		Label(self,text = "儲存路徑:").grid(row = 2, column = 0,stick=W)
+		Label(self,text = "儲存路徑:").grid(row = 2, column = 0,stick=W,pady=3)
 		pathentry=Entry(self, textvariable =self.path,width=55)
 		pathentry.insert(0,"路徑")
-		pathentry.grid(row = 2, column = 1,columnspan=3)
-		Button(self, text = "路徑選擇", command = self.selectPath).grid(row = 2, column = 4)
+		pathentry.grid(row = 2, column = 1,columnspan=3,pady=20)
+		Button(self, text = "路徑選擇", command = self.selectPath).grid(row = 2, column = 4,pady=3)
 
 	
 		Label(self,text="檔名").grid(row=3,column=0,stick=W,pady=3)
@@ -80,10 +80,10 @@ class InputFrame(Frame): # 繼承Frame類
 		file_local.insert(0,"default is ocr_text")
 		file_local.grid(row=3,column=1,stick=W,pady=3)
 		
-		Label(self,text="間隔").grid(row=4,column=0,stick=W,pady=3)
+		Label(self,text="間隔").grid(row=4,column=0,stick=W,pady=10)
 		interval=Entry(self, textvariable=self.interval,width=15)
 		interval.insert(0,"default is 5 sec")
-		interval.grid(row=4,column=1,stick=W,pady=3)
+		interval.grid(row=4,column=1,stick=W,pady=10)
 		
 		Button(self,text="測試",command=self.test_showimg).grid(row=5,column=2,stick=W,pady=3)
 		Button(self,text="開始",command=self.buttonstart).grid(row=5,column=4,stick=W,pady=3)
@@ -171,6 +171,11 @@ class InputFrame(Frame): # 繼承Frame類
 		self.localhwnd=win32gui.WindowFromPoint(pos) #10和11行取得hwnd
 		self.hwnd.set(hex(self.localhwnd))  #標籤顯示hwnd
 		print(hex(int(self.hwnd.get(),16)))
+	def mainloop(self):
+		self.test.autofetch()
+		#self.tkafter=root.after(self.interval_variable*1000,self.mainloop)
+	def loopstop(self):
+		root.after_cancel(self.tkafter)
 	def buttonstart(self):
 		if self.hwnd.get() == 'hwnd' or self.top.get() == '上' or self.path.get()=='路徑':
 			if self.hwnd.get() == 'hwnd':
@@ -189,12 +194,7 @@ class InputFrame(Frame): # 繼承Frame類
 			else:
 				file_localname=self.filename.get()
 			self.test=project(self.localhwnd,file_localname,int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),0)
-			__mainloop()
-	def __mainloop(self):
-		self.test.autofetch()
-		self.tkafter=root.after(self.interval_variable*1000,__mainloop)
-	def loopstop(self):
-		root.after_cancel(self.tkafter)
+			self.mainloop()
 root = Tk()
 root.title('OCR')
 MainPage(root)
