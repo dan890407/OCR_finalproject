@@ -10,6 +10,8 @@ import pytesseract
 import cv2 as cv
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtGui import *
+import time
+import _thread
 class MainPage(object):
 	def __init__(self, master=None):
 		self.root = master #定義內部變數root
@@ -179,19 +181,20 @@ class InputFrame(Frame): # 繼承Frame類
 				messagebox.showinfo("missing input", "請選擇路徑")
 		else:			
 			if self.interval.get()=="default is 5 sec":
-				interval_variable = 5
+				self.interval_variable = 5
 			else:
-				interval_variable=int(self.interval.get())
+				self.interval_variable=int(self.interval.get())
 			if self.filename.get()=="default is ocr_text":
 				file_localname="ocr_text"
 			else:
 				file_localname=self.filename.get()
-			#while self.run==True:
-			test=project(self.localhwnd,file_localname,int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),interval_variable) 
-			test.autofetch()
-			time.sleep(interval_variable)  
+			self.test=project(self.localhwnd,file_localname,int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),0)
+			__mainloop()
+	def __mainloop(self):
+		self.test.autofetch()
+		self.tkafter=root.after(self.interval_variable*1000,__mainloop)
 	def loopstop(self):
-		self.run==False
+		root.after_cancel(self.tkafter)
 root = Tk()
 root.title('OCR')
 MainPage(root)

@@ -60,7 +60,6 @@ class project :
             t.writelines(self.text)
         if not os.path.isfile(goal):
             f = open(goal,'a+',encoding="utf-8")  # 建立檔案
-            f.write("\n")
             f.close()     
         with open(goal,'r',encoding='utf-8') as f:
             lines = f.readlines()
