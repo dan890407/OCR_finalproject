@@ -22,9 +22,9 @@ class InputFrame(Frame): # 繼承Frame類
 	def __init__(self, master=None):
 		Frame.__init__(self, master)
 		self.root = master #定義內部變數root
-		self.root.geometry('%dx%d' % (700, 400)) #設定視窗大小
+		self.root.geometry('%dx%d' % (700, 430)) #設定視窗大小
 		self.root.minsize(700,400)
-		self.root.maxsize(700,400)
+		self.root.maxsize(700,450)
 		self.hwnd = StringVar()
 		self.top = StringVar()
 		self.left = StringVar()
@@ -33,6 +33,7 @@ class InputFrame(Frame): # 繼承Frame類
 		self.path=StringVar()
 		self.interval=StringVar()
 		self.filename=StringVar()
+		self.key=StringVar()
 		self.run=True
 		self.createPage()
 	
@@ -89,8 +90,9 @@ class InputFrame(Frame): # 繼承Frame類
 		interval.grid(row=4,column=1,columnspan=4,stick=W,padx=20)
 
 		Label(self,text="關鍵字",font=24).grid(row=5,column=0,padx=20,pady=20)
-		Label(self,text="-----------------------內容--------------------",bg='white',fg='green').grid(row=5,column=1,columnspan=5,padx=20,pady=20)
-
+		contentLabel=Entry(self,textvariable=self.key,bg='white',fg='green',width=36)
+		contentLabel.grid(row=5,column=1,columnspan=5,padx=20,pady=20,)
+		contentLabel.insert(0,"-----------------------內容--------------------")
 		Button(self,text="開始",command=self.buttonstart,width=8,height=2,fg='DarkBlue',bg='Ivory').grid(row=5,column=6,columnspan=2,rowspan=2,stick=E,padx=20)
 		Button(self,text="停止",command=self.loopstop,width=8,height=2,fg='red',bg='Ivory').grid(row=5,column=8,columnspan=2,rowspan=2,stick=W)
 	def popdescribtion(self):
