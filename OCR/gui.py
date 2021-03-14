@@ -10,8 +10,6 @@ import pytesseract
 import cv2 as cv
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtGui import *
-import time
-import _thread
 class MainPage(object):
 	def __init__(self, master=None):
 		self.root = master #定義內部變數root
@@ -24,7 +22,9 @@ class InputFrame(Frame): # 繼承Frame類
 	def __init__(self, master=None):
 		Frame.__init__(self, master)
 		self.root = master #定義內部變數root
-		self.root.geometry('%dx%d' % (1000, 350)) #設定視窗大小
+		self.root.geometry('%dx%d' % (700, 400)) #設定視窗大小
+		self.root.minsize(700,400)
+		self.root.maxsize(700,400)
 		self.hwnd = StringVar()
 		self.top = StringVar()
 		self.left = StringVar()
@@ -37,57 +37,60 @@ class InputFrame(Frame): # 繼承Frame類
 		self.createPage()
 	
 	def createPage(self):
-		img = Image.open("./eye.gif")     #按鈕圖標
-		img = img.resize((30,30))
-		self.photoImg =  ImageTk.PhotoImage(img)	
-		b=Button(self,image=self.photoImg,cursor="tcross")
-		b.grid(row=0,stick=W,pady=20)
+		img_1 = Image.open("./eye.gif")     #按鈕圖標
+		img_1 = img_1.resize((30,30))
+		self.photoImg_1 =  ImageTk.PhotoImage(img_1)	
+		b=Button(self,image=self.photoImg_1,cursor="tcross")
+		b.grid(row=0,pady=20)
 		b.bind("<ButtonRelease-1>",self.func)
-		hwndlabel=Label(self, text = '視窗代碼: ')
-		hwndlabel.grid(row=0, column=1,stick=W, pady=10)
-		hwnd_var=Entry(self, textvariable=self.hwnd,width=15)
-		hwnd_var.grid(row=0, column=2,stick=W, pady=10)
-		hwnd_var.insert(0,"hwnd")
-		describtion=Button(self,text="說明",command=self.popdescribtion)
-		describtion.grid(row=0,column=3,stick=W,pady=20,padx=10)
-
-		b=Button(self,text="Press me",command=self.createscreenshot)
-		b.grid(row=1,stick=W,pady=20)
-		poslabel=Label(self, text = '位置(pixel上,左,下,右): ')
-		poslabel.grid(row=1, column=1,stick=W, pady=3)
-		pos_var1=Entry(self, textvariable=self.top,width=15)
+		hwndlabel=Label(self, text = '視窗代碼',fg='red',font=24)
+		hwndlabel.grid(row=0, column=1,stick=W,padx=20)
+		hwnd_var=Entry(self, textvariable=self.hwnd,width=17,justify=CENTER)
+		hwnd_var.grid(row=0, column=2,columnspan=3,stick=W, pady=10,padx=20)
+		hwnd_var.insert(0,"HWND")
+		describtion=Button(self,text="說明",command=self.popdescribtion,bg='Ivory')
+		describtion.grid(row=0,column=5,pady=20)
+		Button(self,text="顯示截圖",command=self.test_showimg,width=15,height=4,bg='LightCyan').grid(row=0,column=6,columnspan=3,rowspan=2,stick=W,padx=30)
+		img_2 = Image.open("./pull.gif")     #按鈕圖標
+		img_2 = img_2.resize((30,30))
+		self.photoImg_2 =  ImageTk.PhotoImage(img_2)
+		b=Button(self,image=self.photoImg_2,command=self.createscreenshot)
+		b.grid(row=1,pady=20)
+		poslabel=Label(self, text = '位置',font=24)
+		poslabel.grid(row=1, column=1,stick=W,padx=20)
+		pos_var1=Entry(self, textvariable=self.top,width=5,justify=CENTER)
 		pos_var1.insert(0,"上")
-		pos_var1.grid(row=1, column=2,stick=W, pady=3)
-		pos_var2=Entry(self, textvariable=self.left,width=15)
+		pos_var1.grid(row=1, column=2,stick=W)
+		pos_var2=Entry(self, textvariable=self.left,width=5,justify=CENTER)
 		pos_var2.insert(0,"左")
-		pos_var2.grid(row=1, column=3,stick=W, pady=3)
-		pos_var3=Entry(self, textvariable=self.bottom,width=15)
+		pos_var2.grid(row=1, column=3,stick=W)
+		pos_var3=Entry(self, textvariable=self.bottom,width=5,justify=CENTER)
 		pos_var3.insert(0,"下")
-		pos_var3.grid(row=1, column=4,stick=W, pady=3)
-		pos_var4=Entry(self, textvariable=self.right,width=15)
+		pos_var3.grid(row=1, column=4,stick=W)
+		pos_var4=Entry(self, textvariable=self.right,width=5,justify=CENTER)
 		pos_var4.insert(0,"右")
-		pos_var4.grid(row=1, column=5,stick=W, pady=3,padx=12)
-
-		Label(self,text = "儲存路徑:").grid(row = 2, column = 0,stick=W,pady=3)
-		pathentry=Entry(self, textvariable =self.path,width=55)
+		pos_var4.grid(row=1, column=5,stick=W)
+		Label(self,text = "儲存路徑",font=24).grid(row = 2, column = 0,pady=20,padx=10)
+		pathentry=Entry(self, textvariable =self.path,width=36,justify=CENTER)
 		pathentry.insert(0,"路徑")
-		pathentry.grid(row = 2, column = 1,columnspan=3,pady=20)
-		Button(self, text = "路徑選擇", command = self.selectPath).grid(row = 2, column = 4,pady=3)
+		pathentry.grid(row = 2, column = 1,columnspan=5,stick=W,padx=20)
+		Button(self, text = "選擇路徑", command = self.selectPath,bg='Ivory').grid(row = 2, column = 6,columnspan=2)
 
-	
-		Label(self,text="檔名").grid(row=3,column=0,stick=W,pady=3)
-		file_local=Entry(self, textvariable=self.filename,width=20)
+		Label(self,text="檔名",font=24).grid(row=3,column=0,pady=20)
+		file_local=Entry(self, textvariable=self.filename,width=36,justify=CENTER)
 		file_local.insert(0,"default is ocr_text")
-		file_local.grid(row=3,column=1,stick=W,pady=3)
+		file_local.grid(row=3,column=1,stick=W,columnspan=5,padx=20)
 		
-		Label(self,text="間隔").grid(row=4,column=0,stick=W,pady=10)
-		interval=Entry(self, textvariable=self.interval,width=15)
+		Label(self,text="間隔",font=24).grid(row=4,column=0,padx=20,pady=20)
+		interval=Entry(self, textvariable=self.interval,width=20,justify=CENTER)
 		interval.insert(0,"default is 5 sec")
-		interval.grid(row=4,column=1,stick=W,pady=10)
-		
-		Button(self,text="測試",command=self.test_showimg).grid(row=5,column=2,stick=W,pady=3)
-		Button(self,text="開始",command=self.buttonstart).grid(row=5,column=4,stick=W,pady=3)
-		Button(self,text="停止",command=self.loopstop).grid(row=5,column=5,stick=W,pady=3)
+		interval.grid(row=4,column=1,columnspan=4,stick=W,padx=20)
+
+		Label(self,text="關鍵字",font=24).grid(row=5,column=0,padx=20,pady=20)
+		Label(self,text="-----------------------內容--------------------",bg='white',fg='green').grid(row=5,column=1,columnspan=5,padx=20,pady=20)
+
+		Button(self,text="開始",command=self.buttonstart,width=8,height=2,fg='DarkBlue',bg='Ivory').grid(row=5,column=6,columnspan=2,rowspan=2,stick=E,padx=20)
+		Button(self,text="停止",command=self.loopstop,width=8,height=2,fg='red',bg='Ivory').grid(row=5,column=8,columnspan=2,rowspan=2,stick=W)
 	def popdescribtion(self):
 		messagebox.showinfo("提醒", "請拖曳圖標至視窗取得視窗代碼(準確拖曳至視窗上方邊框正中心)")
 	def test_showimg(self):		
@@ -114,7 +117,8 @@ class InputFrame(Frame): # 繼承Frame類
 		src = cv.imread("./screenshot/testshow.jpg") # 這四行能在一個新視窗開啟照片
 		cv.imshow("test image", src)
 		cv.waitKey(0)
-		cv.destroyAllWindows()		
+		cv.destroyAllWindows()
+		os.remove("./screenshot/testshow.jpg")
 	def selectPath(self):
 		path_ = askdirectory()
 		path_=path_.replace("\\",'//')
@@ -171,11 +175,6 @@ class InputFrame(Frame): # 繼承Frame類
 		self.localhwnd=win32gui.WindowFromPoint(pos) #10和11行取得hwnd
 		self.hwnd.set(hex(self.localhwnd))  #標籤顯示hwnd
 		print(hex(int(self.hwnd.get(),16)))
-	def mainloop(self):
-		self.test.autofetch()
-		#self.tkafter=root.after(self.interval_variable*1000,self.mainloop)
-	def loopstop(self):
-		root.after_cancel(self.tkafter)
 	def buttonstart(self):
 		if self.hwnd.get() == 'hwnd' or self.top.get() == '上' or self.path.get()=='路徑':
 			if self.hwnd.get() == 'hwnd':
@@ -186,15 +185,18 @@ class InputFrame(Frame): # 繼承Frame類
 				messagebox.showinfo("missing input", "請選擇路徑")
 		else:			
 			if self.interval.get()=="default is 5 sec":
-				self.interval_variable = 5
+				interval_variable = 5
 			else:
-				self.interval_variable=int(self.interval.get())
+				interval_variable=int(self.interval.get())
 			if self.filename.get()=="default is ocr_text":
 				file_localname="ocr_text"
 			else:
 				file_localname=self.filename.get()
-			self.test=project(self.localhwnd,file_localname,int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),0)
-			self.mainloop()
+			while self.run==True:
+				test=project(self.localhwnd,file_localname,int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),interval_variable,keyword) 
+				test.autofetch()  
+	def loopstop(self):
+		self.run==False
 root = Tk()
 root.title('OCR')
 MainPage(root)

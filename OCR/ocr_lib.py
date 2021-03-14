@@ -8,7 +8,7 @@ import time
 import sys,os
 import pytesseract
 class project :
-    def __init__(self,hwnd,filename,left,up,right,down,interval):
+    def __init__(self,hwnd,filename,left,up,right,down,interval,key):
         self.hwnd=hwnd
         self.filename=filename
         self.left=left
@@ -16,6 +16,7 @@ class project :
         self.right=right
         self.down=down
         self.interval=interval
+        self.key=key
 
     def autofetch(self):
         ipclass = win32gui.GetClassName(self.hwnd)
@@ -26,6 +27,8 @@ class project :
         self.divid()
         self.ocr()
         self.merge()
+        time.sleep(self.interval)
+        os.system('pause')
 
     def web_screenshot(self):            #web截圖 圖名稱screenshot
         win32gui.SetForegroundWindow(self.hwnd)
@@ -53,6 +56,7 @@ class project :
         fixed_text = newtext.strip()
         self.text=fixed_text
         print(self.text)
+
     def merge(self):             #合併
         temporary='./text_file/temporary.txt'
         goal = './text_file/'+self.filename+".txt"
@@ -84,7 +88,7 @@ class project :
             t = open(temporary,'r',encoding='utf-8')
             for line in t.readlines():
                 if line.split():
-                    f.writelines(line+'\n')
+                    f.writelines(line)
                 else:
                     f.writelines("")
         t.close()

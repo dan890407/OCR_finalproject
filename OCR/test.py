@@ -1,7 +1,8 @@
 from ocr_lib import *
 
-test=project(0xa0a9e,"desktop",500,251,1000,889,5) 
+test=project(0X03B0B98,"desktop",500,251,1000,889,10) 
 run=True
 
-test.autofetch()    
-time.sleep(test.interval) 
+while(run):
+    test.autofetch()    
+    time.sleep(test.interval) 
