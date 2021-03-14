@@ -8,14 +8,13 @@ import time
 import sys,os
 import pytesseract
 class project :
-    def __init__(self,hwnd,filename,left,up,right,down,interval,key):
+    def __init__(self,hwnd,filename,left,up,right,down,key):
         self.hwnd=hwnd
         self.filename=filename
         self.left=left
         self.up=up
         self.right=right
         self.down=down
-        self.interval=interval
         self.key=key
 
     def autofetch(self):
@@ -27,8 +26,6 @@ class project :
         self.divid()
         self.ocr()
         self.merge()
-        time.sleep(self.interval)
-        os.system('pause')
 
     def web_screenshot(self):            #web截圖 圖名稱screenshot
         win32gui.SetForegroundWindow(self.hwnd)
@@ -94,4 +91,5 @@ class project :
         t.close()
         f.close()
         os.remove(temporary)
-    
+    def findkey(self,key):    
+        return key

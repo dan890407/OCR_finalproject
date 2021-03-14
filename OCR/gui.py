@@ -51,6 +51,7 @@ class InputFrame(Frame): # 繼承Frame類
 		describtion=Button(self,text="說明",command=self.popdescribtion,bg='Ivory')
 		describtion.grid(row=0,column=5,pady=20)
 		Button(self,text="顯示截圖",command=self.test_showimg,width=15,height=4,bg='LightCyan').grid(row=0,column=6,columnspan=3,rowspan=2,stick=W,padx=30)
+		
 		img_2 = Image.open("./pull.gif")     #按鈕圖標
 		img_2 = img_2.resize((30,30))
 		self.photoImg_2 =  ImageTk.PhotoImage(img_2)
@@ -70,6 +71,7 @@ class InputFrame(Frame): # 繼承Frame類
 		pos_var4=Entry(self, textvariable=self.right,width=5,justify=CENTER)
 		pos_var4.insert(0,"右")
 		pos_var4.grid(row=1, column=5,stick=W)
+		
 		Label(self,text = "儲存路徑",font=24).grid(row = 2, column = 0,pady=20,padx=10)
 		pathentry=Entry(self, textvariable =self.path,width=36,justify=CENTER)
 		pathentry.insert(0,"路徑")
@@ -125,7 +127,7 @@ class InputFrame(Frame): # 繼承Frame類
 		self.path.set(path_)
 	
 	def createscreenshot(self):       #建造一個top-level的視窗
-		if self.hwnd.get() == 'hwnd':
+		if self.hwnd.get() == 'HWND':
 			messagebox.showinfo("missing input", "請拖曳圖標至視窗取得視窗代碼(準確拖曳至視窗上方邊框正中心)")
 			return
 		win32gui.SetForegroundWindow(self.localhwnd)
@@ -166,7 +168,6 @@ class InputFrame(Frame): # 繼承Frame類
 			top.destroy()   #把top-level刪除掉
 			root.deiconify()    #恢復root(主視窗)
 			
-
 		top.bind("<Button-1>", button_1)  # 滑鼠左鍵點選->顯示子視窗 
 		top.bind("<B1-Motion>", b1_Motion)# 滑鼠左鍵移動->改變子視窗大小
 		top.bind("<ButtonRelease-1>", buttonRelease_1) # 滑鼠左鍵釋放->記錄最後遊標的位置
@@ -175,6 +176,11 @@ class InputFrame(Frame): # 繼承Frame類
 		self.localhwnd=win32gui.WindowFromPoint(pos) #10和11行取得hwnd
 		self.hwnd.set(hex(self.localhwnd))  #標籤顯示hwnd
 		print(hex(int(self.hwnd.get(),16)))
+	def mainloop(self):
+		self.test.autofetch()
+		self.tkafter=root.after(self.interval_variable*1000,self.mainloop)      #按間格重複執行
+	def loopstop(self):
+		root.after_cancel(self.tkafter)	
 	def buttonstart(self):
 		if self.hwnd.get() == 'hwnd' or self.top.get() == '上' or self.path.get()=='路徑':
 			if self.hwnd.get() == 'hwnd':
@@ -185,18 +191,15 @@ class InputFrame(Frame): # 繼承Frame類
 				messagebox.showinfo("missing input", "請選擇路徑")
 		else:			
 			if self.interval.get()=="default is 5 sec":
-				interval_variable = 5
+				self.interval_variable = 5
 			else:
-				interval_variable=int(self.interval.get())
+				self.interval_variable=int(self.interval.get())
 			if self.filename.get()=="default is ocr_text":
 				file_localname="ocr_text"
 			else:
 				file_localname=self.filename.get()
-			while self.run==True:
-				test=project(self.localhwnd,file_localname,int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),interval_variable,keyword) 
-				test.autofetch()  
-	def loopstop(self):
-		self.run==False
+			self.test=project(self.localhwnd,file_localname,int(self.top.get()),int(self.left.get()),int(self.bottom.get()),int(self.right.get()),"key")
+			self.mainloop()
 root = Tk()
 root.title('OCR')
 MainPage(root)
