@@ -1,4 +1,5 @@
 import win32gui
+import win32com.client
 import pyautogui
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtGui import *
@@ -28,6 +29,8 @@ class project :
         self.merge()
 
     def web_screenshot(self):            #web截圖 圖名稱screenshot
+        shell = win32com.client.Dispatch("WScript.Shell")
+        shell.SendKeys('%')
         win32gui.SetForegroundWindow(self.hwnd)
         img = ImageGrab.grab()
         img.save("./screenshot/temporary.jpg")

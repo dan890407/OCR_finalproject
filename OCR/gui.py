@@ -90,9 +90,9 @@ class InputFrame(Frame): # 繼承Frame類
 		interval.grid(row=4,column=1,columnspan=4,stick=W,padx=20)
 
 		Label(self,text="關鍵字",font=24).grid(row=5,column=0,padx=20,pady=20)
-		contentLabel=Entry(self,textvariable=self.key,bg='white',fg='green',width=36)
+		contentLabel=Entry(self,textvariable=self.key,width=36,justify=CENTER)
 		contentLabel.grid(row=5,column=1,columnspan=5,padx=20,pady=20,)
-		contentLabel.insert(0,"-----------------------內容--------------------")
+		contentLabel.insert(0,"內容")
 		Button(self,text="開始",command=self.buttonstart,width=8,height=2,fg='DarkBlue',bg='Ivory').grid(row=5,column=6,columnspan=2,rowspan=2,stick=E,padx=20)
 		Button(self,text="停止",command=self.loopstop,width=8,height=2,fg='red',bg='Ivory').grid(row=5,column=8,columnspan=2,rowspan=2,stick=W)
 	def popdescribtion(self):
@@ -106,8 +106,10 @@ class InputFrame(Frame): # 繼承Frame類
 			image_contrasted = enh_con.enhance(contrast)
 			image_contrasted.save("./screenshot/testshow.jpg")
 			os.remove("./screenshot/test.jpg")
-		ipclass = self.hwnd
+		ipclass = win32gui.GetClassName(self.localhwnd)
 		if ipclass == "Chrome_WidgetWin_1":
+			shell = win32com.client.Dispatch("WScript.Shell")
+			shell.SendKeys('%')
 			win32gui.SetForegroundWindow(self.localhwnd)
 			img = ImageGrab.grab()
 			img.save("./screenshot/test.jpg")
@@ -135,14 +137,14 @@ class InputFrame(Frame): # 繼承Frame類
 		win32gui.SetForegroundWindow(self.localhwnd)
 		win32gui.ShowWindow (self.localhwnd,win32con.SW_MAXIMIZE )
 		top = Toplevel()
-		top.overrideredirect(True)    #忘了
+		top.overrideredirect(True)  
 		top.attributes("-alpha", 0.3)    #透明度，讓他有灰灰的感覺
 		top.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight())) #跟螢幕一樣大
 		top.configure(bg="black")
 		root.withdraw()     #暫時隱藏root(主畫面)，不是top-level哦
 		cv = Canvas(top) #可以圈出框框的畫布
 		win32gui.SetForegroundWindow(top.winfo_id())
-		def button_1(event):    #其他我都照抄懶的理解
+		def button_1(event):    
 			global x, y ,xstart,ystart
 			global rec
 			x, y = event.x, event.y
@@ -175,7 +177,7 @@ class InputFrame(Frame): # 繼承Frame類
 		top.bind("<ButtonRelease-1>", buttonRelease_1) # 滑鼠左鍵釋放->記錄最後遊標的位置
 	def func(self,event):
 		pos =win32gui.GetCursorPos()      
-		self.localhwnd=win32gui.WindowFromPoint(pos) #10和11行取得hwnd
+		self.localhwnd=win32gui.WindowFromPoint(pos) #取得hwnd
 		self.hwnd.set(hex(self.localhwnd))  #標籤顯示hwnd
 		print(hex(int(self.hwnd.get(),16)))
 	def mainloop(self):
