@@ -9,14 +9,13 @@ import time
 import sys,os
 import pytesseract
 class project :
-    def __init__(self,hwnd,filename,left,up,right,down,key):
+    def __init__(self,hwnd,filename,left,up,right,down):
         self.hwnd=hwnd
         self.filename=filename
         self.left=left
         self.up=up
         self.right=right
         self.down=down
-        self.key=key
 
     def autofetch(self):
         ipclass = win32gui.GetClassName(self.hwnd)
@@ -94,5 +93,3 @@ class project :
         t.close()
         f.close()
         os.remove(temporary)
-    def findkey(self,key):    
-        return key

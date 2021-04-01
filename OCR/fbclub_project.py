@@ -5,6 +5,7 @@ from PIL import ImageTk , Image,ImageGrab
 import win32gui
 import win32con
 from gui_lib import *
+from fbclub_lib import *
 from tkinter.filedialog import askdirectory
 import pytesseract
 from cv2 import cv2 as cv
@@ -87,6 +88,7 @@ class InputFrame(Frame): # 繼承Frame類
 		interval=Entry(self, textvariable=self.interval,width=20,justify=CENTER)
 		interval.insert(0,"default is 5 sec")
 		interval.grid(row=4,column=1,columnspan=4,stick=W,padx=20)
+
 		Button(self,text="開始",command=self.buttonstart,width=8,height=2,fg='DarkBlue',bg='Ivory').grid(row=5,column=6,columnspan=2,rowspan=2,stick=E,padx=20)
 		Button(self,text="停止",command=self.loopstop,width=8,height=2,fg='red',bg='Ivory').grid(row=5,column=8,columnspan=2,rowspan=2,stick=W)
 	def popdescribtion(self):
@@ -175,7 +177,17 @@ class InputFrame(Frame): # 繼承Frame類
 		self.hwnd.set(hex(self.localhwnd))  #標籤顯示hwnd
 		print(hex(int(self.hwnd.get(),16)))
 	def mainloop(self):
-		self.test.autofetch()
+		pos = imagesearch("seemore.jpg")
+		if pos != [800,500]:
+			click_image("seemore.jpg",pos,"left",0.1)
+		time.sleep(1)
+		self.test.web_screenshot()
+		self.test.divid()
+		self.test.ocr()
+		self.test.merge()
+		with open('./text_file/'+self.filename.get()+".txt",'a') as f:
+			f.writelines("\n-------------------------------------------\n")
+		pyautogui.scroll(-(int(self.bottom.get())-int(self.top.get())))
 		self.tkafter=root.after(self.interval_variable*1000,self.mainloop)      #按間格重複執行
 	def loopstop(self):
 		root.after_cancel(self.tkafter)	
@@ -183,7 +195,7 @@ class InputFrame(Frame): # 繼承Frame類
 		if self.hwnd.get() == 'hwnd' or self.top.get() == '上' or self.path.get()=='路徑':
 			if self.hwnd.get() == 'hwnd':
 				messagebox.showinfo("missing input", "請拖曳圖標至視窗取得視窗代碼")
-			if self.top.get() == '上':
+			if self.top.get() == '左':
 				messagebox.showinfo("missing input", "請選擇範圍")
 			if self.path.get() == '路徑':
 				messagebox.showinfo("missing input", "請選擇路徑")
