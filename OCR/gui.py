@@ -196,7 +196,7 @@ class InputFrame(Frame): # 繼承Frame類
 				file_localname="ocr_text"
 			else:
 				file_localname=self.filename.get()
-			self.test=project(self.localhwnd,file_localname,int(self.left.get()),int(self.top.get()),int(self.right.get()),int(self.bottom.get()))
+			self.test=project(self.localhwnd,file_localname,int(self.left.get()),int(self.top.get()),int(self.right.get()),int(self.bottom.get()),self.path)
 			self.mainloop()
 root = Tk()
 root.title('OCR')

@@ -9,14 +9,15 @@ import time
 import sys,os
 import pytesseract
 class project :
-    def __init__(self,hwnd,filename,left,up,right,down):
+    def __init__(self,hwnd,filename,left,up,right,down,path):
         self.hwnd=hwnd
         self.filename=filename
         self.left=left
         self.up=up
         self.right=right
         self.down=down
-
+        newpath=path+"/"
+        self.path=newpath
     def autofetch(self):
         ipclass = win32gui.GetClassName(self.hwnd)
         if ipclass=="Chrome_WidgetWin_1":
@@ -58,7 +59,7 @@ class project :
 
     def merge(self):             #合併
         temporary='./text_file/temporary.txt'
-        goal = './text_file/'+self.filename+".txt"
+        goal = self.path+self.filename+".txt"
         with open(temporary,'w+',encoding='utf-8') as t:
             t.writelines(self.text)
         if not os.path.isfile(goal):
