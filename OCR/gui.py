@@ -120,9 +120,9 @@ class InputFrame(Frame): # 繼承Frame類
 		cv.destroyAllWindows()
 		os.remove("./screenshot/testshow.jpg")
 	def selectPath(self):
-		path_ = askdirectory()
-		path_=path_.replace("\\",'//')
-		self.path.set(path_)
+		pathing = askdirectory()
+		pathing=pathing.replace("\\",'//')
+		self.path.set(str(pathing))
 	
 	def createscreenshot(self):       #建造一個top-level的視窗
 		if self.hwnd.get() == 'HWND':
@@ -196,7 +196,11 @@ class InputFrame(Frame): # 繼承Frame類
 				file_localname="ocr_text"
 			else:
 				file_localname=self.filename.get()
-			self.test=project(self.localhwnd,file_localname,int(self.left.get()),int(self.top.get()),int(self.right.get()),int(self.bottom.get()),self.path)
+			if self.path.get()=="路徑":
+				localpath="D:/"
+			else:
+				localpath=self.path.get()
+			self.test=project(self.localhwnd,file_localname,int(self.left.get()),int(self.top.get()),int(self.right.get()),int(self.bottom.get()),localpath)
 			self.mainloop()
 root = Tk()
 root.title('OCR')

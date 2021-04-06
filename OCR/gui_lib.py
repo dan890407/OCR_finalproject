@@ -16,7 +16,7 @@ class project :
         self.up=up
         self.right=right
         self.down=down
-        newpath=path+"/"
+        newpath=str(path)+"/"
         self.path=newpath
     def autofetch(self):
         ipclass = win32gui.GetClassName(self.hwnd)

@@ -122,9 +122,9 @@ class InputFrame(Frame): # 繼承Frame類
 		cv.destroyAllWindows()
 		os.remove("./screenshot/testshow.jpg")
 	def selectPath(self):
-		path_ = askdirectory()
-		path_=path_.replace("\\",'//')
-		self.path.set(path_)
+		pathing = askdirectory()
+		pathing=pathing.replace("\\",'//')
+		self.path.set(str(pathing))
 	
 	def createscreenshot(self):       #建造一個top-level的視窗
 		if self.hwnd.get() == 'HWND':
@@ -185,7 +185,7 @@ class InputFrame(Frame): # 繼承Frame類
 		self.test.divid()
 		self.test.ocr()
 		self.test.merge()
-		with open('./text_file/'+self.filename.get()+".txt",'a') as f:
+		with open(self.localpath+self.file_localname+".txt",'a') as f:
 			f.writelines("\n-------------------------------------------\n")
 		pyautogui.scroll(-(int(self.bottom.get())-int(self.top.get())))
 		self.tkafter=root.after(self.interval_variable*1000,self.mainloop)      #按間格重複執行
@@ -205,10 +205,14 @@ class InputFrame(Frame): # 繼承Frame類
 			else:
 				self.interval_variable=int(self.interval.get())
 			if self.filename.get()=="default is ocr_text":
-				file_localname="ocr_text"
+				self.file_localname="ocr_text"
 			else:
-				file_localname=self.filename.get()
-			self.test=project(self.localhwnd,file_localname,int(self.left.get()),int(self.top.get()),int(self.right.get()),int(self.bottom.get()))
+				self.file_localname=self.filename.get()
+			if self.path.get()=="路徑":
+				self.localpath="D:/"
+			else:
+				self.localpath=self.path.get()
+			self.test=project(self.localhwnd,self.file_localname,int(self.left.get()),int(self.top.get()),int(self.right.get()),int(self.bottom.get()),self.localpath)
 			self.mainloop()
 root = Tk()
 root.title('OCR')
