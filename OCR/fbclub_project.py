@@ -185,8 +185,6 @@ class InputFrame(Frame): # 繼承Frame類
 		self.test.divid()
 		self.test.ocr()
 		self.test.merge()
-		with open(self.localpath+self.file_localname+".txt",'a') as f:
-			f.writelines("\n-------------------------------------------\n")
 		pyautogui.scroll(-(int(self.bottom.get())-int(self.top.get())))
 		self.tkafter=root.after(self.interval_variable*1000,self.mainloop)      #按間格重複執行
 	def loopstop(self):

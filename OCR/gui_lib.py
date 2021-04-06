@@ -72,7 +72,7 @@ class project :
         if len(lines) == 0:
             last_line=''
         else:
-            last_line = lines[-1]
+            last_line = lines[-2]
         print(last_line)
         check = 0
         for line in t.readlines():
@@ -92,5 +92,6 @@ class project :
                 else:
                     f.writelines("")
         t.close()
+        f.writelines("\n-------------------------------------------\n")
         f.close()
         os.remove(temporary)
