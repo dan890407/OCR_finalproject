@@ -184,8 +184,12 @@ class InputFrame(Frame): # 繼承Frame類
 		self.test.web_screenshot()
 		self.test.divid()
 		self.test.ocr()
-		self.test.merge()
-		pyautogui.scroll(-(int(self.bottom.get())-int(self.top.get())))
+		tdot = imagesearch("threedot.jpg")
+		if tdot != [800,500]:
+			pyautogui.scroll(int(self.top.get())-tdot[1])
+			pyautogui.scroll(-20)
+		else:
+			pyautogui.scroll(int(self.top.get())-int(self.bottom.get()))
 		self.tkafter=root.after(self.interval_variable*1000,self.mainloop)      #按間格重複執行
 	def loopstop(self):
 		root.after_cancel(self.tkafter)	

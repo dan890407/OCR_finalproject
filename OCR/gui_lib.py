@@ -92,6 +92,6 @@ class project :
                 else:
                     f.writelines("")
         t.close()
-        f.writelines("\n-------------------------------------------\n")
+        f.writelines("\n-----\n")
         f.close()
         os.remove(temporary)
