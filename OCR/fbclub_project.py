@@ -177,16 +177,17 @@ class InputFrame(Frame): # 繼承Frame類
 		self.hwnd.set(hex(self.localhwnd))  #標籤顯示hwnd
 		print(hex(int(self.hwnd.get(),16)))
 	def mainloop(self):
+		self.test.web_screenshot()
 		pos = imagesearch("seemore.jpg")
 		if pos != [800,500]:
 			click_image("seemore.jpg",pos,"left",0.1)
-		time.sleep(1)
-		self.test.web_screenshot()
-		self.test.divid()
-		self.test.ocr()
 		tdot = imagesearch("threedot.jpg")
 		if tdot != [800,500]:
 			pyautogui.scroll(int(self.top.get())-tdot[1])
+			self.test.web_screenshot()
+			self.test.divid()
+			self.test.ocr()
+			self.test.merge()
 			pyautogui.scroll(-20)
 		else:
 			pyautogui.scroll(int(self.top.get())-int(self.bottom.get()))
