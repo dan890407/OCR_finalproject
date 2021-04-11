@@ -37,7 +37,7 @@ class InputFrame(Frame): # 繼承Frame類
 		self.createPage()
 	
 	def createPage(self):
-		img_1 = Image.open("./eye.gif")     #按鈕圖標
+		img_1 = Image.open("./picture/eye.gif")     #按鈕圖標
 		img_1 = img_1.resize((30,30))
 		self.photoImg_1 =  ImageTk.PhotoImage(img_1)	
 		b=Button(self,image=self.photoImg_1,cursor="tcross")
@@ -52,7 +52,7 @@ class InputFrame(Frame): # 繼承Frame類
 		describtion.grid(row=0,column=5,pady=20)
 		Button(self,text="顯示截圖",command=self.test_showimg,width=15,height=4,bg='LightCyan').grid(row=0,column=6,columnspan=3,rowspan=2,stick=W,padx=30)
 		
-		img_2 = Image.open("./pull.gif")     #按鈕圖標
+		img_2 = Image.open("./picture/pull.gif")     #按鈕圖標
 		img_2 = img_2.resize((30,30))
 		self.photoImg_2 =  ImageTk.PhotoImage(img_2)
 		b=Button(self,image=self.photoImg_2,command=self.createscreenshot)

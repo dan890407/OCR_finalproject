@@ -38,7 +38,7 @@ class InputFrame(Frame): # 繼承Frame類
 		self.createPage()
 	
 	def createPage(self):
-		img_1 = Image.open("./eye.gif")     #按鈕圖標
+		img_1 = Image.open("./picture/eye.gif")     #按鈕圖標
 		img_1 = img_1.resize((30,30))
 		self.photoImg_1 =  ImageTk.PhotoImage(img_1)	
 		b=Button(self,image=self.photoImg_1,cursor="tcross")
@@ -53,7 +53,7 @@ class InputFrame(Frame): # 繼承Frame類
 		describtion.grid(row=0,column=5,pady=20)
 		Button(self,text="顯示截圖",command=self.test_showimg,width=15,height=4,bg='LightCyan').grid(row=0,column=6,columnspan=3,rowspan=2,stick=W,padx=30)
 		
-		img_2 = Image.open("./pull.gif")     #按鈕圖標
+		img_2 = Image.open("./picture/pull.gif")     #按鈕圖標
 		img_2 = img_2.resize((30,30))
 		self.photoImg_2 =  ImageTk.PhotoImage(img_2)
 		b=Button(self,image=self.photoImg_2,command=self.createscreenshot)
@@ -178,17 +178,21 @@ class InputFrame(Frame): # 繼承Frame類
 		print(hex(int(self.hwnd.get(),16)))
 	def mainloop(self):
 		self.test.web_screenshot()
-		pos = imagesearch("seemore.jpg")
-		if pos != [800,500]:
-			click_image("seemore.jpg",pos,"left",0.1)
-		tdot = imagesearch("threedot.jpg")
+		tdot = imagesearch("./picture/threedot.jpg")
 		if tdot != [800,500]:
 			pyautogui.scroll(int(self.top.get())-tdot[1])
-			self.test.web_screenshot()
+			pyautogui.scroll(-25)
+			time.sleep(0.25)
+			pos = imagesearch("./picture/seemore.jpg")
+			if pos != [800,500]:
+				click_image("./picture/seemore.jpg",pos,"left",0.1)
+			time.sleep(1)
 			self.test.divid()
 			self.test.ocr()
+			self.test.txt()
+			self.test.cut_word()
+			self.test.judge()
 			self.test.merge()
-			pyautogui.scroll(-20)
 		else:
 			pyautogui.scroll(int(self.top.get())-int(self.bottom.get()))
 		self.tkafter=root.after(self.interval_variable*1000,self.mainloop)      #按間格重複執行
