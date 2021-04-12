@@ -92,7 +92,7 @@ class project :
                 if word in keywords:
                     index.append(sentence)
         article.close()
-        with open('./text_file/temporary.txt','w',encoding='utf-8') as t:
+        with open(temporary,'w',encoding='utf-8') as t:
             if len(index) != 0:
                 for word in index:
                     t.writelines(word)
@@ -121,10 +121,12 @@ class project :
                         if s in important:
                             weight = weight + 2
                             index.append(s+':'+sentence.strip().split(":")[1])
+                            important.remove(s)
                             continue
                         if s in keywords:
                             weight = weight + 1
                             index.append(s+':'+sentence.strip().split(":")[1])
+                            keywords.remove(s)
         print(index)
         print(weight)
         if weight < 5:
@@ -134,6 +136,7 @@ class project :
             with open(temporary,'w',encoding='utf-8') as t:
                 for sentence in index:
                     t.writelines(sentence)
+                    t.write('\n')
 
     def merge(self):             #合併
         temporary='./text_file/temporary.txt'
