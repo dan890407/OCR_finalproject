@@ -192,6 +192,7 @@ class InputFrame(Frame): # 繼承Frame類
 			self.test.txt()
 			self.test.cut_word()
 			self.test.judge()
+			self.test.jsons()
 			self.test.merge()
 			pyautogui.scroll(int(self.top.get())-int(self.bottom.get()))
 		else:

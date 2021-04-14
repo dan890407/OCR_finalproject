@@ -137,9 +137,21 @@ class project :
                 for sentence in index:
                     t.writelines(sentence)
                     t.write('\n')
-
+    def jsons(self):
+        with open("./text_file/temporary.txt","r",encoding="UTF-8") as o:
+            with open("./text_file/temporarytojson.txt","w") as t:
+                t.write("\t"+"{\n")
+                texts=o.readlines()
+                for line in texts:
+                    if line.find(":") != -1:
+                        t.write('\t\t"'+line[:line.find(":")]+'":"'+line[(line.find(":")+1):len(line)-1])
+                        if line != texts[-1]:
+                            t.write('",\n')
+                        else:
+                            t.write('"\n')
+                t.write("\t"+"},\n")
     def merge(self):             #合併
-        temporary='./text_file/temporary.txt'
+        temporary='./text_file/temporarytojson.txt'
         goal = self.path+self.filename+".txt"     
         f = open(goal,'a',encoding="utf-8")   
         t = open(temporary,'r',encoding='utf-8')
