@@ -4,7 +4,6 @@ import pyautogui
 from PIL import ImageTk , Image,ImageGrab
 import win32gui
 import win32con
-from gui_lib import *
 from fbclub_lib import *
 from tkinter.filedialog import askdirectory
 import pytesseract
