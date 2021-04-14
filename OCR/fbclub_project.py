@@ -199,8 +199,12 @@ class InputFrame(Frame): # 繼承Frame類
 			pyautogui.scroll(int(self.top.get())-int(self.bottom.get()))
 		self.tkafter=root.after(self.interval_variable*1000,self.mainloop)      #按間格重複執行
 	def loopstop(self):
-		root.after_cancel(self.tkafter)	
+		root.after_cancel(self.tkafter)
+		with open("./text_file/temporarytojson.txt","a",encoding="UTF-8") as t:
+			t.write("]")	
 	def buttonstart(self):
+		with open("./text_file/temporarytojson.txt","w",encoding="UTF-8") as t:
+			t.write("[\n")
 		if self.hwnd.get() == 'hwnd' or self.top.get() == '上' or self.path.get()=='路徑':
 			if self.hwnd.get() == 'hwnd':
 				messagebox.showinfo("missing input", "請拖曳圖標至視窗取得視窗代碼")
