@@ -199,10 +199,10 @@ class InputFrame(Frame): # 繼承Frame類
 		self.tkafter=root.after(self.interval_variable*1000,self.mainloop)      #按間格重複執行
 	def loopstop(self):
 		root.after_cancel(self.tkafter)
-		with open("./text_file/temporarytojson.txt","a",encoding="UTF-8") as t:
-			t.write("]")	
+		with open(self.localpath+self.file_localname+".txt","a",encoding="UTF-8") as t:
+			t.write("\n]")	
 	def buttonstart(self):
-		with open("./text_file/temporarytojson.txt","w",encoding="UTF-8") as t:
+		with open(self.localpath+self.file_localname+".txt","w",encoding="UTF-8") as t:
 			t.write("[\n")
 		if self.hwnd.get() == 'hwnd' or self.top.get() == '上' or self.path.get()=='路徑':
 			if self.hwnd.get() == 'hwnd':

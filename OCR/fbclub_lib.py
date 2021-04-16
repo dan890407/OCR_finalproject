@@ -137,14 +137,55 @@ class project :
                 for sentence in index:
                     t.writelines(sentence)
                     t.write('\n')
-    def jsons(self):
-        with open("./text_file/temporary.txt","r",encoding="UTF-8") as o:
-            with open("./text_file/temporarytojson.txt","w") as t:
+    def jsons():
+        form={
+                "price":["價格","開價","售價","總價"],
+                "location":["地址","地點","區域"],
+                "size":["建坪","坪數","總建"],
+                "inner":["室內","主附"],
+                "floor":["樓層"],
+                "car":["車位"],
+                "age":["屋齡"],
+                "format":["格局"],
+                "managementfee":["管理費"],
+                "facing":["坐向","朝向","座向"]		
+        }
+        regularform={
+                "price":"(\d+)萬",
+                "location":"(\w+)",
+                "size":"(\d+)坪",
+                "inner":"(\d+)坪",
+                "floor":"(\d+)樓",
+                "car":"(\w)個",
+                "age":"(\d)年",
+                "format":"(\d+)房(\d+)廳(\d+)衛",
+                "managementfee":"(\d+)元",
+                "facing":["東","南","西","北"]		
+        }
+        with open("test.txt","r",encoding="UTF-8") as f:
+            with open("testjson2.txt","a") as t:
                 t.write("\t"+"{\n")
-                texts=o.readlines()
+                texts=f.readlines()
                 for line in texts:
                     if line.find(":") != -1:
-                        t.write('\t\t"'+line[:line.find(":")]+'":"'+line[(line.find(":")+1):len(line)-1])
+                        for name,data in form.items():  
+                            for i in data:
+                                if i==line[:line.find(":")]:   #標準化key
+                                    t.write('\t\t"'+name+'":"') #標準化key
+                                    if name=="facing":  #找朝向的第一個方位  通常是面對方向
+                                        flag=0
+                                        for k in line[(line.find(":")+1):len(line)-1]:
+                                            if k in regularform['facing']:
+                                                flag=1
+                                                t.write(k)
+                                                break
+                                    else: #用正規式處理字串(value)
+                                        if name!='format':
+                                            t.write(str(*re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])))
+                                        else:#格局標準化
+                                            localformat=re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])[0]
+                                            for jj in localformat:
+                                                t.write(jj+"/")
                         if line != texts[-1]:
                             t.write('",\n')
                         else:
