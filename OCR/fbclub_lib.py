@@ -12,6 +12,7 @@ import time
 import sys,os
 import pytesseract
 import jieba
+import re
 
 def click_image(image,pos,  action, timestamp,offset=5):
     img = cv2.imread(image)
@@ -137,7 +138,7 @@ class project :
                 for sentence in index:
                     t.writelines(sentence)
                     t.write('\n')
-    def jsons():
+    def jsons(self):
         form={
                 "price":["價格","開價","售價","總價"],
                 "location":["地址","地點","區域"],
@@ -160,10 +161,10 @@ class project :
                 "age":"(\d)年",
                 "format":"(\d+)房(\d+)廳(\d+)衛",
                 "managementfee":"(\d+)元",
-                "facing":["東","南","西","北"]		
+                "facing":["東","南","西","北","東北","東南","西南","西南"]		
         }
-        with open("test.txt","r",encoding="UTF-8") as f:
-            with open("testjson.txt","a") as t:
+        with open("./text_file/temporary.txt","r",encoding="UTF-8") as f:
+            with open("./text_file/temporarytojson.txt","a") as t:
                 t.write("\t"+"{\n")
                 texts=f.readlines()
                 for line in texts:
@@ -192,14 +193,15 @@ class project :
                             t.write('"\n')
                 t.write("\t"+"},\n")
     def merge(self):             #合併
-        temporary='./text_file/temporarytojson.txt'
+        temporary='./text_file/temporary.txt'
+        temporarytojson='./text_file/temporarytojson.txt'
         goal = self.path+self.filename+".txt"     
         f = open(goal,'a',encoding="utf-8")   
-        t = open(temporary,'r',encoding='utf-8')
+        t = open(temporarytojson,'r',encoding='utf-8')
         if os.path.getsize(temporary):
             for line in t.readlines():
                     f.writelines(line)
-            f.writelines("-----\n")
         t.close()
         f.close()
         os.remove(temporary)
+        os.remove(temporarytojson)
