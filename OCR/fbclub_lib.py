@@ -163,7 +163,7 @@ class project :
                 "facing":["東","南","西","北"]		
         }
         with open("test.txt","r",encoding="UTF-8") as f:
-            with open("testjson2.txt","a") as t:
+            with open("testjson.txt","a") as t:
                 t.write("\t"+"{\n")
                 texts=f.readlines()
                 for line in texts:
