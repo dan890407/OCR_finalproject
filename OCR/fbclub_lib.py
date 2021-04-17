@@ -34,6 +34,20 @@ def imagesearch(image, precision=0.8):
         return [800,500]
     return max_loc #返回圖片座標
 
+def is_number(s):
+    try:  
+        float(s)
+        return True
+    except ValueError:
+        pass 
+    try:
+        import unicodedata 
+        unicodedata.numeric(s)
+        return True
+    except (TypeError, ValueError):
+        pass
+    return False
+
 class project :
     def __init__(self,hwnd,filename,left,up,right,down,path):
         self.hwnd=hwnd
@@ -138,6 +152,106 @@ class project :
                 for sentence in index:
                     t.writelines(sentence)
                     t.write('\n')
+
+    def fix(self):
+        price = ["價格","開價","售價","總價"]
+        location = ["地址","地點","區域"]
+        size = ["建坪","坪數","總建"]
+        inner = ["室內","主附"]
+        floor = ["樓層"]
+        car = ["車位"]
+        age = ["屋齡"]
+        form = ["格局"]
+        managementfee = ["管理費"]
+        facing = ["坐向","朝向","座向"]
+        direction = ["東","南","西","北","東北","東南","西南","西北"]
+        temporary='./text_file/temporary.txt'
+        index = []
+        
+        with open(temporary,'r',encoding='utf-8') as t:
+            for line in t.readlines():
+                front = line.strip().split(":")[0]
+                back = line.strip().split(":")[1]
+                cut_back = jieba.lcut(back)
+                print(cut_back)
+                if front in price:
+                    front = '價格'
+                    for i in cut_back:
+                        if is_number(i) == True:
+                            index.append('"'+front+'":"'+i+'"')
+                            break
+                    continue
+                elif front in location:
+                    front = '地址'
+                    index.append('"'+front+'":"'+back+'"')
+                    continue
+                elif front in size:
+                    front = '建坪'
+                    for i in cut_back:
+                        if is_number(i) == True:
+                            index.append('"'+front+'":"'+i+'"')
+                            break
+                    continue
+                elif front in inner:
+                    front = '室內'
+                    for i in cut_back:
+                        if is_number(i) == True:
+                            index.append('"'+front+'":"'+i+'"')
+                            break
+                    continue
+                elif front in floor:
+                    front = '樓層'
+                    for i in cut_back:
+                        if is_number(i) == True:
+                            index.append('"'+front+'":"'+i+'"')
+                            break
+                    continue
+                elif front in car:
+                    front = '車位'
+                    if '無' in cut_back or '沒有' in cut_back:
+                        index.append('"'+front+'":"無"')
+                    else:
+                        index.append('"'+front+'":"有"')
+                    continue
+                elif front in age:
+                    front = '屋齡'
+                    for i in cut_back:
+                        if is_number(i) == True:
+                            index.append('"'+front+'":"'+i+'"')
+                            break
+                    continue
+                elif front in form:
+                    front = '格局'
+                    count = 0
+                    num = []
+                    if '廳' in cut_back and '房' in cut_back and ('衛' in cut_back or '衛浴' in cut_back):
+                        for i in cut_back:
+                            if is_number(i) == True:
+                                num.append(i)
+                                count = count + 1
+                                if count == 3:
+                                    index.append('"'+front+'":"'+num[0]+'/'+num[1]+'/'+num[2]+'"')
+                    continue
+                elif front in managementfee:
+                    front = '管理費'
+                    for i in cut_back:
+                        if is_number(i) == True:
+                            index.append('"'+front+'":"'+i+'"')
+                            break
+                    continue
+                elif front in facing:
+                    front = '坐向'
+                    for i in cut_back:
+                        if i in direction:
+                            index.append('"'+front+'":"'+i+'"')
+                    continue
+        with open(temporary,'w',encoding='utf-8') as t:
+            t.write('{\n')
+            for sentence in index:
+                    t.writelines(sentence+',\n')
+            t.write('}\n')
+                    
+                    
     def jsons(self):
         form={
                 "price":["價格","開價","售價","總價"],
@@ -192,6 +306,7 @@ class project :
                         else:
                             t.write('"\n')
                 t.write("\t"+"},\n")
+
     def merge(self):             #合併
         temporary='./text_file/temporary.txt'
         temporarytojson='./text_file/temporarytojson.txt'
