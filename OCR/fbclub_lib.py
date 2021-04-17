@@ -304,6 +304,7 @@ class project :
                                                     t.write(jj+"/")	
                                             except Exception as e:
                                                 print(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
+                                                t.write(" ")
                         if line != texts[-1]:
                             t.write('",\n')
                         else:
