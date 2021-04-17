@@ -16,10 +16,10 @@ if run == True:
             print(2)
         time.sleep(3)
 else:
-    '''test.web_screenshot()
+    test.web_screenshot()
     test.divid()
     test.ocr()
     test.txt()
     test.cut_word()
-    test.judge()'''
-    test.fix()
+    test.judge()
+    test.jsons()

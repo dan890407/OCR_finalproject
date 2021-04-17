@@ -59,7 +59,6 @@ class project :
         newpath=str(path)+"/"
         self.path=newpath
         self.count = 0
-        jieba.load_userdict('./jieba/fb_club_dict.txt')
     def web_screenshot(self):            #web截圖 圖名稱screenshot
         shell = win32com.client.Dispatch("WScript.Shell")
         shell.SendKeys('%')
