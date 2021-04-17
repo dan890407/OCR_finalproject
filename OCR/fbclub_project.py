@@ -199,11 +199,9 @@ class InputFrame(Frame): # 繼承Frame類
 		self.tkafter=root.after(self.interval_variable*1000,self.mainloop)      #按間格重複執行
 	def loopstop(self):
 		root.after_cancel(self.tkafter)
-		with open(self.localpath+self.file_localname+".txt","a",encoding="UTF-8") as t:
+		with open(str(self.localpath)+str(self.file_localname)+".txt","a",encoding="UTF-8") as t:
 			t.write("\n]")	
 	def buttonstart(self):
-		with open(self.localpath+self.file_localname+".txt","w",encoding="UTF-8") as t:
-			t.write("[\n")
 		if self.hwnd.get() == 'hwnd' or self.top.get() == '上' or self.path.get()=='路徑':
 			if self.hwnd.get() == 'hwnd':
 				messagebox.showinfo("missing input", "請拖曳圖標至視窗取得視窗代碼")
@@ -224,6 +222,8 @@ class InputFrame(Frame): # 繼承Frame類
 				self.localpath="D:/"
 			else:
 				self.localpath=self.path.get()
+			with open(str(self.localpath)+str(self.file_localname)+".txt","a+",encoding="UTF-8") as t:
+				t.write("[\n")
 			self.test=project(self.localhwnd,self.file_localname,int(self.left.get()),int(self.top.get()),int(self.right.get()),int(self.bottom.get()),self.localpath)
 			self.mainloop()
 root = Tk()

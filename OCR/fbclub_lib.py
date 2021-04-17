@@ -252,7 +252,7 @@ class project :
             t.write('}\n')
                     
                     
-    def jsons(self):
+    def jsons():
         form={
                 "price":["價格","開價","售價","總價"],
                 "location":["地址","地點","區域"],
@@ -272,13 +272,13 @@ class project :
                 "inner":"(\d+)坪",
                 "floor":"(\d+)樓",
                 "car":"(\w)個",
-                "age":"(\d)年",
-                "format":"(\d+)房(\d+)廳(\d+)衛",
+                "age":"(\d+)年",
+                "format":"(\d+)房[/]*(\d+)廳[/]*(\d+)衛",
                 "managementfee":"(\d+)元",
-                "facing":["東","南","西","北","東北","東南","西南","西南"]		
+                "facing":["東","南","西","北","東北","東南","西南","西南"]			
         }
-        with open("./text_file/temporary.txt","r",encoding="UTF-8") as f:
-            with open("./text_file/temporarytojson.txt","a") as t:
+        with open("test.txt","r",encoding="UTF-8") as f:
+            with open("testjson.txt","a") as t:
                 t.write("\t"+"{\n")
                 texts=f.readlines()
                 for line in texts:
@@ -296,18 +296,20 @@ class project :
                                                 break
                                     else: #用正規式處理字串(value)
                                         if name!='format':
-                                            t.write(str(*re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])))
+                                            t.write(''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])))
                                         else:#格局標準化
-                                            localformat=re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])[0]
-                                            for jj in localformat:
-                                                t.write(jj+"/")
+                                            try:
+                                                localformat=re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])[0]
+                                                for jj in localformat:
+                                                    t.write(jj+"/")	
+                                            except Exception as e:
+                                                print(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
                         if line != texts[-1]:
                             t.write('",\n')
                         else:
                             t.write('"\n')
                 t.write("\t"+"},\n")
-
-    def merge(self):             #合併
+    def merge(self):
         temporary='./text_file/temporary.txt'
         temporarytojson='./text_file/temporarytojson.txt'
         goal = self.path+self.filename+".txt"     
