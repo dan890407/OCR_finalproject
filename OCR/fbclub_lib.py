@@ -59,7 +59,7 @@ class project :
         newpath=str(path)+"/"
         self.path=newpath
         self.count = 0
-
+        jieba.load_userdict('./jieba/fb_club_dict.txt')
     def web_screenshot(self):            #web截圖 圖名稱screenshot
         shell = win32com.client.Dispatch("WScript.Shell")
         shell.SendKeys('%')
@@ -93,7 +93,6 @@ class project :
             v.writelines('\n-----\n')
 
     def cut_word(self):  #斷詞+關鍵字
-        jieba.load_userdict('./jieba/fb_club_dict.txt')
         temporary = './text_file/temporary.txt'
         keywords = []
         index = []
@@ -253,12 +252,12 @@ class project :
                     
                     
     def jsons():
+        localdic=dict()
         form={
                 "price":["價格","開價","售價","總價"],
                 "location":["地址","地點","區域"],
                 "size":["建坪","坪數","總建"],
                 "inner":["室內","主附"],
-                "floor":["樓層"],
                 "car":["車位"],
                 "age":["屋齡"],
                 "format":["格局"],
@@ -268,48 +267,56 @@ class project :
         regularform={
                 "price":"(\d+)萬",
                 "location":"(\w+)",
-                "size":"(\d+)坪",
-                "inner":"(\d+)坪",
-                "floor":"(\d+)樓",
+                "size":"(\d*[\.\d]*)坪",
+                "inner":"(\d*[\.\d]*)坪",
                 "car":"(\w)個",
+                "car2":["無","沒有","0"],
                 "age":"(\d+)年",
                 "format":"(\d+)房[/]*(\d+)廳[/]*(\d+)衛",
                 "managementfee":"(\d+)元",
-                "facing":["東","南","西","北","東北","東南","西南","西南"]			
+                "facing":["東","南","西","北","東北","東南","西南","西南"]		
         }
-        with open("test.txt","r",encoding="UTF-8") as f:
-            with open("testjson.txt","a") as t:
-                t.write("\t"+"{\n")
-                texts=f.readlines()
-                for line in texts:
-                    if line.find(":") != -1:
-                        for name,data in form.items():  
-                            for i in data:
-                                if i==line[:line.find(":")]:   #標準化key
-                                    t.write('\t\t"'+name+'":"') #標準化key
-                                    if name=="facing":  #找朝向的第一個方位  通常是面對方向
-                                        flag=0
-                                        for k in line[(line.find(":")+1):len(line)-1]:
-                                            if k in regularform['facing']:
-                                                flag=1
-                                                t.write(k)
-                                                break
-                                    else: #用正規式處理字串(value)
-                                        if name!='format':
-                                            t.write(''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])))
-                                        else:#格局標準化
-                                            try:
-                                                localformat=re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])[0]
-                                                for jj in localformat:
-                                                    t.write(jj+"/")	
-                                            except Exception as e:
-                                                print(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
-                                                t.write(" ")
-                        if line != texts[-1]:
-                            t.write('",\n')
-                        else:
-                            t.write('"\n')
-                t.write("\t"+"},\n")
+        with open("./text_file/temporary.txt","r+",encoding="UTF-8") as f:
+            texts=f.readlines()
+            for line in texts:
+                flag=0
+                if line.find(":") != -1:
+                    for name,data in form.items():  
+                        for i in data:
+                            if i==line[:line.find(":")]:   
+                                if name=="facing":  #找朝向的第一個方位  通常是面對方向
+                                    facing_cut=[]
+                                    for fac in jieba.cut(line[(line.find(":")+1):len(line)-1],cut_all = False):	
+                                        facing_cut.append(fac)
+                                    for facs in facing_cut:
+                                        if facs in regularform['facing']:
+                                            localdic[name]=facs
+                                else: #用正規式處理字串(value)
+                                    if name=='format':
+                                        try:
+                                            localformat=re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])[0]
+                                            a=''
+                                            for jj in localformat:
+                                                a+=jj+'/'
+                                            localdic[name]=a
+                                        except Exception as e:
+                                            print(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
+                                            print(e)																			
+                                    elif name=='car':
+                                        if len(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])):
+                                            localdic[name]=''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
+                                            print(1)
+                                        else:
+                                            if line[(line.find(":")+1):len(line)-1] in regularform['car2']:
+                                                localdic[name]="0"
+                                                print(2)
+                                            else:
+                                                localdic[name]=">0"
+                                                print(3)
+                                    else:#格局標準化
+                                        localdic[name]=''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
+            f.seek(0)
+            f.write(json.dumps(localdic,indent=6,ensure_ascii=False))
     def merge(self):
         temporary='./text_file/temporary.txt'
         temporarytojson='./text_file/temporarytojson.txt'
