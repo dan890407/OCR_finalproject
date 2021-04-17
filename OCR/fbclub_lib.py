@@ -251,7 +251,7 @@ class project :
             t.write('}\n')
                     
                     
-    def jsons():
+    def jsons(self):
         localdic=dict()
         form={
                 "price":["價格","開價","售價","總價"],
@@ -300,33 +300,29 @@ class project :
                                                 a+=jj+'/'
                                             localdic[name]=a
                                         except Exception as e:
-                                            print(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
+                                            print("exception :")
                                             print(e)																			
                                     elif name=='car':
                                         if len(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])):
                                             localdic[name]=''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
-                                            print(1)
                                         else:
                                             if line[(line.find(":")+1):len(line)-1] in regularform['car2']:
                                                 localdic[name]="0"
-                                                print(2)
                                             else:
                                                 localdic[name]=">0"
-                                                print(3)
                                     else:#格局標準化
                                         localdic[name]=''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
             f.seek(0)
-            f.write(json.dumps(localdic,indent=6,ensure_ascii=False))
+            f.write(json.dumps(localdic,indent=5,ensure_ascii=False))
     def merge(self):
         temporary='./text_file/temporary.txt'
-        temporarytojson='./text_file/temporarytojson.txt'
         goal = self.path+self.filename+".txt"     
         f = open(goal,'a',encoding="utf-8")   
-        t = open(temporarytojson,'r',encoding='utf-8')
+        t = open(temporary,'r',encoding='utf-8')
         if os.path.getsize(temporary):
             for line in t.readlines():
                     f.writelines(line)
+        f.write(",")
         t.close()
         f.close()
         os.remove(temporary)
-        os.remove(temporarytojson)
