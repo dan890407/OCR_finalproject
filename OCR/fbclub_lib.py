@@ -314,6 +314,8 @@ class project :
                                             localdic[name]=re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])[0]
                                         else:
                                             localdic[name]=''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
+            f.seek(0)
+		    f.write(json.dumps(localdic,indent=5,ensure_ascii=False))
     def merge(self):
         temporary='./text_file/temporary.txt'
         goal = self.path+self.filename+".txt"     
