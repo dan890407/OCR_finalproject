@@ -5,5 +5,5 @@
   <li>tap mark on the left of the coordinates to use curser to select range</li>
   <li>choose the stored path</li>
   <li>input filename or use default</li>
-  <li>input interval of the period between each </li>
+  <li>input interval of the period between each ocr cycle or use default </li>
 </ol>
