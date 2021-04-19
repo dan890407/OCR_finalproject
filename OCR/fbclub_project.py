@@ -198,9 +198,7 @@ class InputFrame(Frame): # 繼承Frame類
 			pyautogui.scroll(int(self.top.get())-int(self.bottom.get()))
 		self.tkafter=root.after(self.interval_variable*1000,self.mainloop)      #按間格重複執行
 	def loopstop(self):
-		root.after_cancel(self.tkafter)
-		with open(str(self.localpath)+str(self.file_localname)+".txt","a",encoding="UTF-8") as t:
-			t.write("\n]")	
+		root.after_cancel(self.tkafter)	
 	def buttonstart(self):
 		if self.hwnd.get() == 'hwnd' or self.top.get() == '上' or self.path.get()=='路徑':
 			if self.hwnd.get() == 'hwnd':
@@ -222,8 +220,6 @@ class InputFrame(Frame): # 繼承Frame類
 				self.localpath="D:/"
 			else:
 				self.localpath=self.path.get()
-			with open(str(self.localpath)+str(self.file_localname)+".txt","a+",encoding="UTF-8") as t:
-				t.write("[\n")
 			self.test=project(self.localhwnd,self.file_localname,int(self.left.get()),int(self.top.get()),int(self.right.get()),int(self.bottom.get()),self.localpath)
 			self.mainloop()
 root = Tk()

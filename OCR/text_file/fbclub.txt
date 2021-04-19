@@ -1,0 +1,4188 @@
+[{
+     "price": "988",
+     "size": "44",
+     "format": "3/2/2/",
+     "age": "5",
+     "car": "yes"
+},
+{
+     "location": "台中市北屯區崇德十一路",
+     "size": "69.262",
+     "inner": "42.231",
+     "format": "4/2/2/",
+     "age": "11",
+     "car": "yes"
+},
+{
+     "location": "太平區",
+     "price": "598",
+     "format": "3/2/2/",
+     "inner": "28.35"
+},
+{
+     "location": "北屯區東山路一段21x忠",
+     "price": "2580",
+     "size": "53.5",
+     "age": "6"
+},
+{
+     "size": "47",
+     "inner": "26",
+     "facing": "南",
+     "car": "2",
+     "age": "3"
+},
+{
+     "location": "太平區中山路一段",
+     "format": "22/2/22/",
+     "size": "42",
+     "price": "3680"
+},
+{
+     "location": "潭子區中山路一段17號",
+     "size": "23.59",
+     "inner": "17.28",
+     "format": "2/1/1/",
+     "age": "13",
+     "managementfee": "1298",
+     "car": "no"
+},
+{
+     "location": "台中市西忠區河南路三段13樓",
+     "size": "39.4",
+     "inner": "14.92",
+     "format": "1/1/1/"
+},
+{
+     "location": "台中市北屯區敦仙路一段",
+     "size": "40.5",
+     "inner": "20.8",
+     "managementfee": "2855",
+     "age": "",
+     "format": "1/2/1/",
+     "car": "yes",
+     "price": "1398"
+},
+{
+     "size": "30.85",
+     "format": "5/2/4/",
+     "facing": "北",
+     "car": "yes"
+},
+{
+     "location": "北屯區東山路一段",
+     "price": "2580",
+     "size": "54"
+},
+{
+     "format": "5/3/4/",
+     "size": "63.8",
+     "age": "16",
+     "car": "yes",
+     "price": "2480"
+},
+{
+     "location": "北區國強街",
+     "format": "4/3/3/",
+     "car": "yes",
+     "price": "2080"
+},
+{
+     "location": "太平區",
+     "price": "1288",
+     "format": "4/2/2/"
+},
+{
+     "location": "太原路三段",
+     "price": "1880",
+     "size": "76",
+     "inner": "38",
+     "age": "5",
+     "car": "2",
+     "format": "4/2/2/",
+     "managementfee": "4800"
+},
+{
+     "location": "太平區育賢路",
+     "price": "1680",
+     "format": "3/2/2/",
+     "age": "3",
+     "size": "66",
+     "inner": "34",
+     "managementfee": "3200",
+     "facing": "北",
+     "car": "2"
+},
+{
+     "location": "文昌東街",
+     "price": "868",
+     "inner": "27",
+     "age": "25",
+     "format": "3/2/2/",
+     "car": "yes",
+     "managementfee": "2000"
+},
+{
+     "location": "台中市北屯區和祥三街",
+     "size": "78.3",
+     "format": "4/3/5/",
+     "car": "yes",
+     "price": "4540"
+},
+{
+     "location": "北屯區軍榮f",
+     "format": "6/2/5/",
+     "size": "83",
+     "facing": "東",
+     "car": "yes",
+     "price": "3980"
+},
+{
+     "location": "太平區",
+     "price": "598",
+     "format": "3/2/2/",
+     "inner": "28.35"
+},
+{
+     "price": "1198",
+     "size": "47",
+     "inner": "26",
+     "format": "3/2/2/",
+     "age": "3",
+     "car": "yes"
+},
+{
+     "location": "北屯區北華街1Xx號",
+     "size": "50.97",
+     "car": "yes",
+     "facing": "北",
+     "format": "3/2/2/"
+},
+{
+     "price": "1980",
+     "format": "6/3/4/",
+     "size": "64.1",
+     "age": "13",
+     "car": "yes"
+},
+{
+     "location": "北屯區三光巷16弄2樓",
+     "size": "28.84",
+     "inner": "25",
+     "format": "3/2/1/",
+     "age": "27",
+     "managementfee": "810"
+},
+{
+     "location": "北屯區中清路一段",
+     "size": "23.8",
+     "price": "2280"
+},
+{
+     "location": "北屯區敦富",
+     "size": "47.9",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "location": "北屯區軍榮街",
+     "format": "6/2/5/",
+     "size": "83",
+     "facing": "東",
+     "car": "yes",
+     "price": "3980"
+},
+{
+     "format": "5/4/6/",
+     "size": "102.74",
+     "age": "7",
+     "car": "yes",
+     "price": "4280"
+},
+{
+     "car": "yes",
+     "format": "3/2/2/",
+     "age": "9",
+     "price": "1288"
+},
+{
+     "location": "台中市北屯區曙和街",
+     "format": "4/2/3/",
+     "size": "63",
+     "inner": "47.5",
+     "age": "29",
+     "price": "988"
+},
+{
+     "location": "台中市北區東光八街",
+     "size": "45.4",
+     "age": "32",
+     "format": "8/3/3/",
+     "price": "1698"
+},
+{
+     "price": "888",
+     "size": "49",
+     "inner": "29",
+     "age": "20",
+     "format": "3/2/2/",
+     "car": "yes",
+     "managementfee": "1200"
+},
+{
+     "location": "松義街220號",
+     "size": "40",
+     "inner": "33",
+     "format": "5/2/4/",
+     "age": "27",
+     "managementfee": "2000",
+     "car": "yes"
+},
+{
+     "location": "北區太原八街",
+     "price": "658",
+     "size": "31",
+     "format": "2/2/2/",
+     "age": "26",
+     "managementfee": "1620"
+},
+{
+     "location": "文昌東",
+     "price": "868",
+     "inner": "27",
+     "age": "25",
+     "format": "3/2/2/",
+     "car": "yes",
+     "managementfee": "2000"
+},
+{
+     "location": "台中市太平區環中東路",
+     "size": "91.47",
+     "format": "5/3/4/",
+     "age": "6",
+     "car": "yes"
+},
+{
+     "size": "47",
+     "format": "3/2/2/",
+     "car": "yes",
+     "price": "1198"
+},
+{
+     "size": "",
+     "age": "",
+     "price": ""
+},
+{
+     "location": "太平區",
+     "price": "1288",
+     "format": "4/2/2/"
+},
+{
+     "format": "5/3/6/",
+     "facing": "北",
+     "age": "8",
+     "price": "2780"
+},
+{
+     "location": "台中市西地區環中路二段",
+     "size": "24.7",
+     "inner": "14.4",
+     "format": "2/2/1/",
+     "age": "2",
+     "facing": "北",
+     "managementfee": "1900",
+     "car": "yes",
+     "price": "938"
+},
+{
+     "location": "台中市北屯區崇德十一路",
+     "size": "69.3",
+     "inner": "42",
+     "format": "4/2/2/"
+},
+{
+     "location": "北屯區文心路vs興安路",
+     "price": "",
+     "size": "27",
+     "format": "3/2/1/",
+     "car": "yes",
+     "managementfee": "1400"
+},
+{
+     "location": "台中市北屯區祥順路一段",
+     "format": "5/4/6/",
+     "price": "4280"
+},
+{
+     "format": "5/3/6/",
+     "facing": "北",
+     "age": "8",
+     "price": "2780"
+},
+{
+     "location": "北屯區軍榮街",
+     "format": "6/2/5/",
+     "size": "83",
+     "facing": "東",
+     "car": "yes",
+     "price": "3980"
+},
+{
+     "location": "台中市北屯區三光巷",
+     "size": "28.84",
+     "inner": "24.98",
+     "format": "3/2/1/"
+},
+{
+     "price": "1198",
+     "size": "47",
+     "format": "3/2/2/",
+     "age": "3",
+     "car": "yes"
+},
+{
+     "location": "太平區育賢路",
+     "price": "1680",
+     "format": "3/2/2/",
+     "age": "3",
+     "size": "66",
+     "inner": "34",
+     "managementfee": "3200",
+     "facing": "北",
+     "car": "2"
+},
+{
+     "location": "太平區新興路",
+     "price": "1158",
+     "inner": "28",
+     "age": "6",
+     "car": "yes",
+     "managementfee": "2791"
+},
+{
+     "size": "28",
+     "inner": "22",
+     "format": "2/2/1/",
+     "age": "22",
+     "price": "638"
+},
+{
+     "size": "28",
+     "inner": "22",
+     "format": "2/2/1/",
+     "age": "22",
+     "price": "638"
+},
+{
+     "location": "旱溪西路一段",
+     "price": "1158",
+     "size": "50",
+     "format": "3/2/2/",
+     "age": "4",
+     "car": "yes"
+},
+{
+     "location": "台中市北屯區軍業一街35號",
+     "size": "53.6",
+     "format": "3/2/2/",
+     "age": "3",
+     "car": "yes"
+},
+{
+     "location": "太平區",
+     "format": "4/2/2/",
+     "size": "57.4",
+     "car": "yes",
+     "price": "1368"
+},
+{
+     "location": "北屯區環太東路",
+     "price": "",
+     "format": "3/2/2/",
+     "size": "51"
+},
+{
+     "price": "558",
+     "size": "29",
+     "inner": "25",
+     "format": "3/2/1/",
+     "age": "",
+     "managementfee": "800"
+},
+{
+     "format": "5/3/4/",
+     "size": "63",
+     "age": "16",
+     "facing": "北",
+     "car": "yes",
+     "price": "2480"
+},
+{
+     "location": "台中市北屯區和祥三街",
+     "size": "78.3",
+     "format": "4/3/5/",
+     "car": "yes",
+     "price": "4540"
+},
+{
+     "location": "松義街220忠",
+     "price": "1088",
+     "size": "40",
+     "inner": "33",
+     "format": "5/2/4/",
+     "age": "27",
+     "managementfee": "2000",
+     "car": "yes"
+},
+{
+     "location": "北屯區環太東路",
+     "price": "1095",
+     "format": "3/2/2/",
+     "size": "45.82",
+     "car": "yes"
+},
+{
+     "location": "太和一街",
+     "price": "1158",
+     "format": "3/2/2/",
+     "size": "53",
+     "inner": "26",
+     "age": "5",
+     "managementfee": "3153",
+     "car": "yes"
+},
+{
+     "price": "1498",
+     "size": "48",
+     "inner": "25",
+     "format": "3/2/2/",
+     "age": "",
+     "car": "yes"
+},
+{
+     "location": "瀋陽路一段",
+     "price": "858",
+     "inner": "30",
+     "facing": "北",
+     "age": "28"
+},
+{
+     "price": "768",
+     "inner": "28",
+     "age": "30",
+     "car": "yes",
+     "format": "3/2/2/"
+},
+{
+     "location": "文昌東",
+     "price": "868",
+     "inner": "27",
+     "age": "25",
+     "format": "3/2/2/",
+     "car": "yes",
+     "managementfee": "2000"
+},
+{
+     "location": "台中市北屯區建和路一段",
+     "size": "36.4",
+     "format": "2/2/1/",
+     "age": "5",
+     "price": ""
+},
+{
+     "location": "北區英士路",
+     "price": "638",
+     "inner": "14",
+     "format": "1/1/1/",
+     "age": "12",
+     "managementfee": "1500",
+     "car": "yes"
+},
+{
+     "location": "台中市北屯區文心路四段",
+     "size": "49.99",
+     "inner": "30.53",
+     "format": "4/2/2/",
+     "car": "yes"
+},
+{
+     "location": "北屯區東光路",
+     "price": "698",
+     "inner": "25",
+     "format": "3/2/2/",
+     "managementfee": "1900"
+},
+{
+     "price": "",
+     "format": "3/2/2/",
+     "age": "28",
+     "size": "39",
+     "inner": "26",
+     "car": "yes",
+     "managementfee": "1560"
+},
+{
+     "location": "北屯路",
+     "price": "988",
+     "inner": "24",
+     "format": "3/2/2/",
+     "age": "21",
+     "managementfee": "1590",
+     "car": "yes"
+},
+{
+     "location": "北屯區南興路105",
+     "size": "54.56",
+     "inner": "29.45",
+     "format": "3/2/2/",
+     "car": "yes",
+     "price": "1745"
+},
+{
+     "location": "北屯區崇武街",
+     "size": "83.89",
+     "inner": "58.03",
+     "format": "4/3/5/",
+     "facing": "西",
+     "age": "1",
+     "car": "yes",
+     "managementfee": "3200",
+     "price": "2280"
+},
+{
+     "inner": "27.86",
+     "format": "3/2/2/",
+     "car": "yes",
+     "price": "968"
+},
+{
+     "location": "台中市北屯區敦富",
+     "price": "",
+     "inner": "21.855",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "location": "台中市北屯區敦富十街115號",
+     "inner": "18",
+     "format": "2/1/1/",
+     "car": "yes"
+},
+{
+     "location": "台中市北屯區敦富十街115號",
+     "inner": "18",
+     "format": "2/1/1/",
+     "car": "yes"
+},
+{
+     "location": "台中市北區忠太東路5號",
+     "inner": "28.77",
+     "format": "3/2/2/",
+     "managementfee": "2470"
+},
+{
+     "price": "2850",
+     "size": "114",
+     "inner": "76.2",
+     "car": "yes"
+},
+{
+     "location": "太平區",
+     "price": "1380",
+     "format": "4/3/3/",
+     "size": "52"
+},
+{
+     "price": "6800",
+     "size": "128",
+     "age": "5",
+     "format": "5/5/6/"
+},
+{
+     "price": "598",
+     "location": "台中市東區十甲路",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "location": "北區國強街",
+     "format": "4/3/3/",
+     "car": "yes",
+     "price": "2080"
+},
+{
+     "price": "1198",
+     "size": "47",
+     "inner": "26",
+     "format": "3/2/2/",
+     "age": "3",
+     "car": "yes"
+},
+{
+     "location": "北屯區和順路",
+     "format": "4/3/3/",
+     "size": "80.92",
+     "car": "yes",
+     "price": "1858"
+},
+{
+     "size": "63.87",
+     "format": "5/3/4/",
+     "age": "16",
+     "car": "yes",
+     "location": "太平區樹德路",
+     "price": "2480"
+},
+{
+     "location": "台中市北區國強街",
+     "size": "53",
+     "format": "4/3/3/"
+},
+{
+     "size": "",
+     "age": "9",
+     "format": "3/2/2/",
+     "car": "yes",
+     "location": "北屯區松竹五路一段",
+     "price": "1288"
+},
+{
+     "location": "太平區",
+     "format": "4/2/2/",
+     "size": "57.4",
+     "car": "yes",
+     "price": "1368"
+},
+{
+     "size": "74.8",
+     "format": "5/2/4/",
+     "age": "4",
+     "price": "1980"
+},
+{
+     "location": "台中市西屯區河南路一段",
+     "size": "31.24",
+     "format": "3/2/2/"
+},
+{
+     "location": "北屯區環太東路",
+     "format": "2/2/1/",
+     "size": "35.38",
+     "car": "yes",
+     "age": "",
+     "managementfee": "1500"
+},
+{
+     "location": "台中市北區文昌東二街116巷",
+     "size": "54.26",
+     "inner": "35.38",
+     "format": "4/2/2/"
+},
+{
+     "location": "台中市北屯區蟬業街12樓",
+     "size": "44.84",
+     "inner": "24.39",
+     "format": "3/2/2/",
+     "car": "yes",
+     "facing": "西",
+     "age": "11",
+     "price": "1128"
+},
+{
+     "size": "63.87",
+     "format": "5/3/4/",
+     "age": "16",
+     "car": "yes",
+     "location": "太平區樹德路",
+     "price": "2480"
+},
+{
+     "location": "北區進伺路8樓",
+     "age": "11",
+     "size": "79.31",
+     "inner": "49.15",
+     "format": "3/2/2/",
+     "car": "yes",
+     "managementfee": "4600",
+     "facing": "西"
+},
+{
+     "price": "1980",
+     "format": "6/3/4/",
+     "size": "64.1",
+     "age": "13",
+     "car": "yes"
+},
+{
+     "location": "北屯區北華街1Xx號",
+     "size": "50.97",
+     "car": "yes",
+     "facing": "北",
+     "format": "3/2/2/"
+},
+{
+     "location": "台中市西忠區河南路三段13樓",
+     "size": "39.4",
+     "inner": "14.92",
+     "format": "1/1/1/"
+},
+{
+     "size": "74.8",
+     "format": "5/2/4/",
+     "age": "4",
+     "price": "1980"
+},
+{
+     "location": "台中市北屯區松竹路一段",
+     "size": "60.71",
+     "format": "3/2/2/",
+     "age": "2",
+     "car": "yes"
+},
+{
+     "location": "北區太原八街",
+     "price": "658",
+     "size": "31",
+     "format": "2/2/2/",
+     "age": "26",
+     "managementfee": "1620"
+},
+{
+     "price": "1198",
+     "size": "47",
+     "inner": "26",
+     "format": "3/2/2/",
+     "age": "3",
+     "car": "yes"
+},
+{
+     "location": "台中市南區",
+     "format": "3/2/2/",
+     "car": "yes",
+     "price": ""
+},
+{
+     "location": "北屯歡",
+     "price": "1888",
+     "format": "5/2/3/",
+     "size": "48"
+},
+{
+     "location": "太平區",
+     "price": "1680",
+     "format": "4/3/4/",
+     "size": "58.38"
+},
+{
+     "location": "太平區東平路Vs中和街",
+     "price": "1180",
+     "format": "4/2/3/",
+     "size": "45.3",
+     "age": "28"
+},
+{
+     "location": "台中市北區國強街",
+     "size": "53",
+     "format": "4/3/3/"
+},
+{
+     "location": "太平區中山路二段",
+     "size": "24.50",
+     "format": "4/2/3/",
+     "car": "yes"
+},
+{
+     "format": "3/2/2/",
+     "size": "46.83",
+     "inner": "29.64",
+     "car": "yes",
+     "price": "1068"
+},
+{
+     "size": "31.58",
+     "format": "2/2/1/",
+     "age": "5",
+     "price": "958"
+},
+{
+     "location": "太平區新平路一段",
+     "price": "798",
+     "inner": "21.165",
+     "format": "4/2/2/",
+     "facing": "北",
+     "age": "27",
+     "managementfee": "1500"
+},
+{
+     "location": "瀋陽路三段388號",
+     "price": "528",
+     "inner": "22",
+     "age": "35",
+     "car": "yes",
+     "managementfee": "700"
+},
+{
+     "location": "太平區新興路",
+     "price": "1158",
+     "inner": "28",
+     "age": "6",
+     "car": "yes",
+     "managementfee": "2791"
+},
+{
+     "format": "3/2/2/",
+     "size": "45.78",
+     "inner": "26.36",
+     "age": "5",
+     "car": "yes",
+     "managementfee": "2113",
+     "price": "980"
+},
+{
+     "location": "台中市北屯區敦富",
+     "price": "",
+     "inner": "21.855",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "location": "台高南東層十甲路",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "price": "1198",
+     "size": "47",
+     "inner": "26",
+     "format": "3/2/2/",
+     "age": "3",
+     "car": "yes"
+},
+{
+     "location": "太平區育賢路",
+     "price": "1680",
+     "format": "3/2/2/",
+     "age": "3",
+     "size": "66",
+     "inner": "34",
+     "managementfee": "3200",
+     "facing": "北",
+     "car": "2"
+},
+{
+     "location": "台中市北屯區崇德六路",
+     "size": "31.26",
+     "inner": "25.19",
+     "format": "3/2/2/",
+     "age": "26"
+},
+{
+     "age": "25",
+     "inner": "66.88",
+     "format": "5/3/4/",
+     "managementfee": "12420",
+     "car": "yes"
+},
+{
+     "location": "台中市北屯區三光巷",
+     "size": "28.84",
+     "inner": "24.98",
+     "format": "3/2/1/"
+},
+{
+     "size": "37.534",
+     "format": "3/2/2/",
+     "age": "29",
+     "facing": "北",
+     "car": "yes",
+     "price": "880"
+},
+{
+     "location": "松義街",
+     "price": "988",
+     "inner": "31",
+     "format": "4/2/2/",
+     "age": "24",
+     "car": "yes",
+     "managementfee": "2114"
+},
+{
+     "price": "1198",
+     "size": "47",
+     "format": "3/2/2/",
+     "age": "3",
+     "car": "yes"
+},
+{
+     "location": "北屯區太順路",
+     "size": "53",
+     "inner": "30.8",
+     "age": "4",
+     "car": "yes",
+     "facing": "南",
+     "price": "1250"
+},
+{
+     "location": "太平區",
+     "format": "4/2/2/",
+     "size": "57.4",
+     "car": "yes",
+     "price": "1368"
+},
+{
+     "location": "太平區",
+     "price": "1398",
+     "format": "5/2/3/"
+},
+{
+     "location": "北屯區環太東路",
+     "price": "",
+     "format": "3/2/2/",
+     "size": "51",
+     "car": "yes"
+},
+{
+     "size": "63.87",
+     "format": "5/3/4/",
+     "age": "16",
+     "car": "yes",
+     "location": "太平區樹德路",
+     "price": "2480"
+},
+{
+     "location": "松竹路二段",
+     "price": "850",
+     "size": "35",
+     "inner": "24",
+     "format": "3/2/2/",
+     "age": "23",
+     "managementfee": "1700",
+     "car": "yes"
+},
+{
+     "location": "祥順路一段",
+     "price": "1298",
+     "size": "51",
+     "inner": "28",
+     "format": "3/2/2/",
+     "age": "",
+     "car": "yes"
+},
+{
+     "location": "早溪西路一段",
+     "price": "1098",
+     "size": "40",
+     "inner": "26",
+     "format": "3/2/2/",
+     "age": "4",
+     "car": "yes"
+},
+{
+     "location": "太原路三段",
+     "price": "1880",
+     "size": "76",
+     "inner": "38",
+     "age": "5",
+     "format": "4/2/2/"
+},
+{
+     "size": "75",
+     "format": "5/2/4/",
+     "facing": "北",
+     "age": "4"
+},
+{
+     "location": "台中市西區精誠21街",
+     "size": "33.14",
+     "inner": "22.68",
+     "format": "3/2/2/",
+     "age": "28",
+     "car": "yes"
+},
+{
+     "price": "1198",
+     "size": "47",
+     "format": "3/2/2/",
+     "age": "3",
+     "car": "yes"
+},
+{
+     "location": "台中市太平區樹德路",
+     "size": "63.87",
+     "format": "5/2/3/",
+     "facing": "北",
+     "managementfee": "84"
+},
+{
+     "size": "63.87",
+     "format": "5/3/4/",
+     "age": "16",
+     "car": "yes",
+     "location": "太平區樹德路",
+     "price": "2480"
+},
+{
+     "location": "北屯區正後庄路",
+     "car": "yes",
+     "format": "2/2/2/",
+     "price": "2680"
+},
+{
+     "price": "898",
+     "size": "38",
+     "inner": "",
+     "format": "3/2/2/"
+},
+{
+     "location": "晶福十二路202號",
+     "price": "1280",
+     "size": "55",
+     "inner": "26",
+     "age": "4",
+     "format": "3/2/2/",
+     "managementfee": "2300"
+},
+{
+     "location": "文心路四段",
+     "price": "1088",
+     "size": "50",
+     "inner": "31",
+     "age": "24",
+     "car": "yes",
+     "managementfee": "2640"
+},
+{
+     "location": "化屯價崇械六路一戶段",
+     "size": "31.28",
+     "inner": "25.2",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "size": "63.87",
+     "format": "5/3/4/",
+     "age": "16",
+     "car": "yes",
+     "location": "太平區樹德路",
+     "price": "2480"
+},
+{
+     "location": "36坪",
+     "size": "36"
+},
+{
+     "location": "北屯區北華街1Xx號",
+     "size": "50.97",
+     "car": "yes",
+     "facing": "北",
+     "format": "3/2/2/"
+},
+{
+     "location": "北區進化路8樓",
+     "age": "11",
+     "size": "79.31",
+     "inner": "49.15",
+     "format": "3/2/2/",
+     "car": "yes",
+     "managementfee": "4600",
+     "facing": "西"
+},
+{
+     "location": "台中市北屯區軍榮街12樓",
+     "size": "44.84",
+     "inner": "24.39",
+     "format": "3/2/2/",
+     "car": "yes",
+     "facing": "西",
+     "age": "11",
+     "price": "1128"
+},
+{
+     "size": "30.85",
+     "format": "5/2/4/",
+     "facing": "北",
+     "car": "yes"
+},
+{
+     "price": "1980",
+     "format": "6/3/4/",
+     "size": "64.1",
+     "age": "13",
+     "car": "yes",
+     "managementfee": "897"
+},
+{
+     "location": "台中市北屯區和福路",
+     "size": "74.02",
+     "format": "4/3/4/",
+     "age": "18"
+},
+{
+     "location": "北屯區太順路",
+     "size": "53",
+     "inner": "30.8",
+     "age": "4",
+     "car": "yes",
+     "facing": "南",
+     "price": "1250"
+},
+{
+     "price": "880",
+     "size": "37.5",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "location": "台中市北屯區文心路四段",
+     "size": "47.5",
+     "inner": "27.3",
+     "car": "yes",
+     "age": "6"
+},
+{
+     "size": "44.85",
+     "inner": "24.39",
+     "format": "3/2/2/",
+     "age": "11",
+     "location": "北屯區軍業街",
+     "price": "1128"
+},
+{
+     "format": "2/2/1/",
+     "size": "35",
+     "inner": "18",
+     "age": "5",
+     "price": "798"
+},
+{
+     "size": "114.01",
+     "inner": "76.2",
+     "car": "yes",
+     "price": "2580"
+},
+{
+     "size": "28",
+     "inner": "22",
+     "format": "2/2/1/",
+     "age": "22",
+     "price": "638"
+},
+{
+     "location": "台中市西地區美滿東三巷",
+     "size": "108.53",
+     "format": "3/2/2/",
+     "age": "7",
+     "car": "yes"
+},
+{
+     "price": "898",
+     "location": "台中市北區三民路",
+     "size": "38",
+     "inner": "",
+     "format": "3/2/2/",
+     "age": "25",
+     "car": "yes"
+},
+{
+     "price": "2850",
+     "size": "114",
+     "inner": "76.2",
+     "car": "yes"
+},
+{
+     "location": "台中市北屯區和祥三街",
+     "size": "78.3",
+     "format": "4/3/5/",
+     "car": "yes",
+     "price": "4540"
+},
+{
+     "size": "44.85",
+     "inner": "24.39",
+     "format": "3/2/2/",
+     "age": "11",
+     "location": "北屯區軍業街",
+     "price": "1128"
+},
+{
+     "location": "北屯區環太東路",
+     "price": "928",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "price": "598",
+     "location": "台中市東區十甲路",
+     "format": "3/2/2/",
+     "inner": "23.8",
+     "car": "yes"
+},
+{
+     "price": "1680",
+     "location": "台中市北屯區景賢路",
+     "size": "77",
+     "inner": "42",
+     "managementfee": "4137",
+     "format": "4/2/2/",
+     "age": "5",
+     "car": "yes"
+},
+{
+     "location": "北屯區敦富東街",
+     "size": "54.8",
+     "format": "3/2/2/",
+     "car": "yes",
+     "price": "1458"
+},
+{
+     "price": "1588",
+     "location": "台中市北屯區文心路四段",
+     "format": "3/2/2/",
+     "size": "47",
+     "managementfee": "2900"
+},
+{
+     "size": "44.85",
+     "inner": "24.39",
+     "format": "3/2/2/",
+     "age": "11",
+     "location": "北屯區軍業街",
+     "price": "1128"
+},
+{
+     "location": "台中市北屯區敦富",
+     "price": "",
+     "inner": "21.855",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "location": "松竹路二段",
+     "price": "850",
+     "size": "35",
+     "inner": "24",
+     "format": "3/2/2/",
+     "age": "23",
+     "managementfee": "1700",
+     "car": "yes"
+},
+{
+     "location": "早溪西路二段",
+     "price": "1098",
+     "size": "40",
+     "inner": "26",
+     "format": "3/2/2/",
+     "age": "4",
+     "car": "yes"
+},
+{
+     "location": "祥順路一段",
+     "price": "1298",
+     "size": "51",
+     "inner": "28",
+     "format": "3/2/2/",
+     "age": "",
+     "car": "yes"
+},
+{
+     "location": "太平區育賢路",
+     "price": "638",
+     "size": "29",
+     "inner": "23",
+     "age": "22"
+},
+{
+     "location": "北區進化路",
+     "price": "998",
+     "inner": "46",
+     "format": "4/2/2/",
+     "age": "32",
+     "managementfee": "2300",
+     "car": "yes"
+},
+{
+     "location": "台中市南區",
+     "format": "3/2/2/",
+     "car": "yes",
+     "price": ""
+},
+{
+     "location": "松義街220號",
+     "price": "1088",
+     "inner": "33",
+     "format": "5/2/4/",
+     "age": "27",
+     "managementfee": "2000",
+     "car": "yes"
+},
+{
+     "age": "10",
+     "format": "3/2/2/",
+     "location": "北區進化路",
+     "price": "1880"
+},
+{
+     "location": "潭子區得才街",
+     "format": "1/2/1/",
+     "size": "25.5",
+     "inner": "20.7",
+     "facing": "東",
+     "managementfee": "1000",
+     "price": "580"
+},
+{
+     "location": "台中市北區進化北路166號",
+     "format": "2/2/2/",
+     "size": "108.72",
+     "car": "yes",
+     "age": "26",
+     "managementfee": "3000"
+},
+{
+     "location": "台中市北屯區和祥五街",
+     "size": "118",
+     "format": "5/3/6/",
+     "car": "yes",
+     "age": "5",
+     "price": "4860"
+},
+{
+     "location": "台中市北屯區和祥五街",
+     "size": "118",
+     "format": "5/3/6/",
+     "car": "yes",
+     "age": "5",
+     "price": "4860"
+},
+{
+     "inner": "45",
+     "format": "3/2/3/",
+     "car": "yes",
+     "price": "1288"
+},
+{
+     "location": "北屯區河北西街",
+     "format": "3/2/2/",
+     "age": "1",
+     "inner": "25.35",
+     "car": "1",
+     "price": "1698"
+},
+{
+     "size": "",
+     "format": "2/2/1/",
+     "age": "27",
+     "managementfee": "1020",
+     "price": "798"
+},
+{
+     "location": "北屯區染德十路",
+     "format": "3/2/2/",
+     "age": "3",
+     "inner": "37.18",
+     "car": "2",
+     "price": "2280"
+},
+{
+     "location": "北屯區同業路",
+     "age": "1",
+     "size": "111.33",
+     "price": "5800"
+},
+{
+     "price": "638",
+     "size": "28.2",
+     "inner": "22.2",
+     "age": "28",
+     "car": "yes",
+     "managementfee": "1200"
+},
+{
+     "location": "台中市北屯區瀋陽路一段",
+     "price": "858",
+     "format": "3/2/2/",
+     "size": "37.75",
+     "inner": "29.6",
+     "managementfee": "2265"
+},
+{
+     "location": "台中市北屯區進化北路24巷",
+     "size": "53.9",
+     "age": "",
+     "car": "yes",
+     "format": "4/2/2/",
+     "managementfee": "2701"
+},
+{
+     "location": "太平區長龍路一段",
+     "format": "3/2/2/",
+     "size": "",
+     "car": "yes"
+},
+{
+     "location": "台中市大里區向學路",
+     "age": "3",
+     "size": "65.36",
+     "price": "1780"
+},
+{
+     "price": "2880",
+     "size": "64",
+     "format": "4/3/3/"
+},
+{
+     "price": "758",
+     "size": "46",
+     "format": "4/2/3/"
+},
+{
+     "price": "1350",
+     "size": "55.56",
+     "format": "4/3/4/",
+     "age": "4"
+},
+{
+     "size": "61",
+     "inner": "42",
+     "format": "4/3/3/",
+     "age": "31",
+     "managementfee": "1500"
+},
+{
+     "age": "6",
+     "inner": "52.31",
+     "format": "3/2/3/",
+     "car": "yes",
+     "price": "2650"
+},
+{
+     "location": "北屯區染德十路",
+     "format": "3/2/2/",
+     "age": "3",
+     "inner": "37.18",
+     "car": "2",
+     "price": "2280"
+},
+{
+     "age": "4",
+     "size": "53.23",
+     "format": "4/2/2/",
+     "car": "yes"
+},
+{
+     "location": "臺中市大里區中興路一段",
+     "format": "2/1/1/",
+     "managementfee": "2064",
+     "price": "768"
+},
+{
+     "location": "東區",
+     "size": "61",
+     "age": "",
+     "car": "yes",
+     "price": "2820"
+},
+{
+     "price": "728",
+     "size": "32.82",
+     "inner": "17.3",
+     "format": "2/2/1/",
+     "car": "yes"
+},
+{
+     "location": "太平區",
+     "size": "28",
+     "inner": "24",
+     "format": "3/2/2/",
+     "age": "29",
+     "managementfee": "1500",
+     "price": "638"
+},
+{
+     "location": "北區",
+     "size": "47.24",
+     "inner": "26.06",
+     "managementfee": "",
+     "price": "1398"
+},
+{
+     "location": "北屯區同業路",
+     "age": "1",
+     "size": "111.33",
+     "price": "5800"
+},
+{
+     "price": "788",
+     "location": "太平區新高路",
+     "format": "3/2/1/",
+     "age": "47"
+},
+{
+     "location": "台中市南區文心南路888號",
+     "size": "47.69",
+     "format": "3/2/2/",
+     "age": "10",
+     "price": "1358"
+},
+{
+     "location": "北屯區三光巷16弄2樓",
+     "size": "28.84",
+     "inner": "25",
+     "format": "3/2/1/",
+     "age": "27",
+     "managementfee": "810"
+},
+{
+     "price": "1180",
+     "location": "台中市大里區長興路一段",
+     "size": "46.72",
+     "inner": "21.7",
+     "age": "2",
+     "format": "3/2/2/"
+},
+{
+     "location": "台中市北屯區環太東路621號",
+     "size": "45.818",
+     "inner": "26.478",
+     "managementfee": "2200",
+     "format": "3/2/2/",
+     "age": "5",
+     "car": "yes",
+     "price": "1098"
+},
+{
+     "price": "790",
+     "size": "50.1",
+     "inner": "40",
+     "format": "3/2/2/",
+     "managementfee": "500"
+},
+{
+     "location": "太平區太興路",
+     "size": "54.64",
+     "format": "4/2/2/",
+     "age": "6",
+     "car": "yes",
+     "managementfee": "2507",
+     "facing": "南"
+},
+{
+     "location": "台中潭子區頭張路二段91號旁",
+     "size": "18.36",
+     "inner": "18.36",
+     "car": "yes"
+},
+{
+     "price": "898",
+     "format": "3/2/2/",
+     "size": "36.89",
+     "car": "yes"
+},
+{
+     "size": "41.04",
+     "format": "3/2/2/",
+     "age": "21",
+     "car": "yes"
+},
+{
+     "price": "799",
+     "format": "2/2/1/",
+     "size": "36.89",
+     "car": "yes"
+},
+{
+     "price": "1450",
+     "format": "4/3/4/",
+     "size": "53",
+     "car": "yes"
+},
+{
+     "format": "2/1/1/",
+     "size": "24.7",
+     "age": "107",
+     "price": "888",
+     "car": "yes"
+},
+{
+     "format": "3/2/4/",
+     "size": "60",
+     "age": "7",
+     "price": "2580"
+},
+{
+     "size": "130",
+     "format": "7/3/6/",
+     "price": "3680",
+     "managementfee": "3500"
+},
+{
+     "size": "43.9",
+     "format": "4/2/2/",
+     "car": "yes",
+     "age": "26",
+     "managementfee": "1681",
+     "price": "868"
+},
+{
+     "price": "1380",
+     "size": "24",
+     "age": ""
+},
+{
+     "location": "西屯區青海路二段",
+     "format": "3/2/2/",
+     "age": "8",
+     "car": "2",
+     "price": "2880"
+},
+{
+     "price": "4060",
+     "size": "32.67",
+     "age": "90",
+     "car": "yes"
+},
+{
+     "format": "3/2/2/",
+     "car": "yes",
+     "age": "1",
+     "price": "1398",
+     "managementfee": "2886"
+},
+{
+     "price": "990",
+     "location": "大里區",
+     "format": "4/2/2/",
+     "car": "yes"
+},
+{
+     "location": "西區美村路一段39",
+     "format": "3/2/2/",
+     "age": "15",
+     "managementfee": "6413"
+},
+{
+     "price": "990",
+     "location": "大里區",
+     "car": "yes"
+},
+{
+     "price": "788",
+     "location": "太平區新高路",
+     "format": "3/2/1/",
+     "age": "47"
+},
+{
+     "location": "北吼區南興路vs敦富三街",
+     "format": "3/2/2/",
+     "age": "113",
+     "car": "1",
+     "inner": "24.76",
+     "price": "1438"
+},
+{
+     "location": "",
+     "age": "",
+     "inner": "",
+     "price": ""
+},
+{
+     "location": "染德八路一段",
+     "format": "3/2/2/",
+     "age": "5",
+     "inner": "33.94",
+     "car": "1",
+     "price": "2260"
+},
+{
+     "size": "30",
+     "format": "3/2/2/",
+     "age": "25",
+     "car": "yes",
+     "managementfee": "1865"
+},
+{
+     "size": "92.607",
+     "format": "4/2/4/",
+     "age": "9",
+     "car": "yes"
+},
+{
+     "location": "北屯區河北西街",
+     "format": "3/2/2/",
+     "age": "1",
+     "car": "1",
+     "price": "1698"
+},
+{
+     "location": "北屯區染德十路",
+     "format": "3/2/2/",
+     "age": "3",
+     "inner": "37.18",
+     "car": "2",
+     "price": "2280"
+},
+{
+     "price": "980",
+     "size": "62.6",
+     "format": "4/3/5/"
+},
+{
+     "size": "50.1",
+     "price": ""
+},
+{
+     "size": "96",
+     "format": "6/2/6/",
+     "location": "台中市南屯區新富五街",
+     "price": "3580"
+},
+{
+     "inner": "45",
+     "format": "3/2/3/",
+     "car": "yes",
+     "price": "1288"
+},
+{
+     "size": "96",
+     "format": "6/2/6/",
+     "location": "台中市南屯區新富五街",
+     "price": "3580"
+},
+{
+     "size": "69.262",
+     "inner": "42.231",
+     "format": "4/2/2/",
+     "age": "11",
+     "managementfee": "3742",
+     "car": "yes",
+     "price": "2198"
+},
+{
+     "price": "1880",
+     "format": "4/2/2/",
+     "managementfee": "3556",
+     "car": "yes"
+},
+{
+     "location": "台中市北區北平三街",
+     "size": "64.4",
+     "inner": "32.3",
+     "format": "3/2/2/",
+     "car": "2",
+     "price": "2188"
+},
+{
+     "inner": "40.3",
+     "format": "4/2/2/",
+     "car": "yes",
+     "location": "台中市南區三民西路",
+     "price": "1680"
+},
+{
+     "size": "43.4",
+     "inner": "26.9",
+     "car": "yes",
+     "location": "台中市南區忠明南路",
+     "price": "1128"
+},
+{
+     "price": "1188",
+     "age": "28",
+     "size": "55",
+     "format": "4/2/3/"
+},
+{
+     "price": "538",
+     "location": "太平區",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "price": "1150",
+     "location": "太平區",
+     "format": "4/2/5/"
+},
+{
+     "location": "台中市西屯區台灣大道三段",
+     "format": "3/2/2/",
+     "size": "45",
+     "inner": "24",
+     "age": "14",
+     "price": ""
+},
+{
+     "location": "台中市北區忠太東路",
+     "size": "19",
+     "format": "2/2/2/",
+     "age": "24",
+     "price": ""
+},
+{
+     "age": "17",
+     "format": "4/2/3/",
+     "price": "1350"
+},
+{
+     "price": "1358",
+     "location": "北屯區",
+     "format": "4/2/2/"
+},
+{
+     "size": "64.0"
+},
+{
+     "price": "790",
+     "size": "50.1",
+     "inner": "40",
+     "format": "3/2/2/",
+     "managementfee": "500",
+     "age": "29"
+},
+{
+     "price": "2980",
+     "format": "4/2/4/",
+     "size": "62.66"
+},
+{
+     "price": "1238",
+     "format": "5/3/3/",
+     "size": "54",
+     "age": "3",
+     "location": "清水"
+},
+{
+     "price": "798",
+     "format": "2/2/1/",
+     "size": "37.37",
+     "car": "yes"
+},
+{
+     "location": "台中市北屯區軍福十五路與和順路品",
+     "format": "3/2/2/",
+     "size": "36.98",
+     "car": "yes",
+     "price": "1238"
+},
+{
+     "size": "55.4",
+     "inner": "29.7",
+     "format": "4/2/2/",
+     "age": "4",
+     "price": "1480"
+},
+{
+     "price": "988",
+     "size": "41",
+     "format": "3/2/2/",
+     "age": "21",
+     "managementfee": "1590"
+},
+{
+     "size": "45.48",
+     "format": "8/5/3/",
+     "car": "yes",
+     "age": ""
+},
+{
+     "price": "750",
+     "format": "4/3/3/",
+     "car": "yes",
+     "age": ""
+},
+{
+     "format": "2/2/1/",
+     "size": "31.04",
+     "price": "1025",
+     "car": "yes"
+},
+{
+     "format": "3/2/2/",
+     "age": "0",
+     "size": "48",
+     "price": "1168",
+     "car": "yes"
+},
+{
+     "size": "53",
+     "format": "4/3/3/",
+     "car": "yes"
+},
+{
+     "format": "3/2/2/",
+     "age": "0",
+     "size": "45.32",
+     "price": "1260",
+     "car": "yes"
+},
+{
+     "format": "3/2/2/",
+     "age": "",
+     "size": "44.44",
+     "price": "1350",
+     "car": "yes"
+},
+{
+     "format": "3/2/2/",
+     "age": "0",
+     "size": "44.42",
+     "price": "1050",
+     "car": "yes"
+},
+{
+     "age": "8",
+     "format": "4/2/3/",
+     "price": "3980",
+     "size": "35.652"
+},
+{
+     "location": "北屯區瀋陽路一段",
+     "age": "",
+     "format": "3/2/2/",
+     "price": "858"
+},
+{
+     "age": "6",
+     "size": "88.37",
+     "inner": "52.31",
+     "format": "3/2/3/",
+     "car": "yes"
+},
+{
+     "price": "898",
+     "size": "37.2",
+     "format": "2/2/2/",
+     "age": "7"
+},
+{
+     "size": "50",
+     "inner": "27",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "inner": "22",
+     "format": "3/2/2/",
+     "age": "25",
+     "car": "yes",
+     "managementfee": "1865"
+},
+{
+     "size": "26.8",
+     "inner": "26.8",
+     "format": "3/2/2/",
+     "age": "73",
+     "car": "yes"
+},
+{
+     "size": "49.65",
+     "inner": "28.15",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "location": "東區東英路",
+     "format": "2/2/1/",
+     "size": "15.45"
+},
+{
+     "size": "72",
+     "inner": "38.4",
+     "format": "4/2/2/",
+     "age": "5"
+},
+{
+     "size": "39",
+     "format": "3/2/2/",
+     "age": "22",
+     "car": "yes",
+     "managementfee": "1390"
+},
+{
+     "location": "西屯區",
+     "price": "938",
+     "format": "2/2/1/",
+     "car": "yes",
+     "inner": "14.41"
+},
+{
+     "location": "大里區大明路",
+     "size": "30",
+     "inner": "18",
+     "format": "2/2/1/",
+     "price": ""
+},
+{
+     "location": "北屯區",
+     "price": "865",
+     "format": "1/1/1/",
+     "car": "yes",
+     "size": "31.773",
+     "inner": "15.842"
+},
+{
+     "location": "北屯區",
+     "price": "1830",
+     "format": "4/2/2/",
+     "car": "yes",
+     "size": "69.068",
+     "inner": "36.754"
+},
+{
+     "location": "北屯區松竹路二段",
+     "inner": "29.65",
+     "car": "yes",
+     "format": "3/2/2/",
+     "price": "1068"
+},
+{
+     "location": "北屯區",
+     "price": "1398",
+     "car": "yes",
+     "size": "44.443",
+     "inner": "24.76"
+},
+{
+     "location": "南屯區",
+     "price": "2980",
+     "format": "3/2/2/",
+     "car": "yes",
+     "size": "61.58",
+     "inner": "29.41"
+},
+{
+     "location": "台中市南區復興路三段學府路口",
+     "price": "798"
+},
+{
+     "size": "28",
+     "format": "3/2/1/",
+     "price": "598"
+},
+{
+     "location": "北屯區骸機捷總站重劃區A",
+     "price": "",
+     "format": "3/2/2/",
+     "car": "yes",
+     "size": "45.629",
+     "inner": "25.356"
+},
+{
+     "location": "北屯區松竹路二段",
+     "format": "3/2/2/",
+     "age": "27",
+     "inner": "29.64",
+     "car": "1",
+     "price": "1068"
+},
+{
+     "location": "北屯區松竹路二段",
+     "format": "3/2/2/",
+     "age": "27",
+     "inner": "29.64",
+     "car": "1",
+     "price": "1068"
+},
+{
+     "size": "22.7",
+     "age": "9",
+     "price": "1580"
+},
+{
+     "location": "台中市東區東福路",
+     "size": "52.",
+     "inner": "25",
+     "age": "4",
+     "format": "3/2/2/"
+},
+{
+     "format": "3/2/2/",
+     "car": "yes",
+     "age": "1",
+     "price": "1398",
+     "managementfee": "2886"
+},
+{
+     "format": "2/2/1/",
+     "price": "868",
+     "size": "34.67",
+     "inner": "18.37"
+},
+{
+     "size": "76.96",
+     "format": "7/1/5/",
+     "age": ""
+},
+{
+     "location": "大里區六",
+     "price": "",
+     "format": "3/2/2/",
+     "car": "yes",
+     "size": "46.512",
+     "inner": "24.974"
+},
+{
+     "size": "53",
+     "format": "4/3/3/",
+     "car": "yes"
+},
+{
+     "price": "650",
+     "size": "27.11",
+     "format": "4/2/3/",
+     "age": "39"
+},
+{
+     "location": "台中市北屯區太順路",
+     "format": "2/2/1/",
+     "size": "35.813",
+     "car": "yes"
+},
+{
+     "location": "台中市北屯區軍福十五路",
+     "size": "43.99",
+     "inner": "23.096",
+     "format": "3/2/2/",
+     "age": "3",
+     "car": "yes"
+},
+{
+     "size": "73.77",
+     "inner": "72.13",
+     "car": "yes",
+     "format": "4/3/4/"
+},
+{
+     "price": "2220",
+     "format": "4/2/2/",
+     "age": "7",
+     "car": "yes"
+},
+{
+     "location": "北屯區",
+     "format": "3/2/2/",
+     "car": "yes",
+     "size": "45.275",
+     "inner": "25.059"
+},
+{
+     "format": "2/2/1/",
+     "size": "39",
+     "managementfee": "6348"
+},
+{
+     "location": "北屯區三光巷16弄",
+     "size": "28.84",
+     "inner": "24.98",
+     "age": "27"
+},
+{
+     "size": "73.77",
+     "inner": "72.13",
+     "car": "yes",
+     "format": "4/3/4/"
+},
+{
+     "location": "",
+     "price": "",
+     "car": "yes",
+     "size": "",
+     "inner": ""
+},
+{
+     "format": "3/2/2/",
+     "inner": "25.83",
+     "size": "39.36",
+     "car": "yes",
+     "price": "868"
+},
+{
+     "size": "29.95",
+     "age": "45",
+     "format": "5/2/3/",
+     "car": "yes",
+     "location": "大時區新仁路一段213巷"
+},
+{
+     "format": "3/2/2/",
+     "inner": "25.36",
+     "size": "38.81",
+     "car": "yes",
+     "price": "868"
+},
+{
+     "size": "26.8",
+     "format": "3/2/2/",
+     "age": "73",
+     "car": "yes"
+},
+{
+     "size": "30",
+     "inner": "22",
+     "format": "3/2/2/",
+     "age": "25",
+     "car": "yes",
+     "managementfee": "1865"
+},
+{
+     "size": "33.27",
+     "format": "4/2/4/",
+     "age": "",
+     "managementfee": "",
+     "car": "yes",
+     "price": "1288"
+},
+{
+     "location": "台中市北屯區敦富",
+     "price": "",
+     "size": "39.794",
+     "inner": "21.855",
+     "car": "yes"
+},
+{
+     "price": "1280",
+     "size": "31.67",
+     "format": "5/3/2/",
+     "age": "8"
+},
+{
+     "price": "",
+     "size": "30.56",
+     "format": "4/27/5/"
+},
+{
+     "format": "3/2/2/",
+     "inner": "25.29",
+     "size": "42.21",
+     "car": "yes",
+     "price": "1198"
+},
+{
+     "location": "台中市北屯區文心路四段",
+     "inner": "65.3",
+     "car": "yes"
+},
+{
+     "price": "718",
+     "location": "台中市區大里區",
+     "size": "41"
+},
+{
+     "price": "718",
+     "location": "台中市區大里區",
+     "size": "41"
+},
+{
+     "location": "西屯區",
+     "price": "938",
+     "format": "2/2/1/",
+     "car": "yes",
+     "size": "24.71",
+     "inner": "14.41"
+},
+{
+     "size": "39.521",
+     "format": "4/3/4/",
+     "car": "yes",
+     "managementfee": "",
+     "price": "1920"
+},
+{
+     "size": "37.509",
+     "format": "2/2/2/",
+     "car": "yes",
+     "price": "898"
+},
+{
+     "format": "3/2/2/",
+     "car": "yes",
+     "age": "1",
+     "price": "1398",
+     "managementfee": "2886"
+},
+{
+     "location": "僻",
+     "age": "2023",
+     "car": "1",
+     "inner": "25.22",
+     "price": "1298"
+},
+{
+     "location": "北屯區文北段",
+     "format": "3/2/2/",
+     "age": "112",
+     "car": "1",
+     "inner": "27.84",
+     "price": "1538"
+},
+{
+     "price": "1388",
+     "size": "32.76",
+     "format": "5/2/2/"
+},
+{
+     "location": "",
+     "age": "5",
+     "inner": "33.94",
+     "car": "1",
+     "price": "2260"
+},
+{
+     "location": "北屯區染德十路",
+     "format": "3/2/2/",
+     "age": "3",
+     "inner": "37.18",
+     "car": "2",
+     "price": "2280"
+},
+{
+     "size": "24.7",
+     "price": "938",
+     "format": "2/1/1/",
+     "age": "3",
+     "car": "yes",
+     "location": "西下區環中路二段"
+},
+{
+     "location": "台中市南區永和街近美村路",
+     "size": "49.5",
+     "format": "4/2/3/",
+     "price": "1680"
+},
+{
+     "format": "4/3/4/",
+     "size": "30",
+     "car": "yes",
+     "price": "1098"
+},
+{
+     "format": "3/2/2/",
+     "size": "34.48",
+     "car": "yes",
+     "age": "2",
+     "price": "698"
+},
+{
+     "size": "37.61",
+     "location": "北屯區柳陽西街88號",
+     "price": "958"
+},
+{
+     "age": "35",
+     "format": "7/1/7/",
+     "car": "yes",
+     "price": "1880"
+},
+{
+     "format": "3/3/3/",
+     "size": "53.96",
+     "car": "2",
+     "age": "8",
+     "price": "1988"
+},
+{
+     "location": "忠明八街",
+     "size": "21",
+     "format": "3/2/1/",
+     "age": ""
+},
+{
+     "price": "1485",
+     "size": "53.07",
+     "format": "4/3/3/"
+},
+{
+     "location": "臺中市大時區文心南路1273巷320弄",
+     "size": "54.775",
+     "age": "25",
+     "price": "1298"
+},
+{
+     "location": "台中市清水區鎮政二街",
+     "size": "51.98",
+     "price": "1088",
+     "age": "",
+     "format": "4/3/3/",
+     "car": "yes"
+},
+{
+     "age": "45",
+     "format": "5/2/3/",
+     "car": "yes",
+     "price": "938"
+},
+{
+     "size": "105.315",
+     "format": "5/3/6/",
+     "car": "yes",
+     "managementfee": "",
+     "price": "4980"
+},
+{
+     "location": "太平區育仁路",
+     "format": "3/2/1/",
+     "size": "28",
+     "age": "",
+     "car": "yes"
+},
+{
+     "price": "1188",
+     "age": "25",
+     "facing": "北",
+     "format": "5/4/4/"
+},
+{
+     "price": "880",
+     "location": "北擊區",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "price": "2220",
+     "location": "台中市北屯區文心路四段",
+     "format": "4/2/2/",
+     "age": "7",
+     "size": "67",
+     "inner": "41",
+     "car": "yes"
+},
+{
+     "location": "北區育樂街",
+     "format": "2/2/1/",
+     "size": "",
+     "car": "yes",
+     "age": "2",
+     "price": "988"
+},
+{
+     "size": "26.8",
+     "format": "3/2/2/",
+     "age": "73",
+     "car": "yes"
+},
+{
+     "size": "30",
+     "inner": "22",
+     "format": "3/2/2/",
+     "age": "25",
+     "car": "yes",
+     "managementfee": "1865"
+},
+{
+     "price": "880",
+     "location": "北屯區",
+     "format": "3/2/2/"
+},
+{
+     "price": "3198",
+     "location": "南區",
+     "format": "12/1/2/"
+},
+{
+     "price": "880",
+     "location": "北屯區",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "age": "6",
+     "inner": "52.31",
+     "format": "3/2/3/",
+     "car": "yes",
+     "price": "2650"
+},
+{
+     "size": "33.98",
+     "format": "2/2/1/",
+     "car": "yes",
+     "price": ""
+},
+{
+     "size": "56.3",
+     "format": "4/3/5/",
+     "price": "1888"
+},
+{
+     "price": "3800",
+     "age": "21",
+     "size": "78",
+     "format": "5/3/3/"
+},
+{
+     "location": "大里區",
+     "price": "1088",
+     "format": "3/2/2/",
+     "car": "yes",
+     "size": "46.512",
+     "inner": "24.974"
+},
+{
+     "size": "26.8",
+     "inner": "26.8",
+     "format": "3/2/2/",
+     "age": "73",
+     "car": "yes"
+},
+{
+     "size": "31",
+     "inner": "26",
+     "format": "3/2/2/",
+     "managementfee": "655"
+},
+{
+     "size": "30",
+     "inner": "22",
+     "format": "3/2/2/",
+     "age": "25",
+     "car": "yes",
+     "managementfee": "1865"
+},
+{
+     "size": "26.8",
+     "format": "3/2/2/",
+     "age": "73",
+     "car": "yes"
+},
+{
+     "location": "烏日區高鐵特區",
+     "size": "46.53",
+     "car": "yes",
+     "price": "8"
+},
+{
+     "price": "588",
+     "size": "31",
+     "inner": "24",
+     "format": "2/2/2/",
+     "age": "",
+     "managementfee": "945"
+},
+{
+     "format": "3/2/2/",
+     "car": "yes",
+     "age": "1",
+     "price": "1398",
+     "managementfee": "2886"
+},
+{
+     "age": "27",
+     "size": "25.34",
+     "format": "2/1/1/",
+     "car": "yes"
+},
+{
+     "location": "台中市南區正義街",
+     "size": "49.02",
+     "format": "3/2/2/",
+     "price": "1480"
+},
+{
+     "location": "台中市北屯區和順路",
+     "age": "26",
+     "format": "4/3/3/",
+     "managementfee": "700",
+     "car": "yes",
+     "price": "1798"
+},
+{
+     "location": "台中市北屯區敦富",
+     "size": "43",
+     "inner": "24",
+     "format": "3/2/2/",
+     "price": "1188"
+},
+{
+     "location": "太平區",
+     "price": "1188",
+     "format": "3/2/2/",
+     "car": "yes",
+     "size": "49.57",
+     "inner": "25.78"
+},
+{
+     "location": "大里區",
+     "price": "1138",
+     "format": "3/2/2/",
+     "car": "yes",
+     "inner": "25.588"
+},
+{
+     "location": "區",
+     "price": "525",
+     "format": "3/2/2/",
+     "car": "yes",
+     "size": "30.858",
+     "inner": "30.858"
+},
+{
+     "location": "北屯區",
+     "price": "865",
+     "format": "1/1/1/",
+     "car": "yes",
+     "size": "31.773",
+     "inner": "15.842"
+},
+{
+     "location": "北屯區",
+     "price": "1830",
+     "format": "4/2/2/",
+     "car": "yes",
+     "size": "69.068",
+     "inner": "36.754"
+},
+{
+     "format": "4/4/5/",
+     "age": "8",
+     "managementfee": "",
+     "price": "1880"
+},
+{
+     "location": "北屯區",
+     "price": "1398",
+     "format": "3/2/2/",
+     "car": "yes",
+     "size": "44.443",
+     "inner": "24.76"
+},
+{
+     "size": "51",
+     "age": "",
+     "location": "大里區仁愛路"
+},
+{
+     "format": "2/1/1/",
+     "size": "22.13",
+     "price": "768"
+},
+{
+     "location": "台中南區建成路",
+     "format": "2/2/1/",
+     "car": "yes",
+     "size": "",
+     "age": "",
+     "managementfee": "5352"
+},
+{
+     "age": "",
+     "price": "",
+     "format": "2/2/1/",
+     "car": "yes",
+     "size": "29.3",
+     "managementfee": "1900"
+},
+{
+     "location": "台中市西屯區四川路87巷",
+     "price": "1398",
+     "size": "39.19",
+     "format": "4/1/2/",
+     "car": "yes"
+},
+{
+     "size": "",
+     "format": "4/4/5/",
+     "age": "8",
+     "managementfee": ""
+},
+{
+     "location": "北區國強街",
+     "size": "53",
+     "age": "2",
+     "format": "4/3/3/",
+     "price": "2080"
+},
+{
+     "location": "南屯區",
+     "car": "yes",
+     "size": "61.58",
+     "inner": "29.41"
+},
+{
+     "size": "105.81",
+     "format": "6/3/6/",
+     "location": "清水區信義路臨路10米"
+},
+{
+     "price": "1780",
+     "size": "51",
+     "format": "3/3/3/"
+},
+{
+     "price": "1880",
+     "age": "8",
+     "size": "51",
+     "format": "4/3/3/",
+     "managementfee": "1640",
+     "car": "yes"
+},
+{
+     "location": "北屯區",
+     "price": "2280",
+     "format": "4/3/4/",
+     "car": "yes",
+     "size": "",
+     "inner": "59.416"
+},
+{
+     "format": "4/3/4/",
+     "car": "yes",
+     "size": "84.148",
+     "inner": "74.156"
+},
+{
+     "location": "北屯區",
+     "price": "1188",
+     "format": "3/2/2/",
+     "car": "yes",
+     "size": "45.629",
+     "inner": "25.356"
+},
+{
+     "location": "北屯區",
+     "price": "1988",
+     "format": "4/2/2/",
+     "car": "yes",
+     "size": "76.817",
+     "inner": "38.968"
+},
+{
+     "price": "1150",
+     "location": "太平區",
+     "format": "4/2/5/"
+},
+{
+     "size": "36.23",
+     "format": "2/2/1/",
+     "age": "1",
+     "price": "850"
+},
+{
+     "size": "45.8",
+     "inner": "37.6",
+     "format": "3/2/2/",
+     "car": "no",
+     "age": "27",
+     "managementfee": "700",
+     "price": "998"
+},
+{
+     "price": "980",
+     "size": "62.6",
+     "format": "4/3/5/"
+},
+{
+     "price": "1280",
+     "size": "74.902",
+     "format": "5/2/3/"
+},
+{
+     "price": "999",
+     "size": "17.84",
+     "inner": "17.84",
+     "format": "2/2/1/",
+     "car": "yes"
+},
+{
+     "location": "太平區",
+     "size": "26.5",
+     "format": "4/2/3/",
+     "car": "yes",
+     "price": "1388"
+},
+{
+     "size": "126.9"
+},
+{
+     "format": "3/2/2/",
+     "inner": "20.56",
+     "size": "39.93",
+     "car": "yes",
+     "price": "1158"
+},
+{
+     "size": "64.91",
+     "format": "5/3/6/",
+     "price": "2880"
+},
+{
+     "format": "2/2/1/",
+     "inner": "14.64",
+     "size": "25.18",
+     "car": "yes",
+     "price": "1098"
+},
+{
+     "price": "1360",
+     "size": "46",
+     "format": "4/3/3/"
+},
+{
+     "format": "3/2/2/",
+     "car": "yes",
+     "age": "1",
+     "price": "1398",
+     "managementfee": "2886"
+},
+{
+     "location": "台中市北屯區文心路四段278號",
+     "format": "2/2/2/",
+     "car": "yes",
+     "price": "1198"
+},
+{
+     "location": "西屯區福雅路128巷",
+     "size": "",
+     "age": "17",
+     "format": "4/2/3/"
+},
+{
+     "size": "64.99",
+     "age": "3",
+     "format": "4/3/4/",
+     "price": ""
+},
+{
+     "location": "台中市北區忠太東路",
+     "size": "19",
+     "format": "2/2/2/",
+     "age": "4",
+     "price": ""
+},
+{
+     "format": "3/2/2/",
+     "inner": "22.52",
+     "size": "40.5",
+     "car": "yes",
+     "price": "1098"
+},
+{
+     "location": "大里區大明路",
+     "size": "30",
+     "inner": "18",
+     "format": "2/2/1/",
+     "price": ""
+},
+{
+     "price": "598",
+     "size": "34"
+},
+{
+     "size": "88.37",
+     "inner": "52.51",
+     "format": "3/2/23/",
+     "age": "6",
+     "car": "yes",
+     "price": "2650"
+},
+{
+     "location": "台中市南屯區五權西路二段",
+     "price": "3680",
+     "format": "3/2/3/",
+     "car": "yes",
+     "age": "59"
+},
+{
+     "price": "1588",
+     "format": "4/3/4/",
+     "size": "58.02",
+     "age": "",
+     "car": "yes"
+},
+{
+     "location": "北區育樂街",
+     "format": "2/2/1/",
+     "size": "",
+     "car": "yes",
+     "age": "2",
+     "price": "988"
+},
+{
+     "location": "",
+     "size": "",
+     "car": "yes",
+     "price": ""
+},
+{
+     "price": "988",
+     "format": "3/2/2/",
+     "size": "44.67",
+     "inner": "24.48"
+},
+{
+     "price": "598",
+     "location": "南區信義南街",
+     "format": "3/2/2/",
+     "size": "20.35"
+},
+{
+     "price": "1180",
+     "size": "60.64",
+     "age": "5",
+     "format": "3/2/3/"
+},
+{
+     "price": "1350",
+     "location": "台中市西屯區寧夏路",
+     "format": "4/2/2/",
+     "size": "54",
+     "car": "位"
+},
+{
+     "age": "29",
+     "format": "4/2/3/",
+     "car": "yes",
+     "location": "北屯區軍和街",
+     "price": "988"
+},
+{
+     "size": "50",
+     "age": "9",
+     "format": "3/2/2/",
+     "car": "yes",
+     "location": "北屯區松竹五路一段",
+     "price": "1288"
+},
+{
+     "location": "太平區中山路一段",
+     "format": "4/2/3/",
+     "size": "",
+     "car": "yes",
+     "age": "43",
+     "price": "1380"
+},
+{
+     "size": "49.6",
+     "inner": "28.3",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "location": "北屯區松義街",
+     "inner": "30",
+     "format": "4/2/2/",
+     "car": "yes"
+},
+{
+     "price": "3198",
+     "location": "南區",
+     "format": "12/1/2/"
+},
+{
+     "age": "6",
+     "size": "88.37",
+     "inner": "52.31",
+     "format": "3/2/3/",
+     "price": "2650"
+},
+{
+     "size": "30",
+     "inner": "22",
+     "format": "3/2/2/",
+     "age": "25",
+     "car": "yes",
+     "managementfee": "1865"
+},
+{
+     "location": "台中市北屯區環太東路",
+     "price": "738",
+     "inner": "19.9"
+},
+{
+     "size": "53",
+     "format": "4/3/3/",
+     "age": "4"
+},
+{
+     "size": "69",
+     "inner": "42",
+     "format": "4/2/2/",
+     "age": "11",
+     "managementfee": "3742"
+},
+{
+     "size": "18.81",
+     "format": "2/1/1/",
+     "age": "24",
+     "price": "498"
+},
+{
+     "location": "河南路與市政南一路",
+     "price": "1180",
+     "size": "",
+     "car": "yes"
+},
+{
+     "location": "北區進化路515號",
+     "size": "47.24",
+     "inner": "26.06",
+     "managementfee": "",
+     "price": "1398"
+},
+{
+     "inner": "27",
+     "format": "3/2/2/",
+     "car": "yes",
+     "age": "1",
+     "price": "1398",
+     "managementfee": "2886"
+},
+{
+     "location": "北屯區和順路",
+     "size": "80",
+     "car": "yes",
+     "age": "26",
+     "price": "1798"
+},
+{
+     "location": "台中市南區",
+     "format": "3/2/2/",
+     "car": "yes",
+     "price": "",
+     "inner": ""
+},
+{
+     "size": "64.09",
+     "format": "3/2/2/",
+     "age": "",
+     "car": "yes"
+},
+{
+     "format": "3/2/2/",
+     "size": "31.97",
+     "age": "23",
+     "managementfee": "1439",
+     "price": ""
+},
+{
+     "location": "南區工學二街",
+     "format": "3/2/2/",
+     "size": "31.97",
+     "age": "23",
+     "managementfee": "1439",
+     "price": "658"
+},
+{
+     "location": "龍井區中沙路新庄仔巷",
+     "size": "33.3",
+     "age": "4"
+},
+{
+     "size": "39.82",
+     "format": "2/1/1/",
+     "age": "",
+     "car": "yes"
+},
+{
+     "location": "台中市北屯區敦富",
+     "size": "43",
+     "inner": "24",
+     "format": "3/2/2/",
+     "price": "1188"
+},
+{
+     "price": "1568",
+     "format": "5/2/2/",
+     "size": "29.95"
+},
+{
+     "size": ".31",
+     "price": "",
+     "format": "4/2/2/",
+     "car": "yes",
+     "age": "31"
+},
+{
+     "price": "728",
+     "location": "烏日區",
+     "car": "yes",
+     "size": "38"
+},
+{
+     "size": "72.032",
+     "format": "4/2/2/",
+     "car": "yes",
+     "managementfee": "3933"
+},
+{
+     "size": "48",
+     "inner": "25",
+     "format": "3/2/2/",
+     "age": "6"
+},
+{
+     "location": "台中市南區文心南路",
+     "size": "28.6",
+     "inner": "23.3",
+     "format": "2/2/1/",
+     "managementfee": "1530"
+},
+{
+     "location": "台中市南屯區忠勇路",
+     "price": "668",
+     "size": "28.18",
+     "inner": "21.11",
+     "format": "2/2/1/",
+     "managementfee": "1100",
+     "age": "26",
+     "car": "yes"
+},
+{
+     "location": "南屯區保安六街",
+     "format": "3/2/2/",
+     "size": "31.88",
+     "age": "27",
+     "managementfee": "1500"
+},
+{
+     "location": "南屯區寶山五街",
+     "size": "27.8",
+     "inner": "20.58",
+     "format": "2/2/1/",
+     "car": "no"
+},
+{
+     "price": "1850",
+     "location": "大里區仁化工八路",
+     "format": "4/2/3/",
+     "size": "59",
+     "car": "yes",
+     "age": "0"
+},
+{
+     "format": "4/3/6/",
+     "price": "1750"
+},
+{
+     "format": "3/2/2/",
+     "car": "yes",
+     "age": "1",
+     "price": "1398",
+     "managementfee": "2886"
+},
+{
+     "location": "台中市南屯區忠勇路",
+     "price": "668",
+     "size": "28.18",
+     "inner": "21.11",
+     "format": "2/2/1/",
+     "managementfee": "1100",
+     "age": "26",
+     "car": "yes"
+},
+{
+     "size": "107.5",
+     "format": "4/4/7/",
+     "car": "yes",
+     "price": "6988"
+},
+{
+     "format": "3/2/1/",
+     "size": "39.67",
+     "inner": "19",
+     "price": "1100"
+},
+{
+     "location": "台中市太平區",
+     "age": "2023",
+     "format": "3/2/2/",
+     "size": "44.88",
+     "inner": "22.99",
+     "car": "yes",
+     "price": "1098"
+},
+{
+     "location": "台中北屯區",
+     "size": "50.20",
+     "car": "yes",
+     "price": "1288"
+},
+{
+     "location": "北區興進綠園道旁",
+     "age": "",
+     "size": "34",
+     "price": "1580"
+},
+{
+     "location": "北區進全北路",
+     "format": "3/2/2/",
+     "price": "598",
+     "size": "23.48",
+     "inner": "18.96",
+     "age": "26"
+},
+{
+     "format": "4/2/2/",
+     "age": "6",
+     "size": "57.78",
+     "price": "1680",
+     "car": "yes"
+},
+{
+     "size": "54.6",
+     "inner": "25.9",
+     "car": "2",
+     "age": "4",
+     "format": "3/2/2/",
+     "managementfee": "5626",
+     "price": "1280"
+},
+{
+     "location": "台中市西屯區櫻城五街",
+     "price": "698",
+     "format": "3/2/1/",
+     "size": "22.27",
+     "car": "yes"
+},
+{
+     "size": "130",
+     "age": ""
+},
+{
+     "price": "3200",
+     "location": "西區向上路一段",
+     "format": "2/2/2/",
+     "car": "yes"
+},
+{
+     "location": "台中市北屯區環太東路",
+     "size": "32.8",
+     "inner": "17.3",
+     "format": "2/1/1/",
+     "car": "yes",
+     "price": "688"
+},
+{
+     "size": "39",
+     "format": "2/2/2/",
+     "car": "yes"
+},
+{
+     "format": "3/2/2/",
+     "size": "53.09",
+     "age": "7",
+     "price": "1180"
+},
+{
+     "price": "798",
+     "format": "3/2/2/",
+     "inner": "30",
+     "age": "27",
+     "car": "no"
+},
+{
+     "location": "台中市大里區",
+     "format": "2/2/2/",
+     "age": "",
+     "car": "yes"
+},
+{
+     "price": "1068",
+     "size": "46.85",
+     "inner": "29.64",
+     "format": "3/2/2/",
+     "managementfee": "2200"
+},
+{
+     "size": "23.6",
+     "inner": "17.28",
+     "format": "1/1/1/",
+     "age": "13",
+     "managementfee": "1300"
+},
+{
+     "size": "49",
+     "inner": "25",
+     "format": "3/2/2/",
+     "car": "yes",
+     "location": "台中市東區大智路",
+     "price": "1198"
+},
+{
+     "size": "46.73",
+     "format": "4/2/5/",
+     "price": "1038"
+},
+{
+     "size": "53.493",
+     "car": "yes",
+     "managementfee": "3028",
+     "format": "2/1/2/"
+},
+{
+     "location": "貯德八路一自",
+     "format": "3/2/2/",
+     "age": "5",
+     "inner": "33.94",
+     "car": "1",
+     "price": "2260"
+},
+{
+     "location": "台中市西屯區河南路一段",
+     "size": "31.24",
+     "inner": "27.7",
+     "age": "27",
+     "price": "738"
+},
+{
+     "location": "義屯區販德十路",
+     "format": "3/2/2/",
+     "age": "3",
+     "inner": "37.18",
+     "car": "2",
+     "price": "2280"
+},
+{
+     "size": "39.85",
+     "format": "3/2/1/",
+     "age": "6",
+     "car": "yes",
+     "price": "988"
+},
+{
+     "size": "50.75",
+     "inner": "28.12",
+     "format": "3/2/2/",
+     "age": "",
+     "car": "yes",
+     "price": "1650"
+},
+{
+     "size": "47",
+     "inner": "26",
+     "facing": "南",
+     "car": "2",
+     "age": "3"
+},
+{
+     "size": "71.985",
+     "car": "yes",
+     "managementfee": "4331",
+     "format": "4/2/2/"
+},
+{
+     "price": "1380",
+     "size": "65.05",
+     "car": "yes",
+     "managementfee": "3106",
+     "age": "24"
+},
+{
+     "location": "台中市北屯區文心路四段Vs河北路",
+     "format": "3/2/2/",
+     "size": "40.39",
+     "inner": "24.97",
+     "age": "6",
+     "car": "yes",
+     "price": "1288"
+},
+{
+     "age": "6",
+     "inner": "52.31",
+     "format": "3/2/3/",
+     "car": "yes",
+     "price": "2650"
+},
+{
+     "size": "19.55",
+     "car": "yes"
+},
+{
+     "age": "6",
+     "size": "88.37",
+     "inner": "52.31",
+     "format": "3/2/3/",
+     "car": "yes",
+     "price": ""
+},
+{
+     "inner": "",
+     "car": "yes",
+     "location": "",
+     "price": "1128"
+},
+{
+     "location": "台中市西區大忠街",
+     "size": "79.39",
+     "car": "yes",
+     "format": "3/2/2/"
+},
+{
+     "size": "53",
+     "format": "4/3/3/",
+     "car": "yes"
+},
+{
+     "inner": "40.96",
+     "format": "3/2/2/",
+     "age": "5",
+     "price": "1998"
+},
+{
+     "price": "1588",
+     "format": "4/2/2/",
+     "size": "37"
+},
+{
+     "price": "1080",
+     "format": "3/2/2/",
+     "car": "yes",
+     "size": "53"
+},
+{
+     "format": "4/2/2/",
+     "size": "57.4",
+     "inner": "32",
+     "price": "1368"
+},
+{
+     "location": "北屯區和順路",
+     "format": "4/3/3/",
+     "size": "80.92",
+     "car": "yes",
+     "price": "1858"
+},
+{
+     "size": "19.94",
+     "price": "398",
+     "managementfee": "500"
+},
+{
+     "size": "42.97",
+     "format": "3/2/2/",
+     "car": "yes",
+     "age": "10"
+},
+{
+     "size": "",
+     "price": "798"
+},
+{
+     "location": "台中市北區忠太東路",
+     "age": "2",
+     "inner": "19.62",
+     "format": "2/2/2/",
+     "car": "yes"
+},
+{
+     "location": "台中市西起區青海路二段",
+     "size": "101.308",
+     "inner": "47.735",
+     "age": "3",
+     "format": "3/2/2/",
+     "car": "yes",
+     "price": "2880"
+},
+{
+     "location": "義屯區河北西街",
+     "format": "3/2/2/",
+     "age": "1",
+     "inner": "25.35",
+     "car": "1",
+     "price": "1698"
+},
+{
+     "location": "北屯區染德十路",
+     "format": "3/2/2/",
+     "age": "3",
+     "inner": "37.18",
+     "car": "2",
+     "price": "2280"
+},
+{
+     "inner": "69.37",
+     "format": "5/3/5/",
+     "age": "15",
+     "managementfee": "3000"
+},
+{
+     "location": "清水區",
+     "size": "34.48",
+     "format": "2/2/1/",
+     "car": "yes"
+},
+{
+     "location": "義區育樂街",
+     "format": "1/1/1/",
+     "age": "5",
+     "inner": "15.19",
+     "car": "1",
+     "price": "838"
+},
+{
+     "format": "7/2/4/",
+     "size": "",
+     "price": "1488"
+},
+{
+     "location": "西區大同街",
+     "format": "5/3/3/",
+     "age": "40",
+     "inner": "42.31",
+     "car": "yes",
+     "price": "1680"
+},
+{
+     "location": "太平區",
+     "format": "4/2/1/",
+     "size": "",
+     "price": "1100"
+},
+{
+     "location": "北屯區南興路",
+     "format": "3/2/2/",
+     "age": "5",
+     "inner": "24.6",
+     "car": "1",
+     "price": "1318"
+},
+{
+     "price": "2468",
+     "size": "65",
+     "format": "4/2/3/",
+     "car": "yes",
+     "age": "21"
+},
+{
+     "price": "910",
+     "size": "45.883",
+     "format": "4/2/2/",
+     "car": "yes",
+     "age": "27",
+     "managementfee": "1"
+},
+{
+     "price": "1150",
+     "size": "42.91",
+     "format": "3/2/2/",
+     "age": "23",
+     "managementfee": "2"
+},
+{
+     "format": "4/3/3/",
+     "age": "2",
+     "car": "yes",
+     "price": "1798"
+},
+{
+     "location": "則德八路一段",
+     "format": "3/2/2/",
+     "age": "5",
+     "inner": "33.94",
+     "car": "1",
+     "price": "2260"
+},
+{
+     "location": "北屯區河北西街",
+     "format": "3/2/2/",
+     "age": "1",
+     "inner": "25.35",
+     "car": "1",
+     "price": "1698"
+},
+{
+     "location": "北屯區染德十路",
+     "format": "3/2/2/",
+     "age": "3",
+     "inner": "37.18",
+     "car": "2",
+     "price": "2280"
+},
+{
+     "size": "74",
+     "format": "4/3/3/",
+     "car": "yes"
+},
+{
+     "price": "1438",
+     "location": "北屯區機捷特區",
+     "size": "44.44",
+     "inner": "24.76",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "format": "3/2/2/",
+     "car": "yes",
+     "age": "1",
+     "price": "1398",
+     "managementfee": "2886"
+},
+{
+     "age": "2022",
+     "location": "北屯區環太東路上",
+     "car": "yes",
+     "size": "28",
+     "inner": "14"
+},
+{
+     "price": "1680",
+     "size": "79",
+     "format": "4/3/5/",
+     "age": ""
+},
+{
+     "location": "北屯區崇德七",
+     "price": "1080",
+     "size": "57.66",
+     "inner": "43.75",
+     "format": "4/2/2/",
+     "age": "31",
+     "car": "yes",
+     "managementfee": "1500"
+},
+{
+     "size": "53",
+     "format": "4/3/5/",
+     "age": "",
+     "car": "yes",
+     "price": ""
+},
+{
+     "format": "3/2/2/",
+     "age": "7",
+     "inner": "25",
+     "car": "yes",
+     "location": "大里區新明路"
+},
+{
+     "location": "大里區德芳南路",
+     "size": "28.852",
+     "inner": "28.852",
+     "age": "10",
+     "price": "1480"
+},
+{
+     "price": "988",
+     "size": "37.78",
+     "format": "2/2/1/"
+},
+{
+     "size": "27.8",
+     "inner": "27.8",
+     "price": "618"
+},
+{
+     "location": "太平區祥順路一段308號",
+     "size": "76.66",
+     "format": "4/2/2/",
+     "car": "yes",
+     "managementfee": "3931",
+     "age": "7"
+},
+{
+     "size": "30",
+     "inner": "22",
+     "format": "3/2/2/",
+     "age": "25",
+     "car": "yes",
+     "managementfee": "1865"
+},
+{
+     "location": "北屯區昌平東五路",
+     "size": "69",
+     "format": "4/4/4/",
+     "car": "yes",
+     "age": "16"
+},
+{
+     "size": "30",
+     "inner": "22",
+     "format": "3/2/2/",
+     "age": "25",
+     "car": "yes",
+     "managementfee": "1865"
+},
+{
+     "location": "太平區祥順路一自",
+     "size": "76",
+     "inner": "38",
+     "format": "4/2/2/"
+},
+{
+     "location": "北屯區昌平東五路",
+     "size": "69.95",
+     "format": "4/4/4/",
+     "car": "yes",
+     "age": "16"
+},
+{
+     "size": "54",
+     "format": "1/2/2/",
+     "age": "27",
+     "price": "1180"
+},
+{
+     "location": "沙鹿區向上路六段",
+     "price": ""
+},
+{
+     "price": "1438",
+     "location": "北屯區機捷特區",
+     "inner": "24.76",
+     "format": "3/2/2/",
+     "car": "yes"
+},
+{
+     "price": "680",
+     "size": "41.92",
+     "format": "3/2/3/",
+     "managementfee": "300",
+     "age": "28"
+},
+{
+     "location": "北區興進斷園首閃",
+     "age": "",
+     "size": "34",
+     "price": "1580"
+},
+{
+     "size": "76",
+     "format": "4/3/5/",
+     "location": "嘉義市忠孝路317號"
+},
+{
+     "size": "70.38",
+     "location": "嘉義市忠孝路317號"
+},
+{
+     "location": "",
+     "size": ""
+},
+{
+     "size": "30",
+     "inner": "22",
+     "format": "3/2/2/",
+     "age": "25",
+     "car": "yes",
+     "managementfee": "1865"
+},
+{
+     "size": "20",
+     "format": "2/2/1/",
+     "price": "668"
+},
+{
+     "location": "太平區祥順路一段",
+     "size": "76.66",
+     "format": "4/2/2/",
+     "car": "yes",
+     "managementfee": "3931",
+     "age": "7"
+},
+{
+     "size": "29.63",
+     "car": "yes",
+     "age": "3",
+     "price": "778"
+},
+{
+     "location": "太平區",
+     "size": "23.2",
+     "format": "3/2/1/",
+     "age": "",
+     "managementfee": "500",
+     "price": "468"
+},
+{
+     "location": "東區十甲東路",
+     "format": "3/2/2/",
+     "size": "53",
+     "inner": "30",
+     "price": "1080"
+},
+{
+     "price": "558",
+     "location": "桃園市楊梅區元化街",
+     "size": "47.11",
+     "managementfee": "1000",
+     "format": "3/2/2/",
+     "age": "23",
+     "car": "yes"
+},
+{
+     "price": "1080",
+     "location": "東區十甲東路",
+     "format": "3/2/2/",
+     "car": "yes",
+     "size": "53"
+},
+{
+     "size": "38.91",
+     "age": "4",
+     "managementfee": "2250",
+     "location": "台中市北區進化路"
+},
+{
+     "location": "",
+     "price": "",
+     "size": "",
+     "inner": ""
+},
+{
+     "car": "yes",
+     "inner": "758",
+     "price": "",
+     "size": "51.16",
+     "format": "4/2/2/",
+     "age": "26",
+     "managementfee": "1200",
+     "location": "嘉義市忠孝路317號"
+},
+{
+     "size": "30",
+     "inner": "22",
+     "format": "3/2/2/",
+     "age": "25",
+     "car": "yes",
+     "managementfee": "1865"
+},
+{
+     "size": "44.6",
+     "inner": "24.4",
+     "format": "3/2/2/",
+     "age": "6",
+     "managementfee": "2160",
+     "price": "988"
+},
+{
+     "size": "",
+     "format": "4/2/4/",
+     "location": "嘉義市忠孝路317號"
+},
+{
+     "price": "758",
+     "size": "51.16",
+     "inner": "36.97",
+     "format": "4/2/2/",
+     "age": "26",
+     "managementfee": "1200"
+},
+{
+     "price": "",
+     "inner": "34.9",
+     "format": "3/2/2/",
+     "age": "17",
+     "managementfee": "1200",
+     "car": "yes"
+},
+{
+     "size": "88.37",
+     "inner": "52.51",
+     "format": "3/2/3/",
+     "age": "6",
+     "car": "yes",
+     "price": "2650"
+},
+{
+     "location": "台中市太平區",
+     "age": "4",
+     "size": "72.42",
+     "car": "yes",
+     "price": "1880"
+},
+{
+     "format": "3/2/2/",
+     "age": "6",
+     "managementfee": "2160",
+     "price": "988"
+},
+{
+     "format": "3/2/1/",
+     "age": "6",
+     "size": "27.08",
+     "car": "yes"
+},
+{
+     "price": "2200",
+     "location": "台中市西忠區安和一街地圖",
+     "format": "2/2/2/",
+     "size": "62.64",
+     "age": "4"
+},
+{
+     "price": "910",
+     "location": "台中市中山路",
+     "size": "45.8",
+     "inner": "32",
+     "format": "4/2/2/",
+     "managementfee": "1457"
+},
+{
+     "location": "潭子區中山路一自",
+     "size": "23.59",
+     "inner": "17.28",
+     "format": "2/1/1/",
+     "age": "13",
+     "managementfee": "1298",
+     "car": "no",
+     "price": "568"
+},
+{
+     "price": "",
+     "car": "yes",
+     "size": "",
+     "inner": ""
+},
+{
+     "size": ""
+},
+{
+     "price": "2080",
+     "format": "4/2/3/",
+     "location": "台中市北屯區時溪西路三段",
+     "facing": "北"
+},
+{
+     "size": "23.6",
+     "inner": "17.3",
+     "format": "1/1/1/",
+     "age": "13",
+     "managementfee": "1300"
+},
+{
+     "size": "53",
+     "format": "4/3/3/",
+     "car": "yes"
+},
+{
+     "size": "26.8",
+     "inner": "26.8",
+     "format": "3/2/2/",
+     "age": "73",
+     "car": "yes"
+},
+{
+     "location": "北屯區北華街",
+     "price": "788",
+     "format": "3/2/2/",
+     "size": "38.59",
+     "age": "25",
+     "car": "yes",
+     "managementfee": ""
+},
+{
+     "size": "33.5"
+},
+{
+     "format": "4/2/2/",
+     "size": "54.56",
+     "car": "yes",
+     "age": "28"
+},
+{
+     "size": "",
+     "price": ""
+},
+{
+     "location": "台中市伺日區中山路一腳",
+     "inner": "",
+     "format": "3/2/2/",
+     "car": "yes",
+     "age": "5"
+},
+{
+     "inner": "41.85",
+     "format": "3/2/2/",
+     "car": "yes",
+     "price": "2398"
+},
+{
+     "location": "西區五權路在4樓",
+     "size": "50.94",
+     "inner": "30.17",
+     "format": "3/2/2/",
+     "car": "yes",
+     "age": "14",
+     "price": "1398"
+},
+{
+     "location": "台中市東區十全街",
+     "price": "3988",
+     "format": "6/3/5/",
+     "inner": "95.9",
+     "age": "7",
+     "car": "yes"
+},
+{
+     "price": "1350",
+     "size": "55.56",
+     "age": "8",
+     "car": "yes"
+},
+{
+     "location": "台中市北屯區敦富一街",
+     "size": "52.49",
+     "age": "",
+     "format": "3/2/2/",
+     "car": "yes",
+     "price": "1468"
+},
+{
+     "price": "1568",
+     "size": "",
+     "format": "1/4/3/",
+     "age": "29",
+     "car": "yes"
+},
+{
+     "format": "3/2/2/",
+     "size": "31.11",
+     "price": "698"
+},
+{
+     "location": "育德路",
+     "size": "23",
+     "format": "3/2/1/",
+     "price": "468"
+},
+{
+     "location": "西屯區中清西二街",
+     "size": "29.8",
+     "car": "yes",
+     "age": "26",
+     "price": "768"
+},
+{
+     "size": "30",
+     "inner": "22",
+     "format": "3/2/2/",
+     "age": "25",
+     "car": "yes",
+     "managementfee": "1865"
+},
+{
+     "size": "23",
+     "inner": "19",
+     "format": "2/2/2/",
+     "age": "3",
+     "car": "yes",
+     "managementfee": "1477"
+},
+{
+     "format": "4/2/2/",
+     "car": "yes",
+     "size": "54.6",
+     "inner": "35.6",
+     "age": "28",
+     "managementfee": "1500"
+},
+{
+     "size": "43.9",
+     "format": "4/2/2/",
+     "car": "yes",
+     "age": "26",
+     "managementfee": "1681"
+},
+{
+     "size": "23",
+     "inner": "19",
+     "format": "2/2/2/",
+     "age": "3",
+     "car": "yes",
+     "managementfee": "1477"
+},
+{
+     "size": "",
+     "format": "4/2/2/",
+     "car": "yes",
+     "price": "1068"
+},
+{
+     "size": "56",
+     "inner": "45",
+     "format": "3/2/3/",
+     "car": "yes",
+     "price": "1288"
+},
+{
+     "inner": "27",
+     "format": "3/2/2/",
+     "car": "yes",
+     "age": "1",
+     "price": "1398",
+     "managementfee": "2886"
+},
+{
+     "size": "89.12",
+     "format": "6/4/5/",
+     "car": "yes",
+     "age": "",
+     "price": "3380"
+},
+{
+     "size": "89.12",
+     "format": "6/4/5/",
+     "car": "yes",
+     "age": "",
+     "price": "3380"
+},
+{
+     "location": "北屯區和順路",
+     "size": "80",
+     "car": "yes",
+     "age": "26",
+     "price": "1798"
+},
+{
+     "price": "1198",
+     "size": "47",
+     "inner": "26",
+     "format": "3/2/2/",
+     "age": "3",
+     "car": "yes"
+},
+{
+     "size": "89.12",
+     "format": "6/4/5/",
+     "car": "yes",
+     "age": "",
+     "price": "3380"
+},
+{
+     "size": "31.95",
+     "age": "40",
+     "managementfee": "",
+     "price": "336"
+},
+{
+     "price": "758",
+     "size": "51.16",
+     "inner": "36.97",
+     "format": "4/2/2/",
+     "managementfee": "1200"
+},
+{
+     "price": "1388",
+     "size": "32.76",
+     "age": "40",
+     "format": "5/2/2/"
+},
+{
+     "location": "太平區新安街",
+     "size": "89",
+     "car": "yes",
+     "age": "8"
+},
+{
+     "format": "3/2/2/",
+     "car": "yes",
+     "age": "1",
+     "price": "1398",
+     "managementfee": "2886"
+},
+{
+     "location": "台中市南屯區忠勇路",
+     "price": "668",
+     "size": "28.18",
+     "inner": "21.11",
+     "format": "2/2/1/",
+     "managementfee": "1100",
+     "age": "26",
+     "car": "yes"
+},
+{
+     "location": "",
+     "price": "",
+     "size": "",
+     "inner": "",
+     "age": ""
+}

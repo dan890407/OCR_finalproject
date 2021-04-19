@@ -1,18 +1,15 @@
 from cv2 import cv2
 import numpy as np
 import pyautogui
-import time
 import win32gui
+import win32con
 import win32com.client
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtGui import *
 from PIL import ImageGrab,Image,ImageEnhance
-import win32con
-import time
-import sys,os
+import sys,os,re,json,time
 import pytesseract
 import jieba
-import re
 
 def click_image(image,pos,  action, timestamp,offset=5):
     img = cv2.imread(image)
@@ -113,8 +110,9 @@ class project :
             else:
                 t.write("")
 
-    def judge(self):     #判斷是否符合資格 -> weight > 6
+    def judge(self):     #判斷是否符合資格 -> weight >= 6
         temporary='./text_file/temporary.txt'
+        location = ["地址","地點","區域"]
         important = []
         keywords = []
         index = []
@@ -131,6 +129,8 @@ class project :
                     session = sentence.strip().split(":")[0]
                     cut_session = jieba.cut(session)
                     for s in cut_session:
+                        if s in location:
+                            flag = True
                         if s in important:
                             weight = weight + 2
                             index.append(s+':'+sentence.strip().split(":")[1])
@@ -140,9 +140,8 @@ class project :
                             weight = weight + 1
                             index.append(s+':'+sentence.strip().split(":")[1])
                             keywords.remove(s)
-        print(index)
-        print(weight)
-        if weight < 5:
+        print(index,weight)
+        if weight < 6:
             with open(temporary,'w',encoding='utf-8') as t:
                 t.write("")
         else:
@@ -150,13 +149,96 @@ class project :
                 for sentence in index:
                     t.writelines(sentence)
                     t.write('\n')
+        
+    def jsons(self):
+        temporary='./text_file/temporary.txt'
+        localdic=dict()
+        form={
+                "price":["價格","開價","售價","總價"],
+                "location":["地址","地點","區域"],
+                "size":["建坪","坪數","總建"],
+                "inner":["室內","主附"],
+                "car":["車位"],
+                "age":["屋齡"],
+                "format":["格局"],
+                "managementfee":["管理費"],
+                "facing":["坐向","朝向","座向"]		
+        }
+        regularform={
+                "price":"(\d+)萬",
+                "location":"(\w+)",
+                "size":"(\d*[\.\d]*)[坪]*",
+                "inner":"(\d*[\.\d]*)[坪]*",
+                "car":"(\w)個",
+                "car2":["無","沒有","0"],
+                "age":"(\d+)年",
+                "format":"(\d+)[房/]*(\d+)[廳/]*(\d+)[衛]*",
+                "managementfee":"(\d+)[元]*",
+                "facing":["東","南","西","北"]	
+        }
+        with open(temporary,"r+",encoding="UTF-8") as f:
+            texts=f.readlines()
+            for line in texts:
+                flag=0
+                if line.find(":") != -1:
+                    for name,data in form.items():  
+                        for i in data:
+                            if i==line[:line.find(":")]:   
+                                if name=="facing":  #找朝向的第一個方位  通常是面對方向
+                                    facing_cut=[]
+                                    for fac in jieba.cut(line[(line.find(":")+1):len(line)-1],cut_all = False):	
+                                        facing_cut.append(fac)
+                                    for facs in facing_cut:
+                                        if facs in regularform['facing']:
+                                            localdic[name]=facs
+                                else: #用正規式處理字串(value)
+                                    if name=='format':
+                                        try:
+                                            if len(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])):	
+                                                localformat=re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])[0]
+                                                a=''
+                                                for jj in localformat:
+                                                    a+=jj+'/'
+                                                localdic[name]=a
+                                            else:
+                                                pass
+                                        except Exception as e:
+                                            print("exception :")
+                                            print(e)																			
+                                    elif name=='car':
+                                        if len(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])):
+                                            localdic[name]=''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
+                                        else:
+                                            if line[(line.find(":")+1):len(line)-1] in regularform['car2']:
+                                                localdic[name]="no"
+                                            else:
+                                                localdic[name]="yes"
+                                    else:#格局標準化
+                                        if len(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])):
+                                            localdic[name]=re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])[0]
+                                        else:
+                                            localdic[name]=''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
+            f.seek(0)
+            f.truncate()
+            f.write(json.dumps(localdic,indent=5,ensure_ascii=False))
+    def merge(self):
+        temporary='./text_file/temporary.txt'
+        goal = self.path+self.filename+".txt"     
+        f = open(goal,'a',encoding="utf-8")   
+        t = open(temporary,'r',encoding='utf-8')
+        if os.path.getsize(temporary) != 2:
+            for line in t.readlines():
+                    f.writelines(line)
+            f.write(",\n")
+        t.close()
+        f.close()
+        os.remove(temporary)
 
     def fix(self):
         price = ["價格","開價","售價","總價"]
         location = ["地址","地點","區域"]
         size = ["建坪","坪數","總建"]
         inner = ["室內","主附"]
-        floor = ["樓層"]
         car = ["車位"]
         age = ["屋齡"]
         form = ["格局"]
@@ -165,7 +247,7 @@ class project :
         direction = ["東","南","西","北","東北","東南","西南","西北"]
         temporary='./text_file/temporary.txt'
         index = []
-        
+
         with open(temporary,'r',encoding='utf-8') as t:
             for line in t.readlines():
                 front = line.strip().split(":")[0]
@@ -173,56 +255,49 @@ class project :
                 cut_back = jieba.lcut(back)
                 print(cut_back)
                 if front in price:
-                    front = '價格'
+                    front = 'price'
                     for i in cut_back:
                         if is_number(i) == True:
                             index.append('"'+front+'":"'+i+'"')
                             break
                     continue
                 elif front in location:
-                    front = '地址'
+                    front = 'location'
                     index.append('"'+front+'":"'+back+'"')
                     continue
                 elif front in size:
-                    front = '建坪'
+                    front = 'size'
                     for i in cut_back:
                         if is_number(i) == True:
                             index.append('"'+front+'":"'+i+'"')
                             break
                     continue
                 elif front in inner:
-                    front = '室內'
-                    for i in cut_back:
-                        if is_number(i) == True:
-                            index.append('"'+front+'":"'+i+'"')
-                            break
-                    continue
-                elif front in floor:
-                    front = '樓層'
+                    front = 'inner'
                     for i in cut_back:
                         if is_number(i) == True:
                             index.append('"'+front+'":"'+i+'"')
                             break
                     continue
                 elif front in car:
-                    front = '車位'
+                    front = 'car'
                     if '無' in cut_back or '沒有' in cut_back:
-                        index.append('"'+front+'":"無"')
+                        index.append('"'+front+'":"no"')
                     else:
-                        index.append('"'+front+'":"有"')
+                        index.append('"'+front+'":"yes"')
                     continue
                 elif front in age:
-                    front = '屋齡'
+                    front = 'age'
                     for i in cut_back:
                         if is_number(i) == True:
                             index.append('"'+front+'":"'+i+'"')
                             break
                     continue
                 elif front in form:
-                    front = '格局'
+                    front = 'form'
                     count = 0
                     num = []
-                    if '廳' in cut_back and '房' in cut_back and ('衛' in cut_back or '衛浴' in cut_back):
+                    if '陽台' not in cut_back:
                         for i in cut_back:
                             if is_number(i) == True:
                                 num.append(i)
@@ -231,14 +306,14 @@ class project :
                                     index.append('"'+front+'":"'+num[0]+'/'+num[1]+'/'+num[2]+'"')
                     continue
                 elif front in managementfee:
-                    front = '管理費'
+                    front = 'managementfee'
                     for i in cut_back:
                         if is_number(i) == True:
                             index.append('"'+front+'":"'+i+'"')
                             break
                     continue
                 elif front in facing:
-                    front = '坐向'
+                    front = 'facing'
                     for i in cut_back:
                         if i in direction:
                             index.append('"'+front+'":"'+i+'"')
@@ -247,88 +322,4 @@ class project :
             t.write('{\n')
             for sentence in index:
                     t.writelines(sentence+',\n')
-            t.write('}\n')
-                    
-                    
-    def jsons(self):
-        localdic=dict()
-        form={
-			"price":["價格","開價","售價","總價"],
-			"location":["地址","地點","區域"],
-			"size":["建坪","坪數","總建"],
-			"inner":["室內","主附"],
-			"car":["車位"],
-			"age":["屋齡"],
-			"format":["格局"],
-			"managementfee":["管理費"],
-			"facing":["坐向","朝向","座向"]		
-	}
-	regularform={
-			"price":"(\d+)萬",
-			"location":"(\w+)",
-			"size":"(\d*[\.\d]*)[坪]*",
-			"inner":"(\d*[\.\d]*)[坪]*",
-			"car":"(\w)個",
-			"car2":["無","沒有","0"],
-			"age":"(\d+)年",
-			"format":"(\d+)[房/]*(\d+)[廳/]*(\d+)[衛]*",
-			"managementfee":"(\d+)[元]*",
-			"facing":["東","南","西","北","東北","東南","西南","西南"]		
-	}
-    with open("test.txt","r+",encoding="UTF-8") as f:
-		texts=f.readlines()
-		for line in texts:
-			flag=0
-			if line.find(":") != -1:
-				for name,data in form.items():  
-					for i in data:
-						if i==line[:line.find(":")]:   
-							if name=="facing":  #找朝向的第一個方位  通常是面對方向
-								facing_cut=[]
-								for fac in jieba.cut(line[(line.find(":")+1):len(line)-1],cut_all = False):	
-									facing_cut.append(fac)
-								for facs in facing_cut:
-									if facs in regularform['facing']:
-										localdic[name]=facs
-							else: #用正規式處理字串(value)
-								if name=='format':
-									try:
-										if len(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])):	
-											localformat=re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])[0]
-											a=''
-											for jj in localformat:
-												a+=jj+'/'
-											localdic[name]=a
-										else:
-											pass
-									except Exception as e:
-										print("exception :")
-										print(e)																			
-								elif name=='car':
-									if len(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])):
-										localdic[name]=''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
-									else:
-										if line[(line.find(":")+1):len(line)-1] in regularform['car2']:
-											localdic[name]="0"
-										else:
-											localdic[name]=">0"
-								else:#格局標準化
-									if len(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])):
-										localdic[name]=re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])[0]
-									else:
-										localdic[name]=''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
-		f.seek(0)
-		f.truncate()
-		f.write(json.dumps(localdic,indent=5,ensure_ascii=False))
-    def merge(self):
-        temporary='./text_file/temporary.txt'
-        goal = self.path+self.filename+".txt"     
-        f = open(goal,'a',encoding="utf-8")   
-        t = open(temporary,'r',encoding='utf-8')
-        if os.path.getsize(temporary):
-            for line in t.readlines():
-                    f.writelines(line)
-        f.write(",")
-        t.close()
-        f.close()
-        os.remove(temporary)
+            t.write('}')
