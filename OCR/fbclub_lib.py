@@ -149,79 +149,7 @@ class project :
                 for sentence in index:
                     t.writelines(sentence)
                     t.write('\n')
-        
-    def jsons(self):
-        temporary='./text_file/temporary.txt'
-        localdic=dict()
-        form={
-                "price":["價格","開價","售價","總價"],
-                "location":["地址","地點","區域"],
-                "size":["建坪","坪數","總建"],
-                "inner":["室內","主附"],
-                "car":["車位"],
-                "age":["屋齡"],
-                "format":["格局"],
-                "managementfee":["管理費"],
-                "facing":["坐向","朝向","座向"]		
-        }
-        regularform={
-                "price":"(\d+)萬",
-                "location":"(\w+)",
-                "size":"(\d*[\.\d]*)[坪]*",
-                "inner":"(\d*[\.\d]*)[坪]*",
-                "car":"(\w)個",
-                "car2":["無","沒有","0"],
-                "age":"(\d+)年",
-                "format":"(\d+)[房/]*(\d+)[廳/]*(\d+)[衛]*",
-                "managementfee":"(\d+)[元]*",
-                "facing":["東","南","西","北"]	
-        }
-        with open(temporary,"r+",encoding="UTF-8") as f:
-            texts=f.readlines()
-            for line in texts:
-                flag=0
-                if line.find(":") != -1:
-                    for name,data in form.items():  
-                        for i in data:
-                            if i==line[:line.find(":")]:   
-                                if name=="facing":  #找朝向的第一個方位  通常是面對方向
-                                    facing_cut=[]
-                                    for fac in jieba.cut(line[(line.find(":")+1):len(line)-1],cut_all = False):	
-                                        facing_cut.append(fac)
-                                    for facs in facing_cut:
-                                        if facs in regularform['facing']:
-                                            localdic[name]=facs
-                                else: #用正規式處理字串(value)
-                                    if name=='format':
-                                        try:
-                                            if len(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])):	
-                                                localformat=re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])[0]
-                                                a=''
-                                                for jj in localformat:
-                                                    a+=jj+'/'
-                                                localdic[name]=a
-                                            else:
-                                                pass
-                                        except Exception as e:
-                                            print("exception :")
-                                            print(e)																			
-                                    elif name=='car':
-                                        if len(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])):
-                                            localdic[name]=''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
-                                        else:
-                                            if line[(line.find(":")+1):len(line)-1] in regularform['car2']:
-                                                localdic[name]="no"
-                                            else:
-                                                localdic[name]="yes"
-                                    else:#格局標準化
-                                        if len(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])):
-                                            localdic[name]=re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])[0]
-                                        else:
-                                            localdic[name]=''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
-            f.seek(0)
-            f.truncate()
-            f.write(json.dumps(localdic,indent=5,ensure_ascii=False))
-
+                    
     def jsons_nlp(self):
         temporary='./text_file/temporary.txt'
         def write_json(data, filename='./text_file/text.json'):
@@ -299,7 +227,79 @@ class project :
         with open("temporary.txt","w",encoding="UTF-8") as f:
             f.seek(0)
             f.truncate()
-            f.write(json.dumps(answerdict,indent=5,ensure_ascii=False))  
+            f.write(json.dumps(answerdict,indent=5,ensure_ascii=False))
+        
+    def jsons(self):
+        temporary='./text_file/temporary.txt'
+        localdic=dict()
+        form={
+                "price":["價格","開價","售價","總價"],
+                "location":["地址","地點","區域"],
+                "size":["建坪","坪數","總建"],
+                "inner":["室內","主附"],
+                "car":["車位"],
+                "age":["屋齡"],
+                "format":["格局"],
+                "managementfee":["管理費"],
+                "facing":["坐向","朝向","座向"]		
+        }
+        regularform={
+                "price":"(\d+)萬",
+                "location":"(\w+)",
+                "size":"(\d*[\.\d]*)[坪]*",
+                "inner":"(\d*[\.\d]*)[坪]*",
+                "car":"(\w)個",
+                "car2":["無","沒有","0"],
+                "age":"(\d+)年",
+                "format":"(\d+)[房/]*(\d+)[廳/]*(\d+)[衛]*",
+                "managementfee":"(\d+)[元]*",
+                "facing":["東","南","西","北"]	
+        }
+        with open(temporary,"r+",encoding="UTF-8") as f:
+            texts=f.readlines()
+            for line in texts:
+                flag=0
+                if line.find(":") != -1:
+                    for name,data in form.items():  
+                        for i in data:
+                            if i==line[:line.find(":")]:   
+                                if name=="facing":  #找朝向的第一個方位  通常是面對方向
+                                    facing_cut=[]
+                                    for fac in jieba.cut(line[(line.find(":")+1):len(line)-1],cut_all = False):	
+                                        facing_cut.append(fac)
+                                    for facs in facing_cut:
+                                        if facs in regularform['facing']:
+                                            localdic[name]=facs
+                                else: #用正規式處理字串(value)
+                                    if name=='format':
+                                        try:
+                                            if len(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])):	
+                                                localformat=re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])[0]
+                                                a=''
+                                                for jj in localformat:
+                                                    a+=jj+'/'
+                                                localdic[name]=a
+                                            else:
+                                                pass
+                                        except Exception as e:
+                                            print("exception :")
+                                            print(e)																			
+                                    elif name=='car':
+                                        if len(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])):
+                                            localdic[name]=''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
+                                        else:
+                                            if line[(line.find(":")+1):len(line)-1] in regularform['car2']:
+                                                localdic[name]="no"
+                                            else:
+                                                localdic[name]="yes"
+                                    else:#格局標準化
+                                        if len(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])):
+                                            localdic[name]=re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1])[0]
+                                        else:
+                                            localdic[name]=''.join(re.compile(regularform[name]).findall(line[(line.find(":")+1):len(line)-1]))
+            f.seek(0)
+            f.truncate()
+            f.write(json.dumps(localdic,indent=5,ensure_ascii=False))
 
     def merge(self):
         temporary='./text_file/temporary.txt'
