@@ -34,6 +34,7 @@ class InputFrame(Frame): # 繼承Frame類
 		self.interval=StringVar()
 		self.filename=StringVar()
 		self.run=True
+		self.count = 0
 		self.createPage()
 	
 	def createPage(self):
@@ -177,6 +178,7 @@ class InputFrame(Frame): # 繼承Frame類
 		print(hex(int(self.hwnd.get(),16)))
 	def mainloop(self):
 		self.test.web_screenshot()
+		past = ImageGrab.grab()
 		tdot = imagesearch("./picture/threedot.jpg")
 		if tdot != [800,500]:
 			pyautogui.scroll(int(self.top.get())-tdot[1])
@@ -184,7 +186,7 @@ class InputFrame(Frame): # 繼承Frame類
 			pos = imagesearch("./picture/seemore.jpg")
 			if pos != [800,500]:
 				click_image("./picture/seemore.jpg",pos,"left",0.1)
-			time.sleep(1)
+			time.sleep(0.5)
 			self.test.web_screenshot()
 			self.test.divid()
 			self.test.ocr()
@@ -196,7 +198,12 @@ class InputFrame(Frame): # 繼承Frame類
 			pyautogui.scroll(int(self.top.get())-int(self.bottom.get()))
 		else:
 			pyautogui.scroll(int(self.top.get())-int(self.bottom.get()))
+		current = ImageGrab.grab()
 		self.tkafter=root.after(self.interval_variable*1000,self.mainloop)      #按間格重複執行
+		self.count = self.count + 1
+		if self.count %10000 == 0 or past == current:		#若網頁到底或重複10000次
+			root.after_cancel(self.tkafter)
+			messagebox.showinfo("project cancel","爬蟲完成")
 	def loopstop(self):
 		root.after_cancel(self.tkafter)	
 	def buttonstart(self):

@@ -149,84 +149,7 @@ class project :
                 for sentence in index:
                     t.writelines(sentence)
                     t.write('\n')
-    def jsons_nlp(self):
-        temporary='./text_file/temporary.txt'
-        def write_json(data, filename='./text_file/text.json'):
-            data=json.load(open(filename))
-            if type(data) is dict:
-                data = [data]
-            data.append(a)
-            with open(filename, 'w') as outfile:
-                json.dump(data, outfile,indent=4)
-        def strQ2B(s):
-            rstring = ""
-            for uchar in s:
-                u_code = ord(uchar)
-                if u_code == 12288:  # 全形空格直接轉換
-                    u_code = 32
-                elif 65281 <= u_code <= 65374:  # 全形字元（除空格）根據關係轉化
-                    u_code -= 65248
-                rstring += chr(u_code)
-            return rstring
-        wrapper = textwrap.TextWrapper(width=80) 
-        start_time = time.time()
-        tokenizer = BertTokenizer.from_pretrained("bert-base-chinese")
-        config = BertConfig.from_pretrained("./models/config.json") 
-        model = BertForQuestionAnswering.from_pretrained("./models/pytorch_model.bin", config=config)
-        with open (temporary,"r",encoding="utf-8") as f:
-            context=f.read()
-            context=strQ2B(context)
-            context=context.replace("\n",",")
-            print(context)
-        form={
-                    "price":["價格","開價","售價","總價"],
-                    "location":["地址","地點","區域"],
-                    "size":["建坪","坪數","總建"],
-                    "age":["屋齡"],
-                    "format":["格局"],	
-        }
-        regularform={
-                    "price":"(\d+)萬",
-                    "location":"(\w+)",
-                    "size":"(\d*[\.\d]*)[坪]*",
-                    "age":"(\d+)年",
-                    "format":"(\d+)[房/]*(\d+)[廳/]*(\d+)[衛]*",
-        }
-        questions = ['format','age','size','price']
-        answerdict=dict()
-        for question in questions:
-            flag=0
-            for ques in form[question]:
-
-                inputs = tokenizer(ques, context, add_special_tokens=True, return_tensors="pt")
-                input_ids = inputs["input_ids"].tolist()[0]
-
-                context_tokens = tokenizer.convert_ids_to_tokens(input_ids)
-
-                logits = model(**inputs,return_dict=True)
-                answer_start_scores = logits['start_logits'] 
-                answer_end_scores = logits['end_logits']
-                answer_start = torch.argmax(answer_start_scores)
-                answer_end = torch.argmax(answer_end_scores) + 1
-                answer = tokenizer.convert_tokens_to_string(context_tokens[answer_start:answer_end])
-
-            
-                if answer!="[CLS]":
-                    print(f"Question: {question}")
-                    print(f"Answer: {answer}")
-                    answerdict[question]=re.compile(regularform[question]).findall(answer.replace(" ",""))[0]
-                    flag=1
-            if flag == 0:
-                answerdict[question]="null"
-                print(f"Question: {question}")
-                print(f"Answer not found")
-        print("--- %s seconds ---" % (time.time() - start_time))
-        print (answerdict)
-        write_json(answerdict)
-        with open("temporary.txt","w",encoding="UTF-8") as f:
-            f.seek(0)
-            f.truncate()
-            f.write(json.dumps(answerdict,indent=5,ensure_ascii=False))        
+        
     def jsons(self):
         temporary='./text_file/temporary.txt'
         localdic=dict()
@@ -298,6 +221,86 @@ class project :
             f.seek(0)
             f.truncate()
             f.write(json.dumps(localdic,indent=5,ensure_ascii=False))
+
+    def jsons_nlp(self):
+        temporary='./text_file/temporary.txt'
+        def write_json(data, filename='./text_file/text.json'):
+            data=json.load(open(filename))
+            if type(data) is dict:
+                data = [data]
+            data.append(a)
+            with open(filename, 'w') as outfile:
+                json.dump(data, outfile,indent=4)
+        def strQ2B(s):
+            rstring = ""
+            for uchar in s:
+                u_code = ord(uchar)
+                if u_code == 12288:  # 全形空格直接轉換
+                    u_code = 32
+                elif 65281 <= u_code <= 65374:  # 全形字元（除空格）根據關係轉化
+                    u_code -= 65248
+                rstring += chr(u_code)
+            return rstring
+        wrapper = textwrap.TextWrapper(width=80) 
+        start_time = time.time()
+        tokenizer = BertTokenizer.from_pretrained("bert-base-chinese")
+        config = BertConfig.from_pretrained("./models/config.json") 
+        model = BertForQuestionAnswering.from_pretrained("./models/pytorch_model.bin", config=config)
+        with open (temporary,"r",encoding="utf-8") as f:
+            context=f.read()
+            context=strQ2B(context)
+            context=context.replace("\n",",")
+            print(context)
+        form={
+                    "price":["價格","開價","售價","總價"],
+                    "location":["地址","地點","區域"],
+                    "size":["建坪","坪數","總建"],
+                    "age":["屋齡"],
+                    "format":["格局"],	
+        }
+        regularform={
+                    "price":"(\d+)萬",
+                    "location":"(\w+)",
+                    "size":"(\d*[\.\d]*)[坪]*",
+                    "age":"(\d+)年",
+                    "format":"(\d+)[房/]*(\d+)[廳/]*(\d+)[衛]*",
+        }
+        questions = ['format','age','size','price']
+        answerdict=dict()
+        for question in questions:
+            flag=0
+            for ques in form[question]:
+
+                inputs = tokenizer(ques, context, add_special_tokens=True, return_tensors="pt")
+                input_ids = inputs["input_ids"].tolist()[0]
+
+                context_tokens = tokenizer.convert_ids_to_tokens(input_ids)
+
+                logits = model(**inputs,return_dict=True)
+                answer_start_scores = logits['start_logits'] 
+                answer_end_scores = logits['end_logits']
+                answer_start = torch.argmax(answer_start_scores)
+                answer_end = torch.argmax(answer_end_scores) + 1
+                answer = tokenizer.convert_tokens_to_string(context_tokens[answer_start:answer_end])
+
+
+                if answer!="[CLS]":
+                    print(f"Question: {question}")
+                    print(f"Answer: {answer}")
+                    answerdict[question]=re.compile(regularform[question]).findall(answer.replace(" ",""))[0]
+                    flag=1
+            if flag == 0:
+                answerdict[question]="null"
+                print(f"Question: {question}")
+                print(f"Answer not found")
+        print("--- %s seconds ---" % (time.time() - start_time))
+        print (answerdict)
+        write_json(answerdict)
+        with open("temporary.txt","w",encoding="UTF-8") as f:
+            f.seek(0)
+            f.truncate()
+            f.write(json.dumps(answerdict,indent=5,ensure_ascii=False))  
+
     def merge(self):
         temporary='./text_file/temporary.txt'
         goal = self.path+self.filename+".txt"     
