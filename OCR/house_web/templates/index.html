@@ -106,9 +106,9 @@
 <script>
 $(function(){
 	var dataset = []
-	var file = "../static/data/"+"{{data}}"
+	var file1 = "../static/data/"+"{{data1}}"
 	$.ajax({
-	url: file,
+	url: file1,
 	type: "GET",
 	dataType: "json",
 	success: function(data) {
@@ -117,6 +117,50 @@ $(function(){
 		}
 		console.log("success");
 		var tbody =document.querySelector('#prior1')
+		for(var j = 0 ; j < dataset.length ; j++){
+			var tr = document.createElement('tr');
+			tbody.appendChild(tr);
+			for (var k in Object.keys(dataset[j]) ){
+				var td = document.createElement("td");
+				td.style.width = "15%";
+				td.style.textAlign = "center";
+				switch(k)
+				{
+					case '0':td.innerText = dataset[j].location;
+					break;
+					case '1':td.innerText = dataset[j].age;
+					break;
+					case '2':td.innerText = dataset[j].size;
+					break;
+					case '3':td.innerText = dataset[j].room;
+					break;
+					case '4':td.innerText = dataset[j].cost;
+					break;
+					case '5':td.innerText = dataset[j].connect;
+					break;
+				}
+				tr.appendChild(td);
+			}
+		}
+	},
+		error: function() {
+		console.log("not found");
+		}
+	});
+});
+$(function(){
+	var dataset = []
+	var file2 = "../static/data/"+"{{data2}}"
+	$.ajax({
+	url: file2,
+	type: "GET",
+	dataType: "json",
+	success: function(data) {
+		for(var i = 0; i < data.length; i++){
+			dataset.push(data[i])
+		}
+		console.log("success");
+		var tbody =document.querySelector('#prior2')
 		for(var j = 0 ; j < dataset.length ; j++){
 			var tr = document.createElement('tr');
 			tbody.appendChild(tr);
