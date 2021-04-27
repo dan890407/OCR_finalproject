@@ -4,7 +4,7 @@ import pyautogui
 from PIL import ImageTk , Image,ImageGrab
 import win32gui
 import win32con
-from fbclub_lib import *
+from final import *
 from tkinter.filedialog import askdirectory
 import pytesseract
 from cv2 import cv2 as cv
@@ -34,7 +34,6 @@ class InputFrame(Frame): # 繼承Frame類
 		self.interval=StringVar()
 		self.filename=StringVar()
 		self.run=True
-		self.count = 0
 		self.createPage()
 	
 	def createPage(self):
@@ -190,23 +189,25 @@ class InputFrame(Frame): # 繼承Frame類
 			self.test.web_screenshot()
 			self.test.divid()
 			self.test.ocr()
-			self.test.txt()
 			self.test.cut_word()
-			self.test.judge()
-			self.test.jsons()
-			self.test.merge()
+			self.test.judge(self.index,self.index1,self.index2)
+			self.test.makefile(self.index,self.index1,self.index2)
 			pyautogui.scroll(int(self.top.get())-int(self.bottom.get()))
 		else:
 			pyautogui.scroll(int(self.top.get())-int(self.bottom.get()))
 		current = ImageGrab.grab()
 		self.tkafter=root.after(self.interval_variable*1000,self.mainloop)      #按間格重複執行
 		self.count = self.count + 1
-		if self.count %10000 == 0 or past == current:		#若網頁到底或重複10000次
+		if self.count == 2000 or past == current:		#若網頁到底或重複2000次
 			root.after_cancel(self.tkafter)
 			messagebox.showinfo("project cancel","爬蟲完成")
 	def loopstop(self):
 		root.after_cancel(self.tkafter)	
 	def buttonstart(self):
+		self.index = []
+		self.index1 = []
+		self.index2 = []
+		self.count = 0
 		if self.hwnd.get() == 'hwnd' or self.top.get() == '上' or self.path.get()=='路徑':
 			if self.hwnd.get() == 'hwnd':
 				messagebox.showinfo("missing input", "請拖曳圖標至視窗取得視窗代碼")

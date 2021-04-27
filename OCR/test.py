@@ -1,24 +1,24 @@
-from fbclub_lib import *
+from final import *
 
-test=project(0X180ace,"test",418,236,1027,765,"./text_file/") 
-run=False
+test=project(0X402ec,"test",402,348,1027,969,"./text_file/") 
+run=True
 
+test1 = []
+test2 = []
+testall = []
 if run == True:
-    while(run):
+    for i in range(3):
         test.web_screenshot()
-        pos = imagesearch("./picture/threedot.jpg")
-        if pos != [800,500]:
-            pyautogui.scroll(int(test.up)-pos[1])
-            time.sleep(1)
-            pyautogui.scroll(-20)
-        else:
-            pyautogui.scroll(int(test.up)-int(test.down))
-            print(2)
+        test.divid()
+        test.ocr()
+        test.cut_word()
+        test.judge(testall,test1,test2)
         time.sleep(3)
+    test.makefile(testall,test1,test2)
 else:
-    '''test.web_screenshot()
+    test.web_screenshot()
     test.divid()
     test.ocr()
-    test.txt()
     test.cut_word()
-    test.judge()'''
+    test.judge(testall,test1,test2)
+    test.makefile(testall,test1,test2)
