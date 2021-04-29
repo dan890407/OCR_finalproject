@@ -144,7 +144,7 @@ class project :
                                                 loc=jieba.lcut(contain)
                                                 for text in loc:
                                                     if re.compile(regularform['location']).findall(text):
-                                                        self.localdic[name]=re.compile(regularform['location']).findall(text)
+                                                        self.localdic[name]=re.compile(regularform['location']).findall(text)[0]+"區"
                                             except Exception as e:
                                                 print("exception :")
                                                 print(e)																			
