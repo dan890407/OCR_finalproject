@@ -67,6 +67,13 @@ class project :
     def check_valid_dict_value_num(usr_dict,target_nums):
         if len(usr_dict) < target_nums:
             usr_dict.clear()
+    def write_json(self,data,filename='./text_file/text.json'):
+        data=json.load(open(filename))
+        if type(data) is dict:
+            data = [data]
+        data.append(a)
+        with open(filename, 'w') as outfile:
+            json.dump(data, outfile,indent=4)
     def web_screenshot(self):            #web截圖 圖名稱screenshot
         shell = win32com.client.Dispatch("WScript.Shell")
         shell.SendKeys('%')
