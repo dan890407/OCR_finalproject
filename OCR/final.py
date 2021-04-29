@@ -55,7 +55,18 @@ class project :
         self.down=down
         newpath=str(path)+"/"
         self.path=newpath
-
+        jieba.initialize()
+        jieba.load_userdict("./jieba/district.txt")
+    def check_valid_nlp_value_num(usr_dict,target_nums):
+        count=0
+        for key ,value in usr_dict.items():
+            if value!='null':
+                count+=1
+        if count < target_nums:
+            usr_dict.clear()
+    def check_valid_dict_value_num(usr_dict,target_nums):
+        if len(usr_dict) < target_nums:
+            usr_dict.clear()
     def web_screenshot(self):            #web截圖 圖名稱screenshot
         shell = win32com.client.Dispatch("WScript.Shell")
         shell.SendKeys('%')
@@ -84,18 +95,18 @@ class project :
         keywords = []
         self.localdic = dict()
         form={
-                "price":["價格","開價","售價","總價"],
-                "location":["地址","地點","區域"],
-                "size":["建坪","坪數","總建"],
-                "age":["屋齡"],
-                "format":["格局"],	
+                    "price":["價格","開價","售價","總價"],
+                    "location":["地址","地點","區域"],
+                    "size":["建坪","坪數","總建"],
+                    "age":["屋齡"],
+                    "format":["格局"],	
         }
         regularform={
-                "price":"(\d+)萬",
-                "location":"(\w+)",
-                "size":"(\d*[\.\d]*)[坪]*",
-                "age":"(\d+)年",
-                "format":"(\d+)[房/]*(\d+)[廳/]*(\d+)[衛]*",
+                    "price":"(\d+)萬",
+                    "location":"(\D+?)[區]",
+                    "size":"(\d*[\.\d]*)[坪]*",
+                    "age":"(\d+)年",
+                    "format":"(\d+)[房/]*(\d+)[廳/]*(\d+)[衛]*",
         }
         with open(temporary,'w',encoding='utf-8') as t:       #temporary檔寫入ocr檔案
             t.writelines(self.text.replace(" ",""))
@@ -127,12 +138,22 @@ class project :
                                                     pass
                                             except Exception as e:
                                                 print("exception :")
+                                                print(e)
+                                        if name=='location':
+                                            try:
+                                                loc=jieba.lcut(contain)
+                                                for text in loc:
+                                                    if re.compile(regularform['location']).findall(text):
+                                                        self.localdic[name]=re.compile(regularform['location']).findall(text)
+                                            except Exception as e:
+                                                print("exception :")
                                                 print(e)																			
                                         else:
                                             if len(re.compile(regularform[name]).findall(contain)):
                                                 self.localdic[name]=re.compile(regularform[name]).findall(contain)[0]
                                             else:
                                                 self.localdic[name]=''.join(re.compile(regularform[name]).findall(contain))
+        check_valid_dict_value_num(self.localdic,4)
         print(self.localdic["location"])
         print(type(self.localdic["location"]))
 
@@ -173,7 +194,7 @@ class project :
                     "format":"(\d+)[房/]*(\d+)[廳/]*(\d+)[衛]*",
         }
         questions = ['format','age','size','price']
-        self.localdic= dict()
+        self.nlpdic= dict()
         for question in questions:
             flag=0
             for ques in form[question]:
@@ -194,14 +215,15 @@ class project :
                 if answer!="[CLS]":
                     print(f"Question: {question}")
                     print(f"Answer: {answer}")
-                    self.localdic[question]=re.compile(regularform[question]).findall(answer.replace(" ",""))[0]
+                    self.nlpdic[question]=re.compile(regularform[question]).findall(answer.replace(" ",""))[0]
                     flag=1
             if flag == 0:
-                self.localdic[question]="null"
+                self.nlpdic[question]="null"
                 print(f"Question: {question}")
                 print(f"Answer not found")
         print("--- %s seconds ---" % (time.time() - start_time))
-        print (self.localdic)
+        check_valid_nlp_value_num(self.nlpdic,target_nums)
+        print (self.nlpdic)
 
     def judge(self,index,index1,index2): 
         temporary='./text_file/temporary.txt'

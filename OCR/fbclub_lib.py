@@ -62,7 +62,20 @@ class project :
         win32gui.SetForegroundWindow(self.hwnd)
         img = ImageGrab.grab()
         img.save("./screenshot/temporary.jpg")
-
+    def write_json(self,data,filename='./text_file/text.json'):
+            data=json.load(open(filename))
+            if type(data) is dict:
+                data = [data]
+            data.append(a)
+            with open(filename, 'w') as outfile:
+                json.dump(data, outfile,indent=4)
+    def check_valid_dict_value_num(usr_dict,target_nums):
+        count=0
+        for key ,value in usr_dict.items():
+            if value!='null':
+                count+=1
+        if count < target_nums:
+            usr_dict.clear()
     def divid(self):      #切割成特定範圍的圖片
         img = Image.open("./screenshot/temporary.jpg")
         new_mg = img.crop((self.left,self.up,self.right,self.down))
