@@ -244,7 +244,7 @@ class project :
                         index.append(self.localdic)
                         index1.append(self.localdic)
                         self.new_mg.save('../house_web/static/screenshot/'+self.filename+'1-'+str(num1+len(index1))+'.jpg')   #儲存圖片連結
-                    elif int(self.localdic['price']) < int(pred)*6:    #價格低於預測標準(目前pred*6)，放入第二優先index
+                    elif int(self.localdic['price']) < int(pred)*7:    #價格低於預測標準(目前pred*7)，放入第二優先index
                         index.append(self.localdic)
                         index2.append(self.localdic)
                         self.new_mg.save('../house_web/static/screenshot/'+self.filename+'2-'+str(num2+len(index2))+'.jpg')   #儲存圖片連結
@@ -260,8 +260,6 @@ class project :
         goal = self.path+self.filename+".txt" 
         jsonfile1 = '../house_web/static/data/'+self.filename+'1.json'
         jsonfile2 = '../house_web/static/data/'+self.filename+'2.json'
-        with open(goal,"a",encoding='utf-8') as g:      #全部資訊txt檔
-            json.dump(index,g,indent=4,ensure_ascii=False)
         if os.path.isfile(jsonfile1):               #第一優先json檔
             with open(jsonfile1,'r',encoding='utf-8') as j:
                 jslist1 = json.load(j)
