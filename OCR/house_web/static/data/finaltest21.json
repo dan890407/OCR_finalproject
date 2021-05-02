@@ -1,0 +1,37 @@
+[
+    {
+        "price": "1538",
+        "location": "西區",
+        "size": "47.6",
+        "format": "3/2/2/",
+        "age": "13"
+    },
+    {
+        "location": "北屯區",
+        "size": "81.01",
+        "format": "4/2/2/",
+        "age": "7",
+        "price": "2688"
+    },
+    {
+        "location": "北屯區",
+        "format": "3/2/2/",
+        "price": "980",
+        "size": "44.1",
+        "age": "27"
+    },
+    {
+        "location": "北屯區",
+        "format": "3/2/2/",
+        "price": "980",
+        "size": "44.06",
+        "age": "27"
+    },
+    {
+        "price": "868",
+        "location": "西區",
+        "size": "22.7",
+        "format": "3/2/2/",
+        "age": "27"
+    }
+]

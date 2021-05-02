@@ -57,13 +57,13 @@
 			<div class="col-md-10 offset-md-1 col-lg-6 offset-lg-0">
 			  <!-- Recently Favorited -->
 			  <div class="widget dashboard-container my-adslist">
-				<h3 class="widget-header">史上無敵優惠</h3>
+				<h3 class="widget-header">不可錯過</h3>
 				<table class="table table-responsive product-dashboard-table">
 				  <thead>
 					<tr>
 					  <th class="text-center">區域</th>
-					  <th class="text-center">坪數</th>
 					  <th class="text-center">屋齡</th>
+					  <th class="text-center">坪數</th>
 					  <th class="text-center">房/廳/衛</th>
 					  <th class="text-center">價格(萬)</th>
 					  <th class="text-center">連結</th>
@@ -82,8 +82,8 @@
 					<thead>
 					  <tr>
 						<th class="text-center">區域</th>
-						<th class="text-center">坪數</th>
 						<th class="text-center">屋齡</th>
+						<th class="text-center">坪數</th>
 						<th class="text-center">房/廳/衛</th>
 						<th class="text-center">價格(萬)</th>
 						<th class="text-center">連結</th>
@@ -106,7 +106,7 @@
 <script>
 $(function(){
 	var dataset = []
-	var file1 = "../static/data/"+"{{data1}}"
+	var file1 = "../static/data/"+"{{data1}}"+".json"
 	$.ajax({
 	url: file1,
 	type: "GET",
@@ -120,24 +120,31 @@ $(function(){
 		for(var j = 0 ; j < dataset.length ; j++){
 			var tr = document.createElement('tr');
 			tbody.appendChild(tr);
-			for (var k in Object.keys(dataset[j]) ){
+			for (var k = 0 ; k < 6 ; k++){
+				console.log(k)
 				var td = document.createElement("td");
 				td.style.width = "15%";
 				td.style.textAlign = "center";
 				switch(k)
 				{
-					case '0':td.innerText = dataset[j].location;
+					case 0:td.innerHTML = dataset[j].location;
 					break;
-					case '1':td.innerText = dataset[j].age;
+					case 1:td.innerHTML = dataset[j].age;
 					break;
-					case '2':td.innerText = dataset[j].size;
+					case 2:td.innerHTML = dataset[j].size;
 					break;
-					case '3':td.innerText = dataset[j].format;
+					case 3:td.innerHTML = dataset[j].format;
 					break;
-					case '4':td.innerText = dataset[j].price;
+					case 4:td.innerHTML = dataset[j].price;
 					break;
-					case '5':td.innerText = dataset[j].connect;
-					break;
+					case 5:
+						var p = j + 1;
+						var connect = "../static/screenshot/"+"{{data1}}"+"-"+p+".jpg";
+						var a = document.createElement("a");
+						a.setAttribute('href',connect);
+						a.innerHTML = "點我";
+						td.appendChild(a)
+						break;
 				}
 				tr.appendChild(td);
 			}
@@ -150,38 +157,44 @@ $(function(){
 });
 $(function(){
 	var dataset = []
-	var file2 = "../static/data/"+"{{data2}}"
+	var file2 = "../static/data/"+"{{data2}}"+".json"
 	$.ajax({
 	url: file2,
 	type: "GET",
 	dataType: "json",
 	success: function(data) {
-		for(var i = 0; i < data.length; i++){
-			dataset.push(data[i])
+		for(var l = 0; l < data.length; l++){
+			dataset.push(data[l])
 		}
 		console.log("success");
 		var tbody =document.querySelector('#prior2')
-		for(var j = 0 ; j < dataset.length ; j++){
+		for(var m = 0 ; m < dataset.length ; m++){
 			var tr = document.createElement('tr');
 			tbody.appendChild(tr);
-			for (var k in Object.keys(dataset[j]) ){
+			for (var n = 0 ; n < 6 ; n++){
 				var td = document.createElement("td");
 				td.style.width = "15%";
 				td.style.textAlign = "center";
-				switch(k)
+				switch(n)
 				{
-					case '0':td.innerText = dataset[j].location;
+					case 0:td.innerHTML = dataset[m].location;
 					break;
-					case '1':td.innerText = dataset[j].age;
+					case 1:td.innerHTML = dataset[m].age;
 					break;
-					case '2':td.innerText = dataset[j].size;
+					case 2:td.innerHTML = dataset[m].size;
 					break;
-					case '3':td.innerText = dataset[j].format;
+					case 3:td.innerHTML = dataset[m].format;
 					break;
-					case '4':td.innerText = dataset[j].price;
+					case 4:td.innerHTML = dataset[m].price;
 					break;
-					case '5':td.innerText = dataset[j].connect;
-					break;
+					case 5:
+						var p = m + 1;
+						var connect = "../static/screenshot/"+"{{data2}}"+"-"+p+".jpg";
+						var a = document.createElement("a");
+						a.setAttribute('href',connect);
+						a.innerHTML = "點我";
+						td.appendChild(a)
+						break;
 				}
 				tr.appendChild(td);
 			}

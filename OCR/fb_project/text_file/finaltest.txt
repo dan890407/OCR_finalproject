@@ -1,0 +1,107 @@
+[][][][
+    {
+        "location": "太平區",
+        "size": "121.2",
+        "format": "1/2/3/",
+        "age": "6",
+        "price": "2980"
+    },
+    {
+        "location": "南屯區",
+        "size": "89.766",
+        "format": "4/2/2/",
+        "age": "11",
+        "price": "2650"
+    },
+    {
+        "price": "598",
+        "location": "太平區",
+        "size": "22",
+        "format": "3/1/1/",
+        "age": "2"
+    },
+    {
+        "location": "北屯區",
+        "price": "1080",
+        "size": "58",
+        "format": "4/2/2/",
+        "age": "31"
+    },
+    {
+        "size": "29.63",
+        "age": "9",
+        "format": "2/2/1/",
+        "location": "龍井區",
+        "price": "588"
+    },
+    {
+        "location": "北屯區",
+        "price": "668",
+        "size": "17.44",
+        "age": "2",
+        "format": "1/1/1/"
+    },
+    {
+        "location": "清水區",
+        "size": "55",
+        "price": "1498",
+        "age": "6",
+        "format": "5/3/3/"
+    },
+    {
+        "location": "清水區",
+        "size": "51",
+        "format": "4/3/3/",
+        "age": "9",
+        "price": "1050"
+    },
+    {
+        "location": "清水區",
+        "size": "44",
+        "price": "1080",
+        "age": "1",
+        "format": "4/3/3/"
+    },
+    {
+        "location": "太平區",
+        "size": "121.19",
+        "format": "1/2/3/",
+        "age": "6",
+        "price": "2980"
+    },
+    {
+        "location": "北區",
+        "size": "36.98",
+        "format": "4/2/3/",
+        "age": "22",
+        "price": "1380"
+    },
+    {
+        "location": "北屯區",
+        "price": "1368",
+        "size": "55.37",
+        "age": "1",
+        "format": "3/2/2/"
+    },
+    {
+        "location": "北屯區",
+        "size": "69.262",
+        "format": "4/2/2/",
+        "age": "11",
+        "price": "2198"
+    },
+    {
+        "location": "北屯區",
+        "size": "81.01",
+        "format": "4/2/2/",
+        "age": "7",
+        "price": "2688"
+    },
+    {
+        "location": "北區",
+        "price": "698",
+        "size": "40.96",
+        "format": "3/2/1/",
+        "age": "6"
+    }
+]

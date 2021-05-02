@@ -4,7 +4,7 @@ import pyautogui
 from PIL import ImageTk , Image,ImageGrab
 import win32gui
 import win32con
-from final import *
+from fbclub_lib import *
 from tkinter.filedialog import askdirectory
 import pytesseract
 from cv2 import cv2 as cv
@@ -88,38 +88,38 @@ class InputFrame(Frame): # 繼承Frame類
 		interval.insert(0,"default is 5 sec")
 		interval.grid(row=4,column=1,columnspan=4,stick=W,padx=20)
 
-		Button(self,text="開始",command=self.buttonstart,width=8,height=2,fg='DarkBlue',bg='Ivory').grid(row=5,column=6,columnspan=2,rowspan=2,stick=E,padx=20)
-		Button(self,text="停止",command=self.loopstop,width=8,height=2,fg='red',bg='Ivory').grid(row=5,column=8,columnspan=2,rowspan=2,stick=W)
+		Button(self,text="開始",command=self.buttonstart,width=8,height=2,fg='DarkBlue',bg='Ivory').grid(row=5,column=6,columnspan=2,rowspan=2,stick=E,padx=10)
+		Button(self,text="停止",command=self.loopstop,width=8,height=2,fg='red',bg='Ivory').grid(row=5,column=8,columnspan=2,rowspan=2,stick=W,padx=10)
 	def popdescribtion(self):
 		messagebox.showinfo("提醒", "請拖曳圖標至視窗取得視窗代碼(準確拖曳至視窗上方邊框正中心)")
 	def test_showimg(self):		
 		def divid():      #切割成特定範圍的圖片
-			img = Image.open("./screenshot/test.jpg")
+			img = Image.open("test.jpg")
 			new_mg = img.crop((int(self.left.get()),int(self.top.get()),int(self.right.get()),int(self.bottom.get())))
 			enh_con = ImageEnhance.Contrast(new_mg)
 			contrast=1.5
 			image_contrasted = enh_con.enhance(contrast)
-			image_contrasted.save("./screenshot/testshow.jpg")
-			os.remove("./screenshot/test.jpg")
+			image_contrasted.save("testshow.jpg")
+			os.remove("test.jpg")
 		ipclass = win32gui.GetClassName(self.localhwnd)
 		if ipclass == "Chrome_WidgetWin_1":
 			shell = win32com.client.Dispatch("WScript.Shell")
 			shell.SendKeys('%')
 			win32gui.SetForegroundWindow(self.localhwnd)
 			img = ImageGrab.grab()
-			img.save("./screenshot/test.jpg")
+			img.save("test.jpg")
 			divid()
 		else:
 			app = QApplication(sys.argv)
 			screen = QApplication.primaryScreen()
 			img = screen.grabWindow(self.localhwnd).toImage()
-			img.save("./screenshot/test.jpg")
+			img.save("test.jpg")
 			divid()
-		src = cv.imread("./screenshot/testshow.jpg") # 這四行能在一個新視窗開啟照片
+		src = cv.imread("testshow.jpg") # 這四行能在一個新視窗開啟照片
 		cv.imshow("test image", src)
 		cv.waitKey(0)
 		cv.destroyAllWindows()
-		os.remove("./screenshot/testshow.jpg")
+		os.remove("testshow.jpg")
 	def selectPath(self):
 		pathing = askdirectory()
 		pathing=pathing.replace("\\",'//')
@@ -176,6 +176,18 @@ class InputFrame(Frame): # 繼承Frame類
 		self.hwnd.set(hex(self.localhwnd))  #標籤顯示hwnd
 		print(hex(int(self.hwnd.get(),16)))
 	def mainloop(self):
+		first = True
+		if first == True:
+			self.num1 = 0
+			self.num2 = 0
+			name1 = str(self.filename)+'1'
+			name2 = str(self.filename)+'2'
+			for f in os.listdir('../house_web/static/screenshot'):
+				if f.startswith(name1):
+					self.num1 = self.num1 + 1
+				elif f.startswith(name2):
+					self.num2 = self.num2 + 1
+			first = False
 		self.test.web_screenshot()
 		past = ImageGrab.grab()
 		tdot = imagesearch("./picture/threedot.jpg")
@@ -190,8 +202,7 @@ class InputFrame(Frame): # 繼承Frame類
 			self.test.divid()
 			self.test.ocr()
 			self.test.cut_word()
-			self.test.judge(self.index,self.index1,self.index2)
-			self.test.makefile(self.index,self.index1,self.index2)
+			self.test.judge(self.index,self.index1,self.index2,self.num1,self.num2)
 			pyautogui.scroll(int(self.top.get())-int(self.bottom.get()))
 		else:
 			pyautogui.scroll(int(self.top.get())-int(self.bottom.get()))
@@ -199,10 +210,13 @@ class InputFrame(Frame): # 繼承Frame類
 		self.tkafter=root.after(self.interval_variable*1000,self.mainloop)      #按間格重複執行
 		self.count = self.count + 1
 		if self.count == 2000 or past == current:		#若網頁到底或重複2000次
+			self.test.makefile(self.index,self.index1,self.index2)
 			root.after_cancel(self.tkafter)
 			messagebox.showinfo("project cancel","爬蟲完成")
 	def loopstop(self):
+		self.test.makefile(self.index,self.index1,self.index2)
 		root.after_cancel(self.tkafter)	
+		messagebox.showinfo("project cancel","爬蟲完成")
 	def buttonstart(self):
 		self.index = []
 		self.index1 = []
