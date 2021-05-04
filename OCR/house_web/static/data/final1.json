@@ -1,0 +1,58 @@
+[
+    {
+        "location": "北屯區",
+        "price": "1880",
+        "size": "55",
+        "age": "17",
+        "format": "4/3/3/"
+    },
+    {
+        "location": "北屯區",
+        "price": "1098",
+        "format": "3/2/2/",
+        "size": "46",
+        "age": "6"
+    },
+    {
+        "location": "北區",
+        "price": "498",
+        "format": "2/2/1/",
+        "size": "21",
+        "age": "27"
+    },
+    {
+        "location": "北屯區",
+        "price": "1098",
+        "format": "3/2/2/",
+        "size": "46",
+        "age": "6"
+    },
+    {
+        "location": "北區",
+        "age": "25",
+        "size": "68.5",
+        "format": "4/2/2/",
+        "price": "1280"
+    },
+    {
+        "location": "北區",
+        "price": "598",
+        "format": "3/2/2/",
+        "size": "25",
+        "age": "26"
+    },
+    {
+        "location": "太平區",
+        "price": "1280",
+        "size": "29",
+        "age": "42",
+        "format": "1/2/3/"
+    },
+    {
+        "location": "太平區",
+        "size": "49",
+        "format": "3/2/2/",
+        "age": "2",
+        "price": "1180"
+    }
+]

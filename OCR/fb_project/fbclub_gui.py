@@ -174,20 +174,7 @@ class InputFrame(Frame): # 繼承Frame類
 		pos =win32gui.GetCursorPos()      
 		self.localhwnd=win32gui.WindowFromPoint(pos) #取得hwnd
 		self.hwnd.set(hex(self.localhwnd))  #標籤顯示hwnd
-		print(hex(int(self.hwnd.get(),16)))
 	def mainloop(self):
-		first = True
-		if first == True:
-			self.num1 = 0
-			self.num2 = 0
-			name1 = str(self.filename)+'1'
-			name2 = str(self.filename)+'2'
-			for f in os.listdir('../house_web/static/screenshot'):
-				if f.startswith(name1):
-					self.num1 = self.num1 + 1
-				elif f.startswith(name2):
-					self.num2 = self.num2 + 1
-			first = False
 		self.test.web_screenshot()
 		past = ImageGrab.grab()
 		tdot = imagesearch("./picture/threedot.jpg")
@@ -222,6 +209,8 @@ class InputFrame(Frame): # 繼承Frame類
 		self.index1 = []
 		self.index2 = []
 		self.count = 0
+		self.num1 = 0
+		self.num2 = 0
 		if self.hwnd.get() == 'hwnd' or self.top.get() == '上' or self.path.get()=='路徑':
 			if self.hwnd.get() == 'hwnd':
 				messagebox.showinfo("missing input", "請拖曳圖標至視窗取得視窗代碼")
@@ -243,6 +232,13 @@ class InputFrame(Frame): # 繼承Frame類
 			else:
 				self.localpath=self.path.get()
 			self.test=project(self.localhwnd,self.file_localname,int(self.left.get()),int(self.top.get()),int(self.right.get()),int(self.bottom.get()),self.localpath)
+			name1 = str(self.filename)+'1'
+			name2 = str(self.filename)+'2'
+			for f in os.listdir('../house_web/static/screenshot'):
+				if f.startswith(name1):
+					self.num1 += 1
+				elif f.startswith(name2):
+					self.num2 += 1
 			self.mainloop()
 root = Tk()
 root.title('OCR')

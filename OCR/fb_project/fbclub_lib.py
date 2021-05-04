@@ -12,10 +12,10 @@ from PyQt5.QtGui import *
 from PIL import ImageGrab,Image,ImageEnhance
 from sklearn.preprocessing import  PolynomialFeatures
 
-def click_image(image,pos,  action, timestamp,offset=5):
+def click_image(image,pos,  action, timestamp,offset=40):
     img = cv2.imread(image)
     height, width, channels = img.shape
-    pyautogui.moveTo(pos[0] + offset, pos[1] + offset, timestamp)
+    pyautogui.moveTo(pos[0] + offset, pos[1], timestamp)
     pyautogui.click(button=action)
 
 
@@ -260,6 +260,8 @@ class project :
         goal = self.path+self.filename+".txt" 
         jsonfile1 = '../house_web/static/data/'+self.filename+'1.json'
         jsonfile2 = '../house_web/static/data/'+self.filename+'2.json'
+        with open(goal,'a',encoding='utf-8') as g:
+            json.dump(index,g,indent=4,ensure_ascii=False)
         if os.path.isfile(jsonfile1):               #第一優先json檔
             with open(jsonfile1,'r',encoding='utf-8') as j:
                 jslist1 = json.load(j)
