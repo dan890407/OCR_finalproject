@@ -232,8 +232,8 @@ class InputFrame(Frame): # 繼承Frame類
 			else:
 				self.localpath=self.path.get()
 			self.test=project(self.localhwnd,self.file_localname,int(self.left.get()),int(self.top.get()),int(self.right.get()),int(self.bottom.get()),self.localpath)
-			name1 = str(self.filename)+'1'
-			name2 = str(self.filename)+'2'
+			name1 = str(self.file_localname)+'1'
+			name2 = str(self.file_localname)+'2'
 			for f in os.listdir('../house_web/static/screenshot'):
 				if f.startswith(name1):
 					self.num1 += 1

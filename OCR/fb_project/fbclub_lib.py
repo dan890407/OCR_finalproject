@@ -70,7 +70,6 @@ class project :
         self.down=down
         newpath=str(path)+"/"
         self.path=newpath
-        self.format_number = 0      #房間總數
         jieba.initialize()
         jieba.load_userdict("./jieba/district.txt")
 
@@ -95,6 +94,7 @@ class project :
         newtext = pytesseract.image_to_string(test_img, lang='chi_tra+fbclub')
         fixed_text = newtext.strip()
         self.text=fixed_text
+        print(self.text)
 
     def cut_word(self):  #斷詞取得目標
         temporary = './text_file/temporary.txt'
@@ -131,6 +131,7 @@ class project :
                                 for i in data:
                                     if i == word:  
                                         if name=='format':
+                                            self.format_number = 0
                                             try:
                                                 if len(re.compile(regularform[name]).findall(contain)):
                                                     localformat=re.compile(regularform[name]).findall(contain)[0]
@@ -158,7 +159,7 @@ class project :
                                                 self.localdic[name]=re.compile(regularform[name]).findall(contain)[0]
                                             else:
                                                 self.localdic[name]=''.join(re.compile(regularform[name]).findall(contain))
-
+                                                
         check_valid_dict_value_num(self.localdic,5)
 
     def jsons_nlp(self):
@@ -240,11 +241,15 @@ class project :
                     poly_reg =PolynomialFeatures(degree=2)
                     test_ploy =poly_reg.fit_transform(test)
                     pred = loaded_model.predict(test_ploy)
+                    print(self.localdic['price'],pred,self.localdic)
                     if int(self.localdic['price']) < int(pred)*4:      #價格低於預測標準(目前pred*4)，放入第一優先index
+                        print("in 1")
                         index.append(self.localdic)
                         index1.append(self.localdic)
                         self.new_mg.save('../house_web/static/screenshot/'+self.filename+'1-'+str(num1+len(index1))+'.jpg')   #儲存圖片連結
                     elif int(self.localdic['price']) < int(pred)*7:    #價格低於預測標準(目前pred*7)，放入第二優先index
+                        print("in 2")
+                        print(self.localdic['price'],pred,self.localdic)
                         index.append(self.localdic)
                         index2.append(self.localdic)
                         self.new_mg.save('../house_web/static/screenshot/'+self.filename+'2-'+str(num2+len(index2))+'.jpg')   #儲存圖片連結
