@@ -60,6 +60,31 @@ def check_valid_dict_value_num(usr_dict,target_nums):
     if '' in usr_dict.values():
         usr_dict.clear()
 
+def predict(data,room):
+
+    l1 = joblib.load('./house_model/label_location')
+    l2 = joblib.load('./house_model/label_car')
+    c = joblib.load('./house_model/columntransformer')
+    s = joblib.load('./house_model/standardscaler')
+    model = joblib.load('./house_model/house_predict_model')
+
+    test = [[data['location'],data['age'],data['size'],room,data['car']]]
+    test = np.array(test)
+    test[:,0] = l1.transform(test[:,0])
+    test[:,4] = l2.transform(test[:,4])
+
+    test = test.tolist()
+    test = [list(map(float,test[0]))]
+    test = c.transform(test).toarray()
+
+    test = s.transform(test)
+
+    poly_reg =PolynomialFeatures(degree=2)
+    test =poly_reg.fit_transform(test)
+    pred_cost = model.predict(test)
+
+    return int(pred_cost)
+
 class project :
     def __init__(self,hwnd,filename,left,up,right,down,path):
         self.hwnd=hwnd
@@ -94,7 +119,6 @@ class project :
         newtext = pytesseract.image_to_string(test_img, lang='chi_tra+fbclub')
         fixed_text = newtext.strip()
         self.text=fixed_text
-        print(self.text)
 
     def cut_word(self):  #斷詞取得目標
         temporary = './text_file/temporary.txt'
@@ -129,7 +153,7 @@ class project :
                         if word in keywords:
                             for name,data in form.items():      #正規化
                                 for i in data:
-                                    if i == word:  
+                                    if i == word: 
                                         if name=='format':
                                             self.format_number = 0
                                             try:
@@ -159,8 +183,12 @@ class project :
                                                 self.localdic[name]=re.compile(regularform[name]).findall(contain)[0]
                                             else:
                                                 self.localdic[name]=''.join(re.compile(regularform[name]).findall(contain))
-                                                
-        check_valid_dict_value_num(self.localdic,5)
+                            if word == 'car':
+                                self.localdic[word] = '有'
+
+        if 'car' not in self.localdic.keys():
+            self.localdic['car'] = '無'            
+        check_valid_dict_value_num(self.localdic,6)
 
     def jsons_nlp(self):
         temporary='./text_file/temporary.txt'
@@ -232,32 +260,25 @@ class project :
 
     def judge(self,index,index1,index2,num1,num2): 
         temporary='./text_file/temporary.txt'
+        locate = []
+        with open('./jieba/district.txt','r',encoding='utf-8') as d:
+            for i in d.readlines():
+                locate.append(i.strip())
         if self.localdic != {}:
-            for model in os.listdir('./house_model'):
-                if model.startswith(self.localdic['location']):         #確認區域名稱在model資料夾找的到
-                    loaded_model = joblib.load('./house_model/'+self.localdic['location']+'_model')     #載入模型
-                    test = np.array([self.localdic['age'],self.localdic['size'],self.format_number])       #屋齡/坪數/間數
-                    test = test.reshape(1,-1)
-                    poly_reg =PolynomialFeatures(degree=2)
-                    test_ploy =poly_reg.fit_transform(test)
-                    pred = loaded_model.predict(test_ploy)
-                    print(self.localdic['price'],pred,self.localdic)
-                    if int(self.localdic['price']) < int(pred)*4:      #價格低於預測標準(目前pred*4)，放入第一優先index
-                        print("in 1")
-                        index.append(self.localdic)
-                        index1.append(self.localdic)
-                        self.new_mg.save('../house_web/static/screenshot/'+self.filename+'1-'+str(num1+len(index1))+'.jpg')   #儲存圖片連結
-                    elif int(self.localdic['price']) < int(pred)*7:    #價格低於預測標準(目前pred*7)，放入第二優先index
-                        print("in 2")
-                        print(self.localdic['price'],pred,self.localdic)
-                        index.append(self.localdic)
-                        index2.append(self.localdic)
-                        self.new_mg.save('../house_web/static/screenshot/'+self.filename+'2-'+str(num2+len(index2))+'.jpg')   #儲存圖片連結
-                    else:
-                        self.localdic = {}
-                    break
+            if self.localdic['location'] in locate:         #確認區域名稱在model資料夾找的到
+                pred = predict(self.localdic,self.format_number)
+                print(pred,self.localdic['price'])
+                if int(self.localdic['price']) < pred*3:      #價格低於預測*3，放入第一優先index
+                    index.append(self.localdic)
+                    index1.append(self.localdic)
+                    self.new_mg.save('../house_web/static/screenshot/'+self.filename+'1-'+str(num1+len(index1))+'.jpg')   #儲存圖片連結
+                elif int(self.localdic['price']) < pred*5:    #價格低於預測*5，放入第二優先index
+                    index.append(self.localdic)
+                    index2.append(self.localdic)
+                    self.new_mg.save('../house_web/static/screenshot/'+self.filename+'2-'+str(num2+len(index2))+'.jpg')   #儲存圖片連結
                 else:
-                    continue
+                    self.localdic = {}
+
         os.remove(self.filename+".jpg")
         os.remove(temporary)
    
