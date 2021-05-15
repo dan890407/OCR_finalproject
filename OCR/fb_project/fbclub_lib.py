@@ -11,7 +11,9 @@ from PyQt5.QtWidgets import QApplication
 from PyQt5.QtGui import *
 from PIL import ImageGrab,Image,ImageEnhance
 from sklearn.preprocessing import  PolynomialFeatures
-
+from transformers import BertTokenizer, BertConfig, BertForQuestionAnswering
+import torch
+import textwrap
 def click_image(image,pos,  action, timestamp,offset=40):
     img = cv2.imread(image)
     height, width, channels = img.shape
@@ -205,26 +207,24 @@ class project :
         wrapper = textwrap.TextWrapper(width=80) 
         start_time = time.time()
         tokenizer = BertTokenizer.from_pretrained("bert-base-chinese")
-        config = BertConfig.from_pretrained("./models/config.json") 
-        model = BertForQuestionAnswering.from_pretrained("./models/pytorch_model.bin", config=config)
+        config = BertConfig.from_pretrained("./models2/config.json") 
+        model = BertForQuestionAnswering.from_pretrained("./models2/pytorch_model.bin", config=config)
         with open (temporary,"r",encoding="utf-8") as f:
             context=f.read()
             context=strQ2B(context)
             context=context.replace("\n",",")
-            print(context)
         form={
-                    "price":["價格","開價","售價","總價"],
+                    "price":["價格","開價","售價","總價","下殺?","不用幾萬?","只要幾萬?","下殺幾萬?"],
                     "location":["地址","地點","區域"],
-                    "size":["建坪","坪數","總建"],
+                    "size":["建坪是什麼?","坪數是什麼?","總建是什麼?"],
                     "age":["屋齡"],
-                    "format":["格局"],	
+                    "format":["格局是什麼?"],	
         }
         regularform={
                     "price":"(\d+)萬",
-                    "location":"(\w+)",
+				    "loc":"(\D+?)[區]",
                     "size":"(\d*[\.\d]*)[坪]*",
                     "age":"(\d+)年",
-                    "format":"(\d+)[房/]*(\d+)[廳/]*(\d+)[衛]*",
         }
         questions = ['format','age','size','price']
         self.nlpdic= dict()
@@ -244,19 +244,52 @@ class project :
                 answer = tokenizer.convert_tokens_to_string(context_tokens[answer_start:answer_end])
 
 
-                if answer!="[CLS]":
+                if "[CLS]" not in answer:
                     print(f"Question: {question}")
                     print(f"Answer: {answer}")
-                    self.nlpdic[question]=re.compile(regularform[question]).findall(answer.replace(" ",""))[0]
+                    if question!="format":
+                        self.nlpdic[question]=re.compile(regularform[question]).findall(answer.replace(" ",""))[0]
+                    if question=="format":
+                        numbers = [int(temp)for temp in answer.split() if temp.isdigit()]
+                        total=sum(numbers)
+                        self.nlpdic[question]=total
                     flag=1
             if flag == 0:
                 self.nlpdic[question]="null"
                 print(f"Question: {question}")
                 print(f"Answer not found")
-        print("--- %s seconds ---" % (time.time() - start_time))
-        check_valid_nlp_value_num(self.nlpdic,5)
-        print (self.nlpdic)
+        config_2 = BertConfig.from_pretrained("./models/config.json")
+        model_2 = BertForQuestionAnswering.from_pretrained("./models/pytorch_model.bin", config=config)
+        flag=0
+        for ques in ["地址是什麼?","住址是什麼?"]:
+            inputs = tokenizer(ques, context, add_special_tokens=True, return_tensors="pt")
+            input_ids = inputs["input_ids"].tolist()[0]
 
+            context_tokens = tokenizer.convert_ids_to_tokens(input_ids)
+            logits = model(**inputs,return_dict=True)
+            answer_start_scores = logits['start_logits'] 
+            answer_end_scores = logits['end_logits']
+            answer_start = torch.argmax(answer_start_scores)
+            answer_end = torch.argmax(answer_end_scores) + 1
+            answer = tokenizer.convert_tokens_to_string(context_tokens[answer_start:answer_end])
+            if "[CLS]" not in answer:
+                print(f"Question: location")
+                a=jieba.lcut(answer.replace(" ",""))
+                for text in a:
+                    if re.compile(regularform['loc']).findall(text):
+                        print(re.compile(regularform['loc']).findall(text)[0]+"區")
+                        self.nlpdic["location"]=re.compile(regularform['loc']).findall(text)[0]+"區"
+                flag=1
+        if flag == 0:
+            self.nlpdic["location"]="null"
+            print(f"Question: location")
+            print(f"Answer not found")
+        if "車位" in context:
+            self.nlpdic["car"]="有"
+        else:
+            self.nlpdic["car"]="無"
+        check_valid_nlp_value_num(self.nlpdic,6)
+        print (self.nlpdic)
 
     def judge(self,index,index1,index2,num1,num2): 
         temporary='./text_file/temporary.txt'
