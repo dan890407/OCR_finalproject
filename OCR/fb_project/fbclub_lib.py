@@ -259,14 +259,14 @@ class project :
                 print(f"Question: {question}")
                 print(f"Answer not found")
         config_2 = BertConfig.from_pretrained("./models/config.json")
-        model_2 = BertForQuestionAnswering.from_pretrained("./models/pytorch_model.bin", config=config)
+        model_2 = BertForQuestionAnswering.from_pretrained("./models/pytorch_model.bin", config=config_2)
         flag=0
         for ques in ["地址是什麼?","住址是什麼?"]:
             inputs = tokenizer(ques, context, add_special_tokens=True, return_tensors="pt")
             input_ids = inputs["input_ids"].tolist()[0]
 
             context_tokens = tokenizer.convert_ids_to_tokens(input_ids)
-            logits = model(**inputs,return_dict=True)
+            logits = model_2(**inputs,return_dict=True)
             answer_start_scores = logits['start_logits'] 
             answer_end_scores = logits['end_logits']
             answer_start = torch.argmax(answer_start_scores)
