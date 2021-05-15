@@ -4,4 +4,5 @@ PyAutoGUI==0.9.52
 PyQt5==5.15.3
 pytesseract==0.3.7
 pywin32==300
-
+transformers=4.6.0
+torch==1.8.1+cu102 torchvision==0.9.1+cu102 torchaudio===0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
