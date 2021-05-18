@@ -18,7 +18,9 @@ labelencoder_X4 = LabelEncoder()
 X[:,0] = labelencoder_X0.fit_transform(X[:,0])
 X[:,4] = labelencoder_X4.fit_transform(X[:,4])
 
-ct = ColumnTransformer(transformers = [('區域',OneHotEncoder(),[0]),('車位',OneHotEncoder(),[4])],remainder = 'passthrough')    #二元特徵
+ct = ColumnTransformer(transformers = [('區域',OneHotEncoder(),[0]),
+                                        ('車位',OneHotEncoder(),[4])],
+                                        remainder = 'passthrough')    #二元特徵
 X = ct.fit_transform(X)
 X = X.toarray()
 

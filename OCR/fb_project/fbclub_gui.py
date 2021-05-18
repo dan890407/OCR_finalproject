@@ -188,7 +188,7 @@ class InputFrame(Frame): # 繼承Frame類
 			self.test.web_screenshot()
 			self.test.divid()
 			self.test.ocr()
-			self.test.cut_word()
+			self.test.jsons_nlp()
 			self.test.judge(self.index,self.index1,self.index2,self.num1,self.num2)
 			pyautogui.scroll(int(self.top.get())-int(self.bottom.get()))
 		else:

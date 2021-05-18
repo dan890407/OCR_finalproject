@@ -51,9 +51,9 @@ def is_number(s):
 def check_valid_nlp_value_num(usr_dict,target_nums):
     count=0
     for key ,value in usr_dict.items():
-        if value!='null':
+        if value =='null' or value == '':
             count+=1
-    if count < target_nums:
+    if count > 0:
         usr_dict.clear()
 
 def check_valid_dict_value_num(usr_dict,target_nums):
@@ -110,17 +110,19 @@ class project :
     def divid(self):      #切割成特定範圍的圖片
         img = Image.open("temporary.jpg")
         self.new_mg = img.crop((self.left,self.up,self.right,self.down))
-        enh_con = ImageEnhance.Contrast(self.new_mg)
-        contrast=2
-        image_contrasted = enh_con.enhance(contrast)
-        image_contrasted.save(self.filename+".jpg")
+        self.new_mg.save(self.filename+".jpg")
+        image_contrasted = cv2.cvtColor(np.float32(self.new_mg),cv2.COLOR_RGB2GRAY)     #灰階
+        image_contrasted = cv2.threshold(image_contrasted,180,255,cv2.THRESH_BINARY)[1] #二值化
+        cv2.imwrite("ocr.jpg",image_contrasted)
         os.remove("temporary.jpg")
 
     def ocr(self):                           #ocr影像辨識
-        test_img = Image.open(self.filename+".jpg")
-        newtext = pytesseract.image_to_string(test_img, lang='chi_tra+fbclub')
-        fixed_text = newtext.strip()
+        test_img = Image.open("ocr.jpg")
+        ocrtext = pytesseract.image_to_string(test_img, lang='chi_tra')  #ocr
+        fixed_text = ocrtext.strip()
         self.text=fixed_text
+        os.remove("ocr.jpg")
+        print(self.text)
 
     def cut_word(self):  #斷詞取得目標
         temporary = './text_file/temporary.txt'
@@ -209,6 +211,8 @@ class project :
         tokenizer = BertTokenizer.from_pretrained("bert-base-chinese")
         config = BertConfig.from_pretrained("./models2/config.json") 
         model = BertForQuestionAnswering.from_pretrained("./models2/pytorch_model.bin", config=config)
+        with open(temporary,'w',encoding='utf-8') as t:       #temporary檔寫入ocr檔案
+            t.writelines(self.text.replace(" ",""))
         with open (temporary,"r",encoding="utf-8") as f:
             context=f.read()
             context=strQ2B(context)
@@ -220,14 +224,9 @@ class project :
                     "age":["屋齡"],
                     "format":["格局是什麼?"],	
         }
-        regularform={
-                    "price":"(\d+)萬",
-				    "loc":"(\D+?)[區]",
-                    "size":"(\d*[\.\d]*)[坪]*",
-                    "age":"(\d+)年",
-        }
         questions = ['format','age','size','price']
-        self.nlpdic= dict()
+        self.localdic= dict()
+        self.format_number = 0
         for question in questions:
             flag=0
             for ques in form[question]:
@@ -243,21 +242,19 @@ class project :
                 answer_end = torch.argmax(answer_end_scores) + 1
                 answer = tokenizer.convert_tokens_to_string(context_tokens[answer_start:answer_end])
 
-
                 if "[CLS]" not in answer:
-                    print(f"Question: {question}")
-                    print(f"Answer: {answer}")
                     if question!="format":
-                        self.nlpdic[question]=re.compile(regularform[question]).findall(answer.replace(" ",""))[0]
+                        numbers = [str(temp)for temp in answer.split() if temp.isdigit()]
+                        self.localdic[question]= ".".join(numbers)
                     if question=="format":
                         numbers = [int(temp)for temp in answer.split() if temp.isdigit()]
-                        total=sum(numbers)
-                        self.nlpdic[question]=total
+                        string_room = [str(int) for int in numbers]
+                        string_room = "/".join(string_room)
+                        self.format_number=sum(numbers)
+                        self.localdic[question]= string_room
                     flag=1
             if flag == 0:
-                self.nlpdic[question]="null"
-                print(f"Question: {question}")
-                print(f"Answer not found")
+                self.localdic[question]="null"
         config_2 = BertConfig.from_pretrained("./models/config.json")
         model_2 = BertForQuestionAnswering.from_pretrained("./models/pytorch_model.bin", config=config_2)
         flag=0
@@ -273,34 +270,28 @@ class project :
             answer_end = torch.argmax(answer_end_scores) + 1
             answer = tokenizer.convert_tokens_to_string(context_tokens[answer_start:answer_end])
             if "[CLS]" not in answer:
-                print(f"Question: location")
-                a=jieba.lcut(answer.replace(" ",""))
-                for text in a:
-                    if re.compile(regularform['loc']).findall(text):
-                        print(re.compile(regularform['loc']).findall(text)[0]+"區")
-                        self.nlpdic["location"]=re.compile(regularform['loc']).findall(text)[0]+"區"
+                address=jieba.lcut(answer.replace(" ",""))
+                locate = []
+                with open('./jieba/district.txt','r',encoding='utf-8') as d:
+                    for i in d.readlines():
+                        locate.append(i.strip())
+                for text in address:
+                    if text in locate:
+                        self.localdic["location"]=str(text)
                 flag=1
         if flag == 0:
-            self.nlpdic["location"]="null"
-            print(f"Question: location")
-            print(f"Answer not found")
+            self.localdic["location"]="null"
         if "車位" in context:
-            self.nlpdic["car"]="有"
+            self.localdic["car"]="有"
         else:
-            self.nlpdic["car"]="無"
-        check_valid_nlp_value_num(self.nlpdic,6)
-        print (self.nlpdic)
+            self.localdic["car"]="無"
+        print(self.localdic)
+        check_valid_nlp_value_num(self.localdic,6)
 
     def judge(self,index,index1,index2,num1,num2): 
         temporary='./text_file/temporary.txt'
-        locate = []
-        with open('./jieba/district.txt','r',encoding='utf-8') as d:
-            for i in d.readlines():
-                locate.append(i.strip())
         if self.localdic != {}:
-            if self.localdic['location'] in locate:         #確認區域名稱在model資料夾找的到
                 pred = predict(self.localdic,self.format_number)
-                print(pred,self.localdic['price'])
                 if int(self.localdic['price']) < pred*3:      #價格低於預測*3，放入第一優先index
                     index.append(self.localdic)
                     index1.append(self.localdic)
