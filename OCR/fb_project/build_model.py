@@ -37,17 +37,15 @@ regressor.fit(X_train, y_train)
 
 X_test =poly_reg.fit_transform(X_test)
 y_pred = regressor.predict(X_test)      #預測
-'''for i  in range(10):
-    print(y_pred[(i+1)*200],y_test[(i+1)*200])
-print(r2_score(y_test, y_pred))'''
+print(r2_score(y_test, y_pred))
 
 mse_valid = mean_squared_error(y_test, y_pred)      #均方誤差
 mae_valid = mean_absolute_error(y_test, y_pred)     #平均絕對誤差
 
-'''print(mse_valid,mae_valid)'''
+print(mse_valid,mae_valid)
 
-joblib.dump(labelencoder_X0,'label_location')
-joblib.dump(labelencoder_X4,'label_car')
-joblib.dump(ct,'columntransformer')
-joblib.dump(sc_X,'standardscaler')
-joblib.dump(regressor,'house_predict_model')
+'''joblib.dump(labelencoder_X0,'./house_model/label_location')
+joblib.dump(labelencoder_X4,'./house_model/label_car')
+joblib.dump(ct,'./house_model/columntransformer')
+joblib.dump(sc_X,'./house_model/standardscaler')
+joblib.dump(regressor,'./house_model/house_predict_model')'''

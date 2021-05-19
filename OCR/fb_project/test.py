@@ -1,6 +1,6 @@
 from fbclub_lib import *
 
-test=project(0X860b10,"test",401,233,1027,1000,"./text_file/") 
+test=project(0Xa005e,"test",415,233,1027,1000,"./text_file/") 
 run=False
 
 first = True
@@ -22,3 +22,6 @@ else:
     test.web_screenshot()
     test.divid()
     test.ocr()
+    test.jsons_nlp()
+    '''test.judge(testall,test1,test2,num1,num2)
+    test.makefile(testall,test1,test2)'''

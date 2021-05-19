@@ -121,8 +121,8 @@ class project :
         ocrtext = pytesseract.image_to_string(test_img, lang='chi_tra')  #ocr
         fixed_text = ocrtext.strip()
         self.text=fixed_text
-        os.remove("ocr.jpg")
         print(self.text)
+        os.remove("ocr.jpg")
 
     def cut_word(self):  #斷詞取得目標
         temporary = './text_file/temporary.txt'
@@ -219,10 +219,9 @@ class project :
             context=context.replace("\n",",")
         form={
                     "price":["價格","開價","售價","總價","下殺?","不用幾萬?","只要幾萬?","下殺幾萬?"],
-                    "location":["地址","地點","區域"],
-                    "size":["建坪是什麼?","坪數是什麼?","總建是什麼?"],
-                    "age":["屋齡"],
-                    "format":["格局是什麼?"],	
+                    "size":["建坪?","坪數?","總建?","總建坪?"],
+                    "age":["屋齡?"],
+                    "format":["格局?"],	
         }
         questions = ['format','age','size','price']
         self.localdic= dict()
@@ -245,7 +244,11 @@ class project :
                 if "[CLS]" not in answer:
                     if question!="format":
                         numbers = [str(temp)for temp in answer.split() if temp.isdigit()]
+                        if len(numbers) == 0:
+                            continue
                         self.localdic[question]= ".".join(numbers)
+                        if question == "age" and self.localdic[question] == '':
+                            self.localdic["age"] = '0'
                     if question=="format":
                         numbers = [int(temp)for temp in answer.split() if temp.isdigit()]
                         string_room = [str(int) for int in numbers]
@@ -258,7 +261,7 @@ class project :
         config_2 = BertConfig.from_pretrained("./models/config.json")
         model_2 = BertForQuestionAnswering.from_pretrained("./models/pytorch_model.bin", config=config_2)
         flag=0
-        for ques in ["地址是什麼?","住址是什麼?"]:
+        for ques in ["地址是什麼?","住址是什麼?","地點是什麼?","位於?"]:
             inputs = tokenizer(ques, context, add_special_tokens=True, return_tensors="pt")
             input_ids = inputs["input_ids"].tolist()[0]
 
@@ -278,6 +281,9 @@ class project :
                 for text in address:
                     if text in locate:
                         self.localdic["location"]=str(text)
+                        break
+                    else:
+                        self.localdic["location"]='null'
                 flag=1
         if flag == 0:
             self.localdic["location"]="null"
