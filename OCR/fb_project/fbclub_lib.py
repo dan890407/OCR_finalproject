@@ -112,7 +112,7 @@ class project :
         self.new_mg = img.crop((self.left,self.up,self.right,self.down))
         self.new_mg.save(self.filename+".jpg")
         image_contrasted = cv2.cvtColor(np.float32(self.new_mg),cv2.COLOR_RGB2GRAY)     #灰階
-        image_contrasted = cv2.threshold(image_contrasted,180,255,cv2.THRESH_BINARY+cv.THRESH_OTSU)[1] #二值化
+        image_contrasted = cv2.threshold(image_contrasted,180,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)[1] #二值化
         cv2.imwrite("ocr.jpg",image_contrasted)
         os.remove("temporary.jpg")
 
